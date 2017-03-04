@@ -201,16 +201,16 @@ gulp.task("dev:scripts", devScripts);
 gulp.task("prod:styles", prodStyles);
 gulp.task("prod:scripts", prodScripts);
 
-gulp.task('dev', gulp.parallel( "dev:styles", "dev:scripts"));
-gulp.task('prod', gulp.parallel("prod:styles","prod:scripts"));
+// gulp.task('dev', gulp.parallel( "dev:styles", "dev:scripts"));
+// gulp.task('prod', gulp.parallel("prod:styles","prod:scripts"));
 
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
-    'pl-copy:js',
+    gulp.series('dev:scripts', 'pl-copy:js', function(done){done();}),
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
-    gulp.series('dev', 'pl-copy:css', function(done){done();}),
+    gulp.series('dev:styles', 'pl-copy:css', function(done){done();}),
     'pl-copy:styleguide',
     'pl-copy:styleguide-css'
   ),
@@ -221,11 +221,11 @@ gulp.task('pl-assets', gulp.series(
 
 gulp.task('pl-prod-assets', gulp.series(
   gulp.parallel(
-    'pl-copy:js',
+    gulp.series('prod:scripts', 'pl-copy:js', function(done){done();}),
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
-    gulp.series('prod', 'pl-copy:css', function(done){done();}),
+    gulp.series('prod:styles', 'pl-copy:css', function(done){done();}),
     'pl-copy:styleguide',
     'pl-copy:styleguide-css'
   ),
@@ -310,7 +310,7 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
 ******************************************************/
 function watch() {
   gulp.watch(config.styles.srcDir).on('change', gulp.series('dev:styles', 'pl-copy:css', reloadCSS));
-  // gulp.watch(config.scripts.src).on('change', gulp.series('dev:scripts'));
+  gulp.watch(config.scripts.src).on('change', gulp.series('dev:scripts', 'pl-copy:js'));
   gulp.watch(resolvePath(paths().source.css) + '/**/*.css', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:css', reloadCSS));
   gulp.watch(resolvePath(paths().source.styleguide) + '/**/*.*', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
   // gulp.watch(path.resolve(paths().source.css, '**/*.scss')).on('change', gulp.series('dev'));  
@@ -323,7 +323,8 @@ function watch() {
     resolvePath(paths().source.images) + '/*',
     resolvePath(paths().source.meta) + '/*',
     resolvePath(paths().source.annotations) + '/*',
-    resolvePath(config.styles.srcDir) + '/*'
+    resolvePath(config.styles.srcDir) + '/*',
+    resolvePath(config.scripts.src) + '/*'
   ].concat(getTemplateWatches());
 
   console.log(patternWatches);

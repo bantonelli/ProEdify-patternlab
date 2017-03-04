@@ -75,8 +75,8 @@
       } 
   },
   "scripts": {
-      "src": "./source/js/**/*.js",
-      "dest": "./source/js/build",
+      "src": "./js/**/*.js",
+      "dest": "./source/js/",
       "bundle": "app.js"
   }
 }
