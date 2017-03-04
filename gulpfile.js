@@ -31,6 +31,8 @@ var rename = require('gulp-rename');
 var sassLint = require('gulp-sass-lint');
 var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
+var gzip = require('gulp-gzip');
+var middleware  = require('connect-gzip-static');
 
 
 
@@ -80,7 +82,7 @@ gulp.task('pl-copy:font', function(){
 
 // CSS Copy
 gulp.task('pl-copy:css', function(){
-  return gulp.src(resolvePath(paths().source.css) + '/*.css')
+  return gulp.src(resolvePath(paths().source.css) + '/*.gz')
     .pipe(gulp.dest(resolvePath(paths().public.css)))
     .pipe(browserSync.stream());
 });
@@ -151,6 +153,8 @@ function devStyles() {
     .pipe(autoprefixer(config.styles.autoprefixer))
     .pipe(sourcemaps.write())
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
+    // .pipe(gzip({ append: false }))
+    .pipe(gzip())
     .pipe(gulp.dest(config.styles.dest));
     // .pipe(livereload());
 }
@@ -276,6 +280,7 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
     server: {
       baseDir: resolvePath(paths().public.root)
     },
+    middleware: [middleware(__dirname + '/public')],
     snippetOptions: {
       // Ignore all HTML files within the templates folder
       blacklist: ['/index.html', '/', '/?*']
