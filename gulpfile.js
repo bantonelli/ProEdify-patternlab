@@ -37,7 +37,7 @@ var middleware  = require('connect-gzip-static');
 
 
 /******************************************************
- * UTILS
+ * UTILITY FUNCTIONS
 ******************************************************/
 function resolvePath(pathInput) {
   return path.resolve(pathInput).replace(/\\/g,"/");
@@ -52,6 +52,28 @@ var onError = function(err) {
   })(err);
   this.emit('end');
 };
+
+/******************************************************
+ * UTILITY TASKS 
+******************************************************/
+gulp.task('sass-lint', function(done) {
+  gulp.src('**/*.scss', {cwd: resolvePath(paths().source.css)})
+    .pipe(sassLint({
+      options: {
+        formatter: 'stylish',
+        'merge-default-rules': false
+      },
+      // files: {ignore: '**/*.scss'},
+      rules: {
+        'no-ids': 1,
+        'no-mergeable-selectors': 0
+      },
+      configFile: '.sass-lint.yml'
+    }))
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError());
+    done();
+});
 
 /******************************************************
  * COPY TASKS - stream assets from source to destination
@@ -153,7 +175,7 @@ function devStyles() {
     .pipe(autoprefixer(config.styles.autoprefixer))
     .pipe(sourcemaps.write())
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
-    // .pipe(gzip({ append: false }))
+    // .pipe(gzip({ append: false })) // make gzip not change extension
     .pipe(gzip())
     .pipe(gulp.dest(config.styles.dest));
     // .pipe(livereload());
