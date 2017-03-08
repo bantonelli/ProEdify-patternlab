@@ -9,9 +9,11 @@
       "styleguide" : "./node_modules/styleguidekit-assets-default/dist/",
       "patternlabFiles" : "./node_modules/styleguidekit-mustache-default/views/",
       "js" : "./source/js/build",
+      "srcjs" : "./source/js/src",
       "images" : "./source/images",
       "fonts" : "./source/fonts",
-      "css" : "./source/css/"
+      "css" : "./source/css/",
+      "scss" : "./source/scss/"
     },
     "public" : {
       "root" : "./public/",
@@ -67,16 +69,12 @@
   },
   "cleanOutputHtml": true,
   "styles": {
-      "src": "./source/css/*.scss",
-      "srcDir": "./source/css/**/*.scss",
-      "dest": "./source/css/",
       "autoprefixer": {
           "browsers": ["last 20 versions"]
       } 
   },
   "scripts": {
       "src": "./js/**/*.js",
-      "dest": "./source/js/",
       "bundle": "app.js"
   }
 }

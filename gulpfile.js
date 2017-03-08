@@ -3,6 +3,11 @@
  * EDITION-NODE-GULP
  * The gulp wrapper around patternlab-node core, providing tasks to interact with the core library and move supporting frontend assets.
 ******************************************************/
+
+
+/******************************************************
+ * DEPENDENCIES  
+******************************************************/
 var gulp = require('gulp'),
   path = require('path'),
   browserSync = require('browser-sync').create(),
@@ -19,9 +24,6 @@ var autoprefixer = require('gulp-autoprefixer');
 var plumber = require('gulp-plumber');
 // var livereload = require('gulp-livereload');
 
-/* _______________________
-PRODUCTION REQUIRES 
-*/
 var minifyCss = require('gulp-minify-css');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
@@ -127,10 +129,10 @@ gulp.task('pl-copy:styleguide-css', function(){
     .pipe(browserSync.stream());
 });
 
-/******************************************************
- * PATTERN LAB CONFIGURATION - API with core library
-******************************************************/
 
+/******************************************************
+ * PATTERN LAB CONFIGURATION FUNCTIONS - API for core library
+******************************************************/
 function paths() {
   return config.paths;
 }
@@ -143,9 +145,9 @@ function build(done) {
   patternlab.build(done, getConfiguredCleanOption());
 }
 
-/* _______________________
-TASK FUNCTIONS 
-*/
+/******************************************************
+ * TASK FUNCTION DEFINITIONS
+******************************************************/
 function getSupportedTemplateExtensions() {
   var engines = require('./node_modules/patternlab-node/core/lib/pattern_engines');
   return engines.getSupportedFileExtensions();
@@ -164,11 +166,10 @@ function reloadCSS() {
   browserSync.reload('*.css');
 }
 
-// THIS IS WHERE YOU ADD EXTRA BEHAVIOR FOR SASS BUILD PROCESS. 
+// SASS BUILD PROCESS.
 function devStyles() {
     return gulp
-    // .src("./src/styles/site.scss")
-    .src(config.styles.src)
+    .src('*.scss', {cwd: resolvePath(paths().source.scss)})
     .pipe(plumber({errorHandler: onError})) // Mina Markham
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))    
@@ -177,15 +178,13 @@ function devStyles() {
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
     // .pipe(gzip({ append: false })) // make gzip not change extension
     .pipe(gzip())
-    .pipe(gulp.dest(config.styles.dest));
-    // .pipe(livereload());
+    .pipe(gulp.dest(resolvePath(paths().source.css)));
 }
 
-// THIS IS WHERE YOU ADD EXTRA BEHAVIOR FOR PRODUCTION SASS BUILD PROCESS.
-function prodStyles() {
+// PRODUCTION SASS BUILD PROCESS.
+function prodStyles() {    
     return gulp
-    // .src("./src/styles/site.scss")
-    .src(config.styles.src)
+    .src('*.scss', {cwd: resolvePath(paths().source.scss)})
     .pipe(plumber({errorHandler: onError})) // Mina Markham
     .pipe(sass().on('error', sass.logError))    
     .pipe(autoprefixer(config.styles.autoprefixer))
@@ -195,37 +194,47 @@ function prodStyles() {
     }))
     .pipe(minifyCss())
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
-    .pipe(gulp.dest(config.styles.dest));
+    .pipe(gulp.dest(resolvePath(paths().source.css)));
 }
 
+// BUILD PROCESS FOR TRANSPILING ES2015 JS 
 function devScripts () {
     return gulp
-    // .src(["./src/scripts/application.js", "./src/scripts/utility.js"])
-    .src(config.scripts.src) // Can use glob pattern instead of specifying files.
+    .src('**/*.js', {cwd: resolvePath(paths().source.srcjs)})
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.scripts.dest));
+    .pipe(gulp.dest(resolvePath(paths().source.js)));
 }
 
+// PRODUCTION BUILD PROCESS FOR TRANSPILING ES2015 JS
 function prodScripts () {
     return gulp
-    // .src(["./src/scripts/application.js", "./src/scripts/utility.js"])
-    .src(config.scripts.src) // Can use glob pattern instead of specifying files.
+    .src('**/*.js', {cwd: resolvePath(paths().source.srcjs)})
     .pipe(babel())
     .pipe(concat(config.scripts.bundle))
     .pipe(uglify())
-    .pipe(gulp.dest(config.scripts.dest));
+    .pipe(gulp.dest(resolvePaths(paths().source.js)));
 }
 
 
 /******************************************************
- * SERVER AND WATCH TASKS
+ * ASSET COMPILATION & BUILD TASKS
 ******************************************************/
 gulp.task("dev:styles", devStyles);
 gulp.task("dev:scripts", devScripts);
 gulp.task("prod:styles", prodStyles);
 gulp.task("prod:scripts", prodScripts);
+
+gulp.task('imagemin', function() {
+  return gulp.src(bases.app + 'img/*')
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()]
+    }))
+    .pipe(gulp.dest(bases.dist + 'img'));
+});
 
 // gulp.task('dev', gulp.parallel( "dev:styles", "dev:scripts"));
 // gulp.task('prod', gulp.parallel("prod:styles","prod:scripts"));
@@ -260,6 +269,18 @@ gulp.task('pl-prod-assets', gulp.series(
   })
 );
 
+gulp.task('patternlab:build', gulp.series('pl-assets', build, function(done){
+  done();
+}));
+
+gulp.task('patternlab:prod-build', gulp.series('pl-prod-assets', build, function(done){
+  done();
+}));
+
+
+/******************************************************
+ * PATTERNLAB SETUP TASKS
+******************************************************/
 gulp.task('patternlab:version', function (done) {
   patternlab.version();
   done();
@@ -284,19 +305,15 @@ gulp.task('patternlab:loadstarterkit', function (done) {
   done();
 });
 
-gulp.task('patternlab:build', gulp.series('pl-assets', build, function(done){
-  done();
-}));
-
-gulp.task('patternlab:prod-build', gulp.series('pl-prod-assets', build, function(done){
-  done();
-}));
-
 gulp.task('patternlab:installplugin', function (done) {
   patternlab.installplugin(argv.plugin);
   done();
 });
 
+
+/******************************************************
+ * SERVER AND WATCH TASKS
+******************************************************/
 gulp.task('patternlab:connect', gulp.series(function(done) {
   browserSync.init({
     server: {
@@ -336,11 +353,9 @@ gulp.task('patternlab:connect', gulp.series(function(done) {
  * MASTER WATCH FUNCTION
 ******************************************************/
 function watch() {
-  gulp.watch(config.styles.srcDir).on('change', gulp.series('dev:styles', 'pl-copy:css', reloadCSS));
-  gulp.watch(config.scripts.src).on('change', gulp.series('dev:scripts', 'pl-copy:js'));
-  gulp.watch(resolvePath(paths().source.css) + '/**/*.css', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:css', reloadCSS));
+  gulp.watch(resolvePath(paths().source.scss) + '/**/*.scss', { awaitWriteFinish: true }).on('change', gulp.series('dev:styles', 'pl-copy:css', reloadCSS));
+  gulp.watch(resolvePath(paths().source.srcjs) + '/**/*.js').on('change', gulp.series('dev:scripts', 'pl-copy:js'));
   gulp.watch(resolvePath(paths().source.styleguide) + '/**/*.*', { awaitWriteFinish: true }).on('change', gulp.series('pl-copy:styleguide', 'pl-copy:styleguide-css', reloadCSS));
-  // gulp.watch(path.resolve(paths().source.css, '**/*.scss')).on('change', gulp.series('dev'));  
 
   var patternWatches = [
     resolvePath(paths().source.patterns) + '/**/*.json',
@@ -350,8 +365,8 @@ function watch() {
     resolvePath(paths().source.images) + '/*',
     resolvePath(paths().source.meta) + '/*',
     resolvePath(paths().source.annotations) + '/*',
-    resolvePath(config.styles.srcDir) + '/*',
-    resolvePath(config.scripts.src) + '/*'
+    resolvePath(paths().source.scss) + '/*',
+    resolvePath(paths().source.srcjs) + '/*'
   ].concat(getTemplateWatches());
 
   console.log(patternWatches);
