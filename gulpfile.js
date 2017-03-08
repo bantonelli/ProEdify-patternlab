@@ -233,13 +233,13 @@ gulp.task("prod:styles", prodStyles);
 gulp.task("prod:scripts", prodScripts);
 
 gulp.task('imagemin', function() {
-  return gulp.src(bases.app + 'img/*')
+  return gulp.src('**/*.*',{cwd: resolvePath(paths().public.images)})
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
     }))
-    .pipe(gulp.dest(bases.dist + 'img'));
+    .pipe(gulp.dest(resolvePath(paths().public.imagemin)));
 });
 
 // gulp.task('dev', gulp.parallel( "dev:styles", "dev:scripts"));
@@ -263,7 +263,7 @@ gulp.task('pl-assets', gulp.series(
 gulp.task('pl-prod-assets', gulp.series(
   gulp.parallel(
     gulp.series('prod:scripts', 'pl-copy:prodjs', function(done){done();}),
-    'pl-copy:img',
+    gulp.series('pl-copy:img', 'imagemin', function(done){done();}),
     'pl-copy:favicon',
     'pl-copy:font',
     gulp.series('prod:styles', 'pl-copy:css', function(done){done();}),

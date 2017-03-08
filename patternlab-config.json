@@ -25,6 +25,7 @@
       "js" : "./public/js",
       "prodjs": "./public/js/dist",
       "images" : "./public/images",
+      "imagemin": "./public/images/minified",
       "fonts" : "./public/fonts",
       "css" : "./public/css"
     }
