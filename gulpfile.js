@@ -86,6 +86,12 @@ gulp.task('pl-copy:js', function(){
     .pipe(gulp.dest(resolvePath(paths().public.js)));
 });
 
+// JS copy FOR PRODUCTION BUILD 
+gulp.task('pl-copy:prodjs', function(){
+  return gulp.src('**/*.js', {cwd: resolvePath(paths().source.prodjs)} )
+    .pipe(gulp.dest(resolvePath(paths().public.prodjs)));
+});
+
 // Images copy
 gulp.task('pl-copy:img', function(){
   return gulp.src('**/*.*',{cwd: resolvePath(paths().source.images)} )
@@ -214,7 +220,7 @@ function prodScripts () {
     .pipe(babel())
     .pipe(concat(config.scripts.bundle))
     .pipe(uglify())
-    .pipe(gulp.dest(resolvePaths(paths().source.js)));
+    .pipe(gulp.dest(resolvePath(paths().source.prodjs)));
 }
 
 
@@ -256,7 +262,7 @@ gulp.task('pl-assets', gulp.series(
 
 gulp.task('pl-prod-assets', gulp.series(
   gulp.parallel(
-    gulp.series('prod:scripts', 'pl-copy:js', function(done){done();}),
+    gulp.series('prod:scripts', 'pl-copy:prodjs', function(done){done();}),
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
