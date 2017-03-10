@@ -1,0 +1,17 @@
+%button {
+    border:none;
+    background-color: #118844;
+    color: white;
+    height: 50px;
+}
+
+.button {
+    @extend %button;    
+    display: inline-block;
+    width: 200px;
+    &--full-width {
+        @extend %button;
+        display: block;
+        width: 100%;
+    }
+}
