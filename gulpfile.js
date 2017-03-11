@@ -36,6 +36,8 @@ var pngquant = require('imagemin-pngquant');
 var gzip = require('gulp-gzip');
 var middleware  = require('connect-gzip-static');
 
+// Read command line args using yargs package
+var argvYargs = require('yargs').argv;
 
 
 /******************************************************
@@ -174,17 +176,19 @@ function reloadCSS() {
 
 // SASS BUILD PROCESS.
 function devStyles() {
+    // var cssdebug = (argvYargs.cssdebug === undefined) ? false : true;
     return gulp
     .src('*.scss', {cwd: resolvePath(paths().source.scss)})
     .pipe(plumber({errorHandler: onError})) // Mina Markham
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))    
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest(resolvePath(paths().source.scss)))    
     .pipe(autoprefixer(config.styles.autoprefixer))
     .pipe(sourcemaps.write())
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
     // .pipe(gzip({ append: false })) // make gzip not change extension
     .pipe(gzip())
-    .pipe(gulp.dest(resolvePath(paths().source.css)));
+    .pipe(gulp.dest(resolvePath(paths().source.css))); 
 }
 
 // PRODUCTION SASS BUILD PROCESS.
