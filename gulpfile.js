@@ -61,17 +61,20 @@ var onError = function(err) {
  * UTILITY TASKS 
 ******************************************************/
 gulp.task('sass-lint', function(done) {
-  gulp.src('**/*.scss', {cwd: resolvePath(paths().source.css)})
+  gulp.src(['**/*.scss', '!libs/*.s+(a|c)ss', '!base/*.s+(a|c)ss', '_shame.scss'], {cwd: resolvePath(paths().source.scss)})
     .pipe(sassLint({
       options: {
+        // formatter: 'checkstyle',
         formatter: 'stylish',
-        'merge-default-rules': false
+        'merge-default-rules': true
       },
-      // files: {ignore: '**/*.scss'},
-      rules: {
-        'no-ids': 1,
-        'no-mergeable-selectors': 0
+      files: {
+        ignore: resolvePath(paths().source.scss + '/libs/*.scss') 
       },
+      // rules: {
+      //   'no-ids': 1,
+      //   'no-mergeable-selectors': 0
+      // },
       configFile: '.sass-lint.yml'
     }))
     .pipe(sassLint.format())

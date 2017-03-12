@@ -50,13 +50,26 @@ rules:
   force-element-nesting: 1
   force-pseudo-nesting: 1
 
-  # Name Formats
-  class-name-format: 1
-  function-name-format: 1
-  id-name-format: 0
-  mixin-name-format: 1
-  placeholder-name-format: 1
-  variable-name-format: 1
+  # # Name Formats
+  # class-name-format:
+  #   - 1
+  #   - convention: hyphenatedbem
+  # function-name-format:
+  #   - 1
+  #   - allow-leading-underscore: true
+  #     convention: camelcase
+  # id-name-format: 0
+  # mixin-name-format:
+  #   - 1
+  #   - allow-leading-underscore: true
+  #     convention: hyphenatedlowercase
+  # placeholder-name-format: 
+  #   - 1
+  #   - convention: hyphenatedbem
+  # variable-name-format: 
+  #   - 2
+  #   - allow-leading-underscore: true
+  #     convention: camelcase
 
   # Style Guide
   attribute-quotes: 1
