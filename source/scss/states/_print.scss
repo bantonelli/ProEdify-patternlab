@@ -3,62 +3,81 @@
 // Inlined to avoid required HTTP connection: h5bp.com/r
 // ==========================================================================
 
+// sass-lint:disable no-important 
 @media print {
-  *{
-    &:before,
-    &:after {
-      background: transparent !important;
-      color: #000 !important; // Black prints faster: http://www.sanbeiji.com/archives/953
-      box-shadow: none !important;
-      text-shadow: none !important;
+    * {
+        &::before,
+        &::after {
+            background: transparent !important;
+            box-shadow: none !important;
+            color: $black !important; // Black prints faster: http://www.sanbeiji.com/archives/953            
+            text-shadow: none !important;
+        }
     }
-  }
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
 
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
+    a {
+        text-decoration: underline;                
 
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
+        &:visited {
+            text-decoration: underline;
+        }
 
- // Don't show links that are fragment identifiers,
- // or use the `javascript:` pseudo protocol
+        &[href] {
+            &::after {
+                content: " (" attr(href) ")";    
+            }
+        }
 
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
+        // Don't show links that are fragment identifiers,
+        // or use the `javascript:` pseudo protocol
+        &[href^="#"], 
+        &[href^="javascript:"] {
+            &::after {
+                content: "";
+            }            
+        }    
+    }
 
-  pre,
-  blockquote {
-      border: 1px solid #999;
-      page-break-inside: avoid;
-  }
 
- // Printing Tables:
- // http://css-discuss.incutio.com/wiki/Printing_Tables
+    abbr {
+        &[title] {
+            &::after {
+                content: " (" attr(title) ")";
+            }
+        }                            
+    }
 
-  thead { display: table-header-group; }
+    pre,
+    blockquote {
+        border: 1px solid lighten($black, 30);
+        page-break-inside: avoid;
+    }
 
-  tr,
-  img { page-break-inside: avoid; }
+    // Printing Tables:
+    // http://css-discuss.incutio.com/wiki/Printing_Tables
 
-  img { max-width: 100% !important; }
+    thead { 
+        display: table-header-group; 
+    }
 
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
+    tr,
+    img { 
+        page-break-inside: avoid; 
+    }
 
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
+    img { 
+        max-width: 100% !important; 
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
 }

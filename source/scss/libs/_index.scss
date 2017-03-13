@@ -12,3 +12,14 @@
 // variable $pesticide-debug is set to "true"
 
 @import 'pesticide';
+
+// CSS Debugging
+//
+// Toggle layout debugging with CSS Pesticide.
+//
+// $pesticide-debug-outline - {boolean} adds outlines to all elements.
+// $pesticide-debug-depth - {boolean} adds shadows to all elements.
+// @source - http://pesticide.io/
+
+$pesticide-debug-outline: false;
+$pesticide-debug-depth: false;
