@@ -13,7 +13,7 @@ Before getting started with this template you should have a base understanding o
 
 > Note: The Gulp Edition of Pattern Lab uses Gulp 4, which may require a new global install of the Gulp command line interface. Follow the [gulp upgrade instructions](https://github.com/pattern-lab/edition-node-gulp/wiki/Updating-to-Gulp-4) if you already have gulp installed and need to upgrade. Gulp 4 is in alpha, but brings many benefits to the table and is relatively stable. You can alternatively [run with local gulp instead of global gulp](https://github.com/pattern-lab/patternlab-node/wiki/Running-with-Local-Gulp-Instead-of-Global-Gulp), but commands are a bit more verbose. The rest of this documentation assumes a global install.
 
-
+---
 
 ## Quick Start
 
@@ -35,34 +35,42 @@ Below are some of the added benefits of using this template to build your Patter
 * `gulp patternlab:prod-build`  : builds all assets for production (see details below for Javascript and Sass builds)
 
 
+---
+
+
+
 ## SCSS Build Process
 To ensure your .scss files are compiled put your source code inside of */source/scss* (instead of the default */source/css* directory). 
 
 ### Development
 Features of development build: 
-    * sourcemaps
-    * Sass compilation
-    * autoprefixer (see [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) for details)
-    * post-compilation size preview in console (gzipped size).
-    * gzip compression  
-    * outputs compiled and gzipped CSS files to _/public/css_
-        + also outputs human-readable CSS file into _/source/scss_ for debugging  
+* sourcemaps
+* Sass compilation
+* autoprefixer (see [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) for details)
+* post-compilation size preview in console (gzipped size).
+* gzip compression  
+* outputs compiled and gzipped CSS files to _/public/css_
+    + also outputs human-readable CSS file into _/source/scss_ for debugging  
 
 The following command will trigger SCSS compilation for development: 
 > `gulp dev:styles`      
 
 ### Production
 Features of production build: 
-    * Sass compilation
-    * autoprefixer (see [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) for details)
-    * clean-css with size preview in console (see [gulp-clean-css]() for details)
-    * minification 
-    * gzip compression  
-    * outputs compiled and gzipped CSS files to _/public/css_ 
+* Sass compilation
+* autoprefixer (see [gulp-autoprefixer](https://www.npmjs.com/package/gulp-autoprefixer) for details)
+* clean-css with size preview in console (see [gulp-clean-css]() for details)
+* minification 
+* gzip compression  
+* outputs compiled and gzipped CSS files to _/public/css_ 
 
 The following command will trigger SCSS compilation for production: 
 > `gulp prod:styles`       
       
+
+
+---
+
 
 
 ## Javascript Build Process
@@ -70,22 +78,26 @@ To ensure your JS is compiled using babel put your source code inside of */sourc
 
 ### Development
 Features of development build: 
-    * sourcemaps
-    * babel compilation (es2015 preset)
-    * outputs compiled Javascript files to _/public/js_  
+* sourcemaps
+* babel compilation (es2015 preset)
+* outputs compiled Javascript files to _/public/js_  
 
 The following commands will trigger JS compilation for development: 
 > `gulp dev:scripts`            
 
 ### Production
 Features of production build: 
-    * babel compilation (es2015 preset)
-    * bundled output 
-    * uglification 
-    * outputs _app.js_ to _/public/js/dist_  
+* babel compilation (es2015 preset)
+* bundled output 
+* uglification 
+* outputs _app.js_ to _/public/js/dist_  
 
 The following commands will trigger JS compilation for production: 
 > `gulp prod:scripts`       
+
+
+
+---
 
 
 
