@@ -205,8 +205,9 @@ function prodStyles() {
       console.log(details.name + ': ' + details.stats.originalSize);
       console.log(details.name + ': ' + details.stats.minifiedSize);
     }))
-    .pipe(minifyCss())
+    .pipe(minifyCss())    
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
+    .pipe(gzip())
     .pipe(gulp.dest(resolvePath(paths().source.css)));
 }
 
