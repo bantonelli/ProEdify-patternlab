@@ -7,13 +7,17 @@ This is my customized starter template for [Pattern Lab Node - Gulp Edition](htt
 ## Prerequisites   
 Before getting started with this template you should have a base understanding of the Pattern Lab v2.0 API. You should also check out the README for Pattern Lab Node - Gulp Edition [here](https://github.com/pattern-lab/edition-node-gulp).
 
-> The Pattern Lab Node - Gulp Edition uses [Node](https://nodejs.org) for core processing, [npm](https://www.npmjs.com/) to manage project dependencies, and [gulp.js](http://gulpjs.com/) to run tasks and interface with the core library. Node version 4 or higher suffices. You can follow the directions for [installing Node](https://nodejs.org/en/download/) on the Node website if you haven't done so already. Installation of Node will include npm.
+The Pattern Lab Node - Gulp Edition uses [Node](https://nodejs.org) for core processing, [npm](https://www.npmjs.com/) to manage project dependencies, and [gulp.js](http://gulpjs.com/) to run tasks and interface with the core library. Node version 4 or higher suffices. You can follow the directions for [installing Node](https://nodejs.org/en/download/) on the Node website if you haven't done so already. Installation of Node will include npm.
 
-> It's also highly recommended that you [install gulp](hhttps://github.com/gulpjs/gulp/blob/4.0/docs/getting-started.md) globally.
+It's also highly recommended that you [install gulp](hhttps://github.com/gulpjs/gulp/blob/4.0/docs/getting-started.md) globally.
 
 > Note: The Gulp Edition of Pattern Lab uses Gulp 4, which may require a new global install of the Gulp command line interface. Follow the [gulp upgrade instructions](https://github.com/pattern-lab/edition-node-gulp/wiki/Updating-to-Gulp-4) if you already have gulp installed and need to upgrade. Gulp 4 is in alpha, but brings many benefits to the table and is relatively stable. You can alternatively [run with local gulp instead of global gulp](https://github.com/pattern-lab/patternlab-node/wiki/Running-with-Local-Gulp-Instead-of-Global-Gulp), but commands are a bit more verbose. The rest of this documentation assumes a global install.
 
+
+
 ---
+
+
 
 ## Quick Start
 
@@ -35,12 +39,14 @@ Below are some of the added benefits of using this template to build your Patter
 * `gulp patternlab:prod-build`  : builds all assets for production (see details below for Javascript and Sass builds)
 
 
+
 ---
 
 
 
 ## SCSS Build Process
-To ensure your .scss files are compiled put your source code inside of */source/scss* (instead of the default */source/css* directory). 
+To ensure your .scss files are compiled, place your source code inside of */source/scss* (instead of the default */source/css* directory).
+Then run `gulp dev:styles` for development build, or use `gulp prod:styles` for production build.
 
 ### Development
 Features of development build: 
@@ -51,10 +57,7 @@ Features of development build:
 * gzip compression  
 * outputs compiled and gzipped CSS files to _/public/css_
     + also outputs human-readable CSS file into _/source/scss_ for debugging  
-
-The following command will trigger SCSS compilation for development: 
-> `gulp dev:styles`      
-
+      
 ### Production
 Features of production build: 
 * Sass compilation
@@ -63,18 +66,16 @@ Features of production build:
 * minification 
 * gzip compression  
 * outputs compiled and gzipped CSS files to _/public/css_ 
-
-The following command will trigger SCSS compilation for production: 
-> `gulp prod:styles`       
+   
       
-
 
 ---
 
 
 
 ## Javascript Build Process
-To ensure your JS is compiled using babel put your source code inside of */source/js/src* (instead of the default */source/js* directory). 
+To ensure your JS is compiled using babel, place your source code inside of */source/js/src* (instead of the default */source/js* directory).
+Then run `gulp dev:scripts` for development build, or use `gulp prod:scripts` for production build. 
 
 ### Development
 Features of development build: 
@@ -82,19 +83,13 @@ Features of development build:
 * babel compilation (es2015 preset)
 * outputs compiled Javascript files to _/public/js_  
 
-The following commands will trigger JS compilation for development: 
-> `gulp dev:scripts`            
-
 ### Production
 Features of production build: 
 * babel compilation (es2015 preset)
 * bundled output 
 * uglification 
 * outputs _app.js_ to _/public/js/dist_  
-
-The following commands will trigger JS compilation for production: 
-> `gulp prod:scripts`       
-
+    
 
 
 ---
