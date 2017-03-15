@@ -19,7 +19,7 @@ It's also highly recommended that you [install gulp](hhttps://github.com/gulpjs/
 
 
 
-## Quick Start
+## Overview
 
 ### Starter Template Features
 Below are some of the added benefits of using this template to build your Pattern Lab project:
@@ -45,8 +45,9 @@ Below are some of the added benefits of using this template to build your Patter
 
 
 ## SCSS Build Process
-To ensure your .scss files are compiled, place your source code inside of */source/scss* (instead of the default */source/css* directory).
-Then run `gulp dev:styles` for development build, or use `gulp prod:styles` for production build.
+To ensure your .scss files are compiled: 
+1. place your source code inside of */source/scss* (instead of the default */source/css* directory).
+2. run `gulp dev:styles` for development build (or use `gulp prod:styles` for production build).
 
 ### Development
 Features of development build: 
@@ -74,8 +75,9 @@ Features of production build:
 
 
 ## Javascript Build Process
-To ensure your JS is compiled using babel, place your source code inside of */source/js/src* (instead of the default */source/js* directory).
-Then run `gulp dev:scripts` for development build, or use `gulp prod:scripts` for production build. 
+To ensure your JS is compiled using babel:  
+1. place your source code inside of */source/js/src* (instead of the default */source/js* directory).
+2. run `gulp dev:scripts` for development build (or use `gulp prod:scripts` for production build). 
 
 ### Development
 Features of development build: 
