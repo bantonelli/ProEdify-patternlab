@@ -61,7 +61,7 @@ rules:
   function-name-format:
     - 1
     - allow-leading-underscore: true
-      convention: camelcase
+      convention: hyphenatedlowercase
   id-name-format: 0
   mixin-name-format:
     - 1
@@ -73,7 +73,7 @@ rules:
   variable-name-format: 
     - 2
     - allow-leading-underscore: true
-      convention: camelcase
+      convention: hyphenatedlowercase
 
   # Style Guide
   attribute-quotes: 1
