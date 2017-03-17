@@ -3,37 +3,35 @@
 // ==========================================================================
 
 // Text
-$baseFontSize: 16px;
-$baseLineHeight: 24px;
+$pe-base-fontsize: 16px;
+$pe-base-lineheight: 24px;
 
 // PATH TO ASSETS
-$pathImgRelative: "../img";
-$pathFontRelative: "";
+$pe-relpath-images: "../img";
+$pe-relpath-fonts: "";
 
 // Font Stacks
 //$font-url--google: 'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
-$fontFamilySansSerif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$fontFamilySerif: "Times New Roman", serif;
+$pe-fontfamily-sansserif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$pe-fontfamily-serif: "Times New Roman", serif;
 
 // Font Weights
-$fontWeightThin: 100;
-$fontWeightLight: 300;
-$fontWeightMedium: 400;
-$fontWeightBold: 700;
-$fontWeightUltraBold: 900;
+$pe-fontweight-thin: 100;
+$pe-fontweight-light: 300;
+$pe-fontweight-medium: 400;
+$pe-fontweight-bold: 700;
+$pe-fontweight-ultrabold: 900;
 
-
-// Descriptive Base Colors
-$white: #fff;
-$black: #000;
 
 // PROED Color Way
-$peGreen: #43c8a2;
-$peGrey: #838383;
-$peColorPrimary: #30a587;
-$peColorAccent: #5e274f;
-$peColorGrey: #797e84;
-$peColorShadow: #505050;
+$pe-white: #fff;
+$pe-black: #000;
+$pe-green: #30a387;
+$pe-grey: #838383;
+$pe-color-primary: #30a387;
+$pe-color-accent: #5e274f;
+$pe-color-grey: #797e84;
+$pe-color-shadow: #505050;
 
 
 // GRID VARS
@@ -46,7 +44,7 @@ $susy: (
     gutter-position: inside // Set up margins where they happen
 );
 
-$customLayout: (
+$pe-custom-layout: (
     columns: 18,
     gutters: 1 / 3,
     math: fluid, // keeps the container and values fluid (%s)
@@ -54,7 +52,7 @@ $customLayout: (
     gutter-position: split // Set up margins where they happen
 );
 
-$gridBreakpoints: (
+$pe-grid-breakpoints: (
     // Extra small screen / phone
     xs: 0,
     // Small screen / phone
@@ -72,7 +70,7 @@ $gridBreakpoints: (
 //
 // Define the maximum width of `.container` for different screen sizes.
 
-$containerMaxWidths: (
+$pe-container-max-widths: (
     sm: 576px,
     md: 720px,
     lg: 940px,
