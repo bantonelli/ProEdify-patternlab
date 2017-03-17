@@ -1,0 +1,28 @@
+// ==========================================================================
+// Typographic Mixins 
+// ==========================================================================
+
+@mixin font-family_brand {
+  font-family: 'league_spartanregular', $font_family-fallback--sserif;
+}
+
+@mixin font-family_headline {
+  font-family: 'cabinbold', $font_family-fallback--sserif;
+}
+
+@mixin font-family_paragraph {
+  font-family: 'source_sans_proregular', $font_family-fallback--sserif;
+}
+
+@mixin font-family_paragraph--italic {
+  font-family: 'source_sans_proitalic', $font_family-fallback--sserif;
+}
+
+@mixin font-family_legal {
+  font-family: 'amiriregular', $font_family-fallback--serif;
+}
+
+@mixin font-family_legal--italic {
+  font-family: 'amirislanted', $font_family-fallback--serif;
+}
+

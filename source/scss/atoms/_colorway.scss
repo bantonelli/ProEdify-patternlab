@@ -1,0 +1,42 @@
+// ==========================================================================
+// Colorway
+// ==========================================================================
+
+// Import if Google Fonts URL is defined
+
+
+// Functions and Directives
+//@if variable-exists($font-url--google) {
+//  @import url($font-url--google);
+//}
+
+$main-colors: ("primary", "accent", "grey", "shadow");
+
+@each $color in $main-colors {
+  $color-list: ();
+  @if $color == "primary" {
+    $color-list: $primary-color--list;
+  } @else if $color == "accent" {
+    $color-list: $accent-color--list;
+  } @else if $color == "grey" {
+    $color-list: $greyscale-color--list;
+  } @else {
+    $color-list: $shadow-color--list;
+  }
+  .#{$color}-colors {
+    flex-grow: 2;
+    $i: 0;
+    @while $i < 6 {
+      .#{$color}-#{$i} {
+        height: 100px;
+        width: 100%;
+        background-color: nth($color-list, $i + 1);
+        $i: $i+1;
+      }
+    }
+  }
+}
+
+div.color-scheme {
+  display: flex;
+}

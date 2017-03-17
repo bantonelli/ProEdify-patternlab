@@ -1,0 +1,78 @@
+// ==========================================================================
+// BASE STYLES 
+// ==========================================================================
+
+* {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html, body {
+  background-color: white;
+  font-size: $base__font-size;
+  line-height: ($base__line-height/$base__font-size);
+  @include font-family_paragraph();
+}
+
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  @include font-family_headline();
+}
+
+h1 {
+  @include font-family_brand();
+  font-size: 3.05125rem;
+  color: #373737;
+  letter-spacing: -0.3px;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 3.05125rem;
+  /* Lorem ipsum dolor si_3.05125em Copy 3: */
+  color: #373737;
+  letter-spacing: -1.7px;
+}
+h3 {
+  font-size: 2.44125rem;
+  /* Lorem ipsum dolor si_2.44125em: */
+  color: #373737;
+  letter-spacing: -1.4px;
+}
+h4 {
+  font-size: 1.95375rem;
+  /* Lorem ipsum dolor si_1.95375em: */
+  color: #373737;
+  letter-spacing: -1px;
+}
+h5 {
+  font-size: 1.5625rem;
+  /* Lorem ipsum dolor si_1.5625em: */
+  color: #373737;
+  letter-spacing: -0.75px;
+}
+h6 {
+  /* Lorem ipsum dolor si_1.25em: */
+  font-size: 1.25rem;
+  color: #373737;
+  letter-spacing: -0.5px;
+}
+
+label,
+input,
+p,
+textarea {
+  @include font-family_paragraph();
+  /* Paragraph Source San: */
+  letter-spacing: 0;
+}
+
+a {
+  //font-family: $paragraph;
+  text-decoration: none;
+}
+
+button {
+  //font-family: $headline;
+}
+
