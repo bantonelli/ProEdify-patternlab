@@ -11,8 +11,8 @@
 }
 
 @mixin font-family-headline {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+    //-moz-osx-font-smoothing: grayscale;
+    //-webkit-font-smoothing: antialiased;
     font-family: $pe-fontfamily-headline, $pe-fontfamily-sansserif-fallbacks;
     @content;
 }

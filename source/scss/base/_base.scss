@@ -4,76 +4,47 @@
 
 // sass-lint:disable no-vendor-prefixes 
 * {
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-html, body {
-  background-color: white;
-  font-size: $base__font-size;
-  line-height: ($base__line-height/$base__font-size);
-  @include font-family_paragraph();
-}
-
-h1, h2, h3, h4, h5, h6 {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  @include font-family_headline();
+html, 
+body {
+    @include font-family-paragraph {
+        background-color: $pe-color-white;
+        font-size: $pe-base-fontsize;
+        line-height: ($pe-base-lineheight / $pe-base-fontsize);
+    };
 }
 
 h1 {
-  @include font-family_brand();
-  font-size: 3.05125rem;
-  color: #373737;
-  letter-spacing: -0.3px;
-  text-transform: uppercase;
+    @include font-family-brand();
+    @include font-sizing-h1();
 }
+
 h2 {
-  font-size: 3.05125rem;
-  /* Lorem ipsum dolor si_3.05125em Copy 3: */
-  color: #373737;
-  letter-spacing: -1.7px;
+    @include font-family-headline();
+    @include font-sizing-h2();
 }
+
 h3 {
-  font-size: 2.44125rem;
-  /* Lorem ipsum dolor si_2.44125em: */
-  color: #373737;
-  letter-spacing: -1.4px;
+    @include font-family-headline();
+    @include font-sizing-h3();
 }
+
 h4 {
-  font-size: 1.95375rem;
-  /* Lorem ipsum dolor si_1.95375em: */
-  color: #373737;
-  letter-spacing: -1px;
+    @include font-family-headline();
+    @include font-sizing-h4();
 }
+
 h5 {
-  font-size: 1.5625rem;
-  /* Lorem ipsum dolor si_1.5625em: */
-  color: #373737;
-  letter-spacing: -0.75px;
+    @include font-family-headline();
+    @include font-sizing-h5();
 }
+
 h6 {
-  /* Lorem ipsum dolor si_1.25em: */
-  font-size: 1.25rem;
-  color: #373737;
-  letter-spacing: -0.5px;
+    @include font-family-headline();
+    @include font-sizing-h6();
 }
 
-label,
-input,
-p,
-textarea {
-  @include font-family_paragraph();
-  /* Paragraph Source San: */
-  letter-spacing: 0;
-}
-
-a {
-  //font-family: $paragraph;
-  text-decoration: none;
-}
-
-button {
-  //font-family: $headline;
-}
 
