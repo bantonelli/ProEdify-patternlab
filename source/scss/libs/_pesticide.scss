@@ -1,7 +1,7 @@
 // pesticide v0.1.0 . @mrmrs . MIT
 
-$pesticide-debug-outline: true !default;
-$pesticide-debug-depth: true !default;
+$pesticide-debug-outline: false !default;
+$pesticide-debug-depth: false !default;
 
 @if $pesticide-debug-outline == true {
   body { outline: 1px solid #2980b9 !important; }

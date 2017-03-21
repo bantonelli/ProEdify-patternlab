@@ -45,7 +45,7 @@ rules:
   no-url-domains: 1
   no-url-protocols: 1
   no-vendor-prefixes: 1
-  no-warn: 1
+  no-warn: 0
   property-units: 0
 
   # Nesting
@@ -77,17 +77,17 @@ rules:
 
   # Style Guide
   attribute-quotes: 1
-  bem-depth: 0
+  bem-depth: 1
   border-zero: 1
   brace-style: 1
   clean-import-paths: 1
-  empty-args: 1
+  empty-args: 0
   hex-length: 0
   hex-notation: 1
   indentation:
     - 2
     - size: 4
-  leading-zero: 1
+  leading-zero: 0
   max-line-length: 0
   max-file-line-count: 0
   nesting-depth: 1
