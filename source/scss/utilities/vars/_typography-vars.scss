@@ -10,8 +10,14 @@ $pe-relpath-fonts: "";
 
 // Font Stacks
 //$font-url--google: 'http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900';
-$pe-fontfamily-sansserif: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$pe-fontfamily-serif: "Times New Roman", serif;
+$pe-fontfamily-brand: 'league_spartanregular';
+$pe-fontfamily-headline: 'cabinbold';
+$pe-fontfamily-paragraph: 'source_sans_proregular';
+$pe-fontfamily-paragraph-italic: 'source_sans_proitalic';
+$pe-fontfamily-legal: 'amiriregular'; 
+$pe-fontfamily-legal-italic: 'amirislanted';
+$pe-fontfamily-sansserif-fallbacks: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$pe-fontfamily-serif-fallbacks: "Times New Roman", serif;
 
 // Font Weights
 $pe-fontweight-thin: 100;

@@ -1,4 +1,4 @@
-$primary-color--list: create-color-list($color--primary, $desaturate-val: 0, $lighten-increment:10);
-$accent-color--list: create-color-list($color--accent, $desaturate-val: 0, $lighten-increment:10);
-$greyscale-color--list: create-color-list($color--grey, $desaturate-val: 0, $lighten-increment: 10);
-$shadow-color--list: create-color-list($color--shadow, $desaturate-val: 0, $lighten-increment:10);
+$pe-primary-color-list: create-color-list($pe-color-primary, $desaturate-val: 0, $lighten-increment: 10);
+$pe-accent-color-list: create-color-list($pe-color-accent, $desaturate-val: 0, $lighten-increment: 10);
+$pe-greyscale-color--list: create-color-list($pe-color-grey, $desaturate-val: 0, $lighten-increment: 10);
+$pe-shadow-color-list: create-color-list($pe-color-shadow, $desaturate-val: 0, $lighten-increment: 10);

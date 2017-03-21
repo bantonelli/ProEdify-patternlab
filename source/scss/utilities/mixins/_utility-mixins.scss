@@ -2,25 +2,24 @@
 // Utility Mixins 
 // ==========================================================================
 
-//@mixin img-replace($img, $width, $height, $display: block) {
-//  background-image: url('#{$path--rel}/#{$img}');
-//  background-repeat: no-repeat;
-//  width: $width;
-//  height: $height;
-//  display: $display;
-//}
-//
+@mixin img-replace($img, $width, $height, $display: block) {
+    background-image: url('#{$pe-relpath-images}/#{$img}');
+    background-repeat: no-repeat;
+    display: $display;
+    height: $height;
+    width: $width;        
+}
+
 @mixin pseudo-element($element, $width: null, $height: null) {
     // Tests to check that the element parameter is correct
-    @if $element == "before" or $element == "after"{
+    @if $element == "before" or $element == "after" {
         &:#{$element} {
             @extend %pseudos;
-            width: $width;
             height: $height;
+            width: $width;            
             @content;
         }
-    }
-    @else {
+    } @else {
         @warn "#{$element} is not a valid pseudo-element";
     }
 }
