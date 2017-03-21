@@ -184,7 +184,10 @@ function devStyles() {
     .src('*.scss', {cwd: resolvePath(paths().source.scss)})
     .pipe(plumber({errorHandler: onError})) // Mina Markham
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({
+        outputStyle: 'compressed',
+        includePaths: ['node_modules/susy/sass', 'node_modules/breakpoint-sass/stylesheets']
+    }).on('error', sass.logError))
     .pipe(gulp.dest(resolvePath(paths().source.scss)))    
     .pipe(autoprefixer(config.styles.autoprefixer))
     .pipe(sourcemaps.write())
@@ -199,7 +202,10 @@ function prodStyles() {
     return gulp
     .src('*.scss', {cwd: resolvePath(paths().source.scss)})
     .pipe(plumber({errorHandler: onError})) // Mina Markham
-    .pipe(sass().on('error', sass.logError))    
+    .pipe(sass({
+        outputStyle: 'compressed',
+        includePaths: ['node_modules/susy/sass', 'node_modules/breakpoint-sass/stylesheets']
+    }).on('error', sass.logError))    
     .pipe(autoprefixer(config.styles.autoprefixer))
     .pipe(cleanCSS({debug: true}, function(details) {
       console.log(details.name + ': ' + details.stats.originalSize);
