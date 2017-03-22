@@ -33,3 +33,10 @@
 // have time to refactor the header stuff.
 
 // .site-nav a { color:#BADA55!important; }
+.background--dark {
+    background-color: nth($greyscale-color--list, 3);
+}
+
+.input_container {
+
+}

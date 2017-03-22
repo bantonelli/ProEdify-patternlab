@@ -1,36 +1,35 @@
 // ==========================================================================
 // AMIRI @font-face
 // ==========================================================================
-// ../../fonts/
+// sass-lint:disable indentation
 @font-face {
     font-family: 'amiribold';
-    src: url('../fonts/amiri/amiri-bold.woff2') format('woff2'),
-         url('../fonts/amiri/amiri-bold.woff') format('woff');
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/amiri/amiri-bold.woff2') format('woff2'),
+         url('../fonts/amiri/amiri-bold.woff') format('woff');        
 }
 
 @font-face {
     font-family: 'amiribold_slanted';
-    src: url('../fonts/amiri/amiri-boldslanted.woff2') format('woff2'),
-         url('../fonts/amiri/amiri-boldslanted.woff') format('woff');
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/amiri/amiri-boldslanted.woff2') format('woff2'),
+         url('../fonts/amiri/amiri-boldslanted.woff') format('woff');        
 }
 
 @font-face {
     font-family: 'amiriregular';
-    src: url('../fonts/amiri/amiri-regular.woff2') format('woff2'),
-         url('../fonts/amiri/amiri-regular.woff') format('woff');
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;    
+    src: url('../fonts/amiri/amiri-regular.woff2') format('woff2'),
+         url('../fonts/amiri/amiri-regular.woff') format('woff');    
 }
 
 @font-face {
     font-family: 'amirislanted';
-    src: url('../fonts/amiri/amiri-slanted.woff2') format('woff2'),
-         url('../fonts/amiri/amiri-slanted.woff') format('woff');
-    font-weight: normal;
     font-style: normal;
-
+    font-weight: normal;
+    src: url('../fonts/amiri/amiri-slanted.woff2') format('woff2'),
+         url('../fonts/amiri/amiri-slanted.woff') format('woff');    
 }

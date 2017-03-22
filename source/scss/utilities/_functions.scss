@@ -2,7 +2,7 @@
 // Functions
 // ==========================================================================
 
-@function rem($target, $context: $pe-base-fontsize){
+@function rem($target, $context: $pe-base-fontsize) {
     @return ($target / $context) * 1rem;
     // Need to put *1em to convert units to ems.
 }
@@ -16,8 +16,7 @@
         $lighten-val: $lighten-val + $lighten-increment;
         @if $desaturate-val == 0 {
             $desaturate-val: 0;
-        }
-        @else {
+        } @else {
             $desaturate-val: $desaturate-val + 10;
         }
     }
