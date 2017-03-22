@@ -1,0 +1,98 @@
+// ==========================================================================
+// CHECKBOX STYLES
+// ==========================================================================
+// sass-lint:disable empty-line-between-blocks
+%checkbox {
+    // Base checkbox rules
+    width: 100%;    
+}
+
+%checkbox__input {
+    // Base checkbox input rules
+    display: none;  
+    &:checked + .checkbox__label {
+        &::before {
+            opacity: 1;
+        }
+    }
+    &:disabled + .checkbox__label {
+        opacity: 0.3;
+    }  
+}
+
+%checkbox__label {
+    display: inline-block;
+    position: relative;        
+    cursor: pointer;
+    vertical-align: top;
+    &::before, 
+    &::after {
+        display: inline-block;
+        position: absolute;               
+        padding: 0;            
+        vertical-align: middle;
+    }
+    &::before {        
+        // Before is the check mark        
+        transition: 0.15s opacity ease-in-out;
+        color: $pe-color-primary;
+        text-align: center;
+        text-shadow: 0 0 6px rgba(0, 0, 0, 0.81);
+        content: "\2713";
+        opacity: 0;
+        z-index: 1;                        
+    }
+    &::after {            
+        // After is the black box
+        top: 0;
+        left: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: darken($pe-color-grey, 10%);
+        box-shadow: inset 0 0 8px -1px rgba(0, 0, 0, 0.6);
+        content: "\00a0";
+        z-index: 0;
+    }
+}
+
+@mixin checkbox-label-size ($size) {    
+    height: $size;
+    padding-left: $size * 1.3;
+    font-size: rem($size * 0.68);
+    &::before, 
+    &::after {            
+        width: $size;
+        height: $size;            
+    }
+    &::before {        
+        // Before is the check mark        
+        top: rem(-($size/4));
+        left: rem($size/20);
+        font-size: rem($size);               
+    }
+}
+
+
+// BEM - checkbox, checkbox__input, checkbox__label 
+.checkbox {
+    // Base checkbox 
+    @extend %checkbox;
+    .checkbox__input {
+        @extend %checkbox__input;
+    }
+    .checkbox__label {
+        @extend %checkbox__label;
+        @include checkbox-label-size(20px);
+    }     
+    // Size adjusted checkboxes
+    &--small {
+        @extend %checkbox;
+        .checkbox__input {
+            @extend %checkbox__input;
+            + .checkbox__label {
+                @extend %checkbox__label;
+                @include checkbox-label-size(10px);
+            } 
+        }
+    }
+}
+
