@@ -83,16 +83,18 @@
         @extend %checkbox__label;
         @include checkbox-label-size(20px);
     }     
-    // Size adjusted checkboxes
-    &--small {
-        @extend %checkbox;
-        .checkbox__input {
-            @extend %checkbox__input;
-            + .checkbox__label {
-                @extend %checkbox__label;
-                @include checkbox-label-size(10px);
-            } 
-        }
-    }
+}
+
+// Size Modifiers for checkboxes
+.checkbox-size-small {    
+    .checkbox__label {        
+        @include checkbox-label-size(10px);
+    } 
+}
+
+.checkbox-size-large {    
+    .checkbox__label {        
+        @include checkbox-label-size(40px);
+    } 
 }
 

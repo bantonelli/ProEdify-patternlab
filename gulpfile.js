@@ -185,7 +185,7 @@ function devStyles() {
     .pipe(plumber({errorHandler: onError})) // Mina Markham
     .pipe(sourcemaps.init())
     .pipe(sass({
-        outputStyle: 'compressed',
+        // outputStyle: 'compressed',
         includePaths: ['node_modules/susy/sass', 'node_modules/breakpoint-sass/stylesheets']
     }).on('error', sass.logError))
     .pipe(gulp.dest(resolvePath(paths().source.scss)))    
