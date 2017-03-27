@@ -3,10 +3,10 @@
 // ==========================================================================
 // sass-lint:disable no-vendor-prefixes
 @mixin font-family-brand {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
     font-family: $pe-fontfamily-brand, $pe-fontfamily-sansserif-fallbacks;
     text-transform: uppercase;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     @content;
 }
 
