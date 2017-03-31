@@ -71,7 +71,6 @@
     }
     &::before {        
         // Before is the check mark        
-        // top: rem(-($size/4));
         font-size: rem($size);                       
     }
 }
