@@ -1,22 +1,15 @@
 // ==========================================================================
 // TEXT INPUT STYLES
 // ==========================================================================
-input[type="radio"]:disabled,
-input[type="radio"]:disabled ~ label {
-    opacity: 0.3;
-}
 
 // BEVM: text-input, text-input__input, text-input__border
-
-// Put this input wrapper around the text input element
-
 .text-input {
     position: relative;
     width: 100%;
     margin: 0 auto;
     border: 0;
 
-    .text-input__input {
+    &__input {
         width: 100%;
         padding: 10px 2px;
         border: 0;
@@ -28,7 +21,7 @@ input[type="radio"]:disabled ~ label {
         }
     }
 
-    .text-input__border {
+    &__border {
         display: block;
         position: absolute;
         bottom: 0;
