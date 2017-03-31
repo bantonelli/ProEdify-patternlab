@@ -6,37 +6,43 @@ input[type="radio"]:disabled ~ label {
     opacity: 0.3;
 }
 
+// BEVM: text-input, text-input__input, text-input__border
 
 // Put this input wrapper around the text input element
 
-.form--input-wrapper {
-    width: 100%;
-    border: none;
-    margin: 0 auto;
+.text-input {
     position: relative;
-    .form--input-text {
+    width: 100%;
+    margin: 0 auto;
+    border: 0;
+
+    .text-input__input {
         width: 100%;
-        border: none;
         padding: 10px 2px;
-        &:focus + .form--input-border {
+        border: 0;
+
+        &:focus + .text-input__border {
             border-width: 3px 0px 3px 0px;
             border-radius: 4px;
-            border-color: #43c8a2;
+            border-color: nth($pe-primary-color-list, 3);
         }
     }
-    .form--input-border {
-        content: "";
-        transition: all .1s ease-in-out;
+
+    .text-input__border {
         display: block;
         position: absolute;
-        z-index: 1;
         bottom: 0;
         width: 100%;
-        height: 0px;
+        height: 0;
+        transition-duration: .1s; 
+        transition-property: border-width, border-color, border-radius;
+        transition-timing-function: ease-in-out;
+        border-width: 1px 0px 1px 0px;
         border-style: solid;
         border-radius: 3px;
-        border-width: 1px 0px 1px 0px;
-        border-color: #838383;
+        border-color: $pe-color-grey;
+        content: "";
+        z-index: 1;
     }
 }
 
