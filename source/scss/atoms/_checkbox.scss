@@ -3,13 +3,16 @@
 // ==========================================================================
 // sass-lint:disable empty-line-between-blocks
 %checkbox {
-    // Base checkbox rules
-    width: 100%;    
+    // Base checkbox rules  
+    width: 100%;
+    line-height: 0;
 }
 
 %checkbox__input {
     // Base checkbox input rules
-    display: none;  
+    display: none;
+
+    // input state determines label styles  
     &:checked + .checkbox__label {
         &::before {
             opacity: 1;
@@ -33,7 +36,9 @@
         vertical-align: middle;
     }
     &::before {        
-        // Before is the check mark        
+        // Before is the check mark
+        top: 0;        
+        left: 0;
         transition: 0.15s opacity ease-in-out;
         color: $pe-color-primary;
         text-align: center;
@@ -55,9 +60,10 @@
 }
 
 @mixin checkbox-label-size ($size) {    
+    width: $size;
     height: $size;
-    padding-left: $size * 1.3;
     font-size: rem($size * 0.68);
+    line-height: rem($size * 1);
     &::before, 
     &::after {            
         width: $size;
@@ -65,9 +71,8 @@
     }
     &::before {        
         // Before is the check mark        
-        top: rem(-($size/4));
-        left: rem($size/20);
-        font-size: rem($size);               
+        // top: rem(-($size/4));
+        font-size: rem($size);                       
     }
 }
 
