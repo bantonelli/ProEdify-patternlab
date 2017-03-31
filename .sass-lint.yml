@@ -254,7 +254,7 @@ rules:
       - 'z-index'      
   pseudo-element: 1
   quotes: 0 # Enforces single or double quote strings 
-  shorthand-values: 1
+  shorthand-values: 0
   url-quotes: 1
   variable-for-property: 1
   zero-unit: 1
