@@ -22,44 +22,82 @@
     @include font-family-paragraph-italic();
 }
 
-.typography-paragraph {
-    @extend %paragraph;
-    @include font-sizing-paragraph();
-
-    &--italic {
-        @extend %paragraph--italic;
-        @include font-sizing-paragraph();        
-    }
+%headline {
+    @include font-family-headline();
 }
 
-.typography-meta {
-    @extend %paragraph;
-    @include font-sizing-meta-data();
+.typography {
+    &-h1 {
+        @include font-family-brand();
+        @include font-sizing-h1();
+    }
 
-    &--italic {
-        @extend %paragraph--italic;
+    &-h2 {
+        @extend %headline;
+        @include font-sizing-h2();
+    }
+
+    &-h3 {
+        @extend %headline;
+        @include font-sizing-h3();
+    }
+
+    &-h4 {
+        @extend %headline;
+        @include font-sizing-h4();
+    }
+
+    &-h5 {
+        @extend %headline;
+        @include font-sizing-h5();
+    }
+
+    &-h6 {
+        @extend %headline;
+        @include font-sizing-h6();
+    }   
+
+    &-paragraph {
+        @extend %paragraph;
+        @include font-sizing-paragraph();
+
+        &--italic {
+            @extend %paragraph--italic;
+            @include font-sizing-paragraph();        
+        }
+    }
+
+    &-meta {
+        @extend %paragraph;
         @include font-sizing-meta-data();
+
+        &--italic {
+            @extend %paragraph--italic;
+            @include font-sizing-meta-data();
+        }
     }
-}
 
-.typography-sub-paragraph {
-    @extend %paragraph;
-    @include font-sizing-sub-paragraph();
-
-    &--italic {
-        @extend %paragraph--italic;
+    &-sub-paragraph {
+        @extend %paragraph;
         @include font-sizing-sub-paragraph();
+
+        &--italic {
+            @extend %paragraph--italic;
+            @include font-sizing-sub-paragraph();
+        }
     }
-}
 
-.typography-legal {
-    @include font-family-legal();
-    @include font-sizing-legal();
-
-    &--italic {
-        @include font-family-legal-italic();
+    &-legal {
+        @include font-family-legal();
         @include font-sizing-legal();
+
+        &--italic {
+            @include font-family-legal-italic();
+            @include font-sizing-legal();
+        }
     }
 }
+
+
 
 

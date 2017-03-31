@@ -163,39 +163,6 @@ body {
   font-size: 16px;
   line-height: 1.5; }
 
-h1 {
-  font-family: "League Spartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  font-size: 3.05125rem;
-  letter-spacing: -0.3px; }
-
-h2 {
-  font-family: "cabinbold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 3.05125rem;
-  letter-spacing: -1.7px; }
-
-h3 {
-  font-family: "cabinbold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 2.44125rem;
-  letter-spacing: -1.4px; }
-
-h4 {
-  font-family: "cabinbold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.95375rem;
-  letter-spacing: -1px; }
-
-h5 {
-  font-family: "cabinbold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.5625rem;
-  letter-spacing: -0.75px; }
-
-h6 {
-  font-family: "cabinbold", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.25rem;
-  letter-spacing: -0.5px; }
-
 .button {
   height: 50px;
   transition: border-width, background, filter .2s;
@@ -450,6 +417,37 @@ input[type="radio"]:disabled ~ label {
 
 .typography-paragraph--italic, .typography-meta--italic, .typography-sub-paragraph--italic {
   font-family: "source_sans_proitalic", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.typography-h2, .typography-h3, .typography-h4, .typography-h5, .typography-h6 {
+  font-family: "cabinbold", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.typography-h1 {
+  font-family: "League Spartan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-size: 3.05125rem;
+  letter-spacing: -0.3px; }
+
+.typography-h2 {
+  font-size: 3.05125rem;
+  letter-spacing: -1.7px; }
+
+.typography-h3 {
+  font-size: 2.44125rem;
+  letter-spacing: -1.4px; }
+
+.typography-h4 {
+  font-size: 1.95375rem;
+  letter-spacing: -1px; }
+
+.typography-h5 {
+  font-size: 1.5625rem;
+  letter-spacing: -0.75px; }
+
+.typography-h6 {
+  font-size: 1.25rem;
+  letter-spacing: -0.5px; }
 
 .typography-paragraph {
   font-size: 1rem;
