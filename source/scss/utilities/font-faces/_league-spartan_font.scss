@@ -3,10 +3,23 @@
 // ========================================================================== 
 // sass-lint:disable indentation
 
-@font-face {
+/*@font-face {
     font-family: 'league_spartanregular';
     font-style: normal;
     font-weight: normal;
     src: url('../fonts/league_spartan/leaguespartan-bold-webfont.woff2') format('woff2'),
          url('../fonts/league_spartan/leaguespartan-bold-webfont.woff') format('woff');
+}*/
+
+@font-face {
+    font-family: 'League Spartan';
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/league_spartan/leaguespartan-bold.eot'),
+         url('../fonts/league_spartan/leaguespartan-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/league_spartan/leaguespartan-bold.woff2') format('woff2'),
+         url('../fonts/league_spartan/leaguespartan-bold.woff') format('woff'),
+         url('../fonts/league_spartan/leaguespartan-bold.ttf') format('truetype'),
+         url('../fonts/league_spartan/leaguespartan-bold.svg#league_spartanbold') format('svg');
+
 }

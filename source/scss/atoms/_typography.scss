@@ -1,0 +1,65 @@
+// plan blocks and elements 
+// then plan modifiers
+// then plan variants
+
+// Block classes
+// paragraph 
+// meta 
+// sub para
+// legal 
+
+// VARIATIONS 
+// Each block has regular and italic variations
+
+// MODIFIERS 
+// Will plan these later as they are needed.
+
+%paragraph {
+    @include font-family-paragraph();
+} 
+
+%paragraph--italic {
+    @include font-family-paragraph-italic();
+}
+
+.typography-paragraph {
+    @extend %paragraph;
+    @include font-sizing-paragraph();
+
+    &--italic {
+        @extend %paragraph--italic;
+        @include font-sizing-paragraph();        
+    }
+}
+
+.typography-meta {
+    @extend %paragraph;
+    @include font-sizing-meta-data();
+
+    &--italic {
+        @extend %paragraph--italic;
+        @include font-sizing-meta-data();
+    }
+}
+
+.typography-sub-paragraph {
+    @extend %paragraph;
+    @include font-sizing-sub-paragraph();
+
+    &--italic {
+        @extend %paragraph--italic;
+        @include font-sizing-sub-paragraph();
+    }
+}
+
+.typography-legal {
+    @include font-family-legal();
+    @include font-sizing-legal();
+
+    &--italic {
+        @include font-family-legal-italic();
+        @include font-sizing-legal();
+    }
+}
+
+
