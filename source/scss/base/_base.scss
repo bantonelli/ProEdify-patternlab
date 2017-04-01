@@ -9,12 +9,18 @@
 }
 
 html, 
-body {
+body {        
     @include font-family-paragraph {
         background-color: $pe-color-white;
         font-size: $pe-base-fontsize;
         line-height: ($pe-base-lineheight / $pe-base-fontsize);
     };
+
+    // FIX IOS FORM JUMPING BUG
+    -webkit-overflow-scrolling: touch !important;
+    overflow: auto !important;
+    height: 100% !important;
+    // END -->FIX IOS FORM JUMPING BUG
 }
 
 

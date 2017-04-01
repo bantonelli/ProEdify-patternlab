@@ -161,7 +161,10 @@ body {
   font-family: "source_sans_proregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #fff;
   font-size: 16px;
-  line-height: 1.5; }
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch !important;
+  overflow: auto !important;
+  height: 100% !important; }
 
 .button {
   height: 50px;
