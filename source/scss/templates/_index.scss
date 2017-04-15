@@ -1,9 +1,7 @@
 // @source http://smacss.com/book/type-layout
 //
-// Template/Layout Rules
+// Template/Major Layout Rules
 //
 // Layout styles can also be divided into major and minor styles based on
-// reuse. Major layout styles such as header and footer are traditionally
-// styled using ID selectors but take the time to think about the elements
-// that are common across all components of the page and use class selectors
-// where appropriate.
+// reuse. Templates should be considered major layout styles (screen/page-level layouts). 
+// Things such as header and footer are minor layouts (organism/component-level layouts). 

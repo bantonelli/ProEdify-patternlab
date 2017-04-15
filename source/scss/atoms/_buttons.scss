@@ -36,7 +36,10 @@
     }  
 }
 
-.-color-primary {
+// MODIFIERS
+// ----------------------------------------------
+// sass-lint:disable class-name-format
+.button_color-primary { 
     border-color: nth($pe-primary-color-list, 1);
     background: nth($pe-primary-color-list, 3);
 
@@ -45,7 +48,7 @@
     }
 }
 
-.-width-full {
+.button_width-full {
     display: block;
     width: 100%;
 }  
