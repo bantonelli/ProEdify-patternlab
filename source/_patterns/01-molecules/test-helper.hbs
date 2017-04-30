@@ -1,2 +1,10 @@
 {{add 10 4}}
 <!--Should output 14 if helpers plugins works properly-->
+{{#> atoms-tester}}
+    {{#*inline "hello-block"}}
+        NEW STUFF OVERRIDE
+    {{/inline}}
+    {{#*inline "other-block"}}
+        OTHER STUFF OVERRIDE 
+    {{/inline}}
+{{/atoms-tester}}

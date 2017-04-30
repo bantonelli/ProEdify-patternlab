@@ -190,13 +190,13 @@ body {
   .button:active {
     background: #94989c; }
 
-.-color-primary {
+.button_color-primary {
   border-color: #247c66;
   background: #3fc7a6; }
-  .-color-primary:active {
+  .button_color-primary:active {
     background: #30a387; }
 
-.-width-full {
+.button_width-full {
   display: block;
   width: 100%; }
 
