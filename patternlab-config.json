@@ -79,5 +79,10 @@
   "scripts": {
       "src": "./js/**/*.js",
       "bundle": "app.js"
+  },
+  "plugins": {
+    "plugin-node-handlebars-helpers": {
+      "enabled": true
+    }
   }
 }
