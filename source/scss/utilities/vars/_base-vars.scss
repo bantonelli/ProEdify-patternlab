@@ -10,7 +10,10 @@ $pe-color-primary: #30a387;
 $pe-color-accent: #5e274f;
 $pe-color-grey: #797e84;
 $pe-color-shadow: #505050;
+$pe-color-transparent: rgba(0, 0, 0, 0);
 
+// $timing-function: cubic-bezier(.38, .18, .68, 1.09);
+$timing-function: ease-in-out;
 
 // GRID VARS
 // ** Default Suzy Vars **//

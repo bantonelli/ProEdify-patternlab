@@ -1,10 +1,10 @@
-/*
-Mixin to create gridsys
-Take in container_width, gutter, and number of columns
-1) Calculate column width: (100/num_columns) - gutter
-2) loop to create grid classes for each breakpoint
-3)
-*/
+// sass-lint:disable-all
+
+// Mixin to create gridsys
+// Take in container_width, gutter, and number of columns
+// 1) Calculate column width: (100/num_columns) - gutter
+// 2) loop to create grid classes for each breakpoint
+// 3)
 
 $size-names: ("xs", "sm", "md", "lg");
 $size-vals: (480px, 768px, 992px, 1200px);

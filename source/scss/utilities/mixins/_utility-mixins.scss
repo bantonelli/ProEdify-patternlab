@@ -3,11 +3,11 @@
 // ==========================================================================
 
 @mixin img-replace($img, $width, $height, $display: block) {
+    display: $display;
+    width: $width;        
+    height: $height;
     background-image: url('#{$pe-relpath-images}/#{$img}');
     background-repeat: no-repeat;
-    display: $display;
-    height: $height;
-    width: $width;        
 }
 
 @mixin pseudo-element($element, $width: null, $height: null) {
@@ -15,8 +15,8 @@
     @if $element == "before" or $element == "after" {
         &:#{$element} {
             @extend %pseudos;
-            height: $height;
             width: $width;            
+            height: $height;
             @content;
         }
     } @else {
