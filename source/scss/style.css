@@ -228,13 +228,8 @@ body {
 
 .checkbox .checkbox__input {
   display: none; }
-  .checkbox .checkbox__input:checked + .checkbox__label > span {
-    color: #797e84; }
   .checkbox .checkbox__input:checked + .checkbox__label::before {
     opacity: 1; }
-  .checkbox .checkbox__input:checked + .checkbox__label::after {
-    border-color: #3fc7a6;
-    background-color: #94989c; }
   .checkbox .checkbox__input:disabled + .checkbox__label {
     opacity: 0.3; }
 
@@ -243,10 +238,6 @@ body {
   position: relative;
   cursor: pointer;
   vertical-align: top; }
-  .checkbox .checkbox__label > span {
-    color: #aeb1b5; }
-  .checkbox .checkbox__label:hover > span {
-    color: #797e84; }
   .checkbox .checkbox__label::before, .checkbox .checkbox__label::after {
     display: inline-block;
     position: absolute;
@@ -258,9 +249,7 @@ body {
     transition-duration: .25s;
     transition-property: opacity;
     transition-timing-function: ease-in-out;
-    color: #3fc7a6;
     text-align: center;
-    text-shadow: 0 1px 1px #616569;
     content: "\2713";
     opacity: 0;
     z-index: 1; }
@@ -271,15 +260,39 @@ body {
     transition-property: border-width, border-color, background, box-shadow;
     transition-timing-function: ease-in-out;
     border-style: solid;
-    border-color: #c9cbcd;
-    background-color: #aeb1b5;
     content: "\00a0";
     z-index: 0;
     box-sizing: border-box; }
 
+.checkbox .checkbox__input:checked + .checkbox__label:hover > span {
+  color: #797e84; }
+
 .checkbox .checkbox__input:checked + .checkbox__label::after {
-  border-width: 6px;
-  box-shadow: inset 0 1px 16px #616569; }
+  border-color: #3fc7a6;
+  background-color: #fff; }
+
+.checkbox .checkbox__label > span {
+  color: #94989c; }
+
+.checkbox .checkbox__label:hover > span {
+  color: #797e84; }
+
+.checkbox .checkbox__label::before {
+  color: #94989c;
+  text-shadow: 0 1px 1px #e3e4e6; }
+
+.checkbox .checkbox__label::after {
+  border-color: #aeb1b5;
+  background-color: rgba(227, 228, 230, 0.3); }
+
+.checkbox .checkbox__input:checked + .checkbox__label::after {
+  box-shadow: inset 0 1px 1rem #fff; }
+
+.checkbox .checkbox__label::after {
+  box-shadow: inset 0 1px 2rem #e3e4e6; }
+
+.checkbox .checkbox__input:checked + .checkbox__label::after {
+  border-width: 6px; }
 
 .checkbox .checkbox__label {
   width: 32px;
@@ -297,12 +310,10 @@ body {
     letter-spacing: -0.5px; }
   .checkbox .checkbox__label::after {
     border-width: 3px;
-    border-radius: 1px;
-    box-shadow: inset 0 1px 16px #797e84; }
+    border-radius: 1px; }
 
 .checkbox_size-small .checkbox__input:checked + .checkbox__label::after {
-  border-width: 4px;
-  box-shadow: inset 0 1px 12px #616569; }
+  border-width: 4px; }
 
 .checkbox_size-small .checkbox__label {
   width: 24px;
@@ -321,12 +332,10 @@ body {
     transform: scale(1.2); }
   .checkbox_size-small .checkbox__label::after {
     border-width: 2px;
-    border-radius: 1px;
-    box-shadow: inset 0 1px 12px #797e84; }
+    border-radius: 1px; }
 
 .checkbox_size-large .checkbox__input:checked + .checkbox__label::after {
-  border-width: 8px;
-  box-shadow: inset 0 1px 24px #616569; }
+  border-width: 8px; }
 
 .checkbox_size-large .checkbox__label {
   width: 48px;
@@ -344,8 +353,34 @@ body {
     letter-spacing: -1px; }
   .checkbox_size-large .checkbox__label::after {
     border-width: 4px;
-    border-radius: 1px;
-    box-shadow: inset 0 1px 24px #797e84; }
+    border-radius: 1px; }
+
+.checkbox_color-invert .checkbox__input:checked + .checkbox__label:hover > span {
+  color: #fff; }
+
+.checkbox_color-invert .checkbox__input:checked + .checkbox__label::after {
+  border-color: #3fc7a6;
+  background-color: #94989c; }
+
+.checkbox_color-invert .checkbox__label > span {
+  color: #e3e4e6; }
+
+.checkbox_color-invert .checkbox__label:hover > span {
+  color: #fff; }
+
+.checkbox_color-invert .checkbox__label::before {
+  color: #fff;
+  text-shadow: 0 1px 1px #616569; }
+
+.checkbox_color-invert .checkbox__label::after {
+  border-color: #fff;
+  background-color: #c9cbcd; }
+
+.checkbox_color-invert .checkbox__input:checked + .checkbox__label::after {
+  box-shadow: inset 0 1px 1rem #616569; }
+
+.checkbox_color-invert .checkbox__label::after {
+  box-shadow: inset 0 1px 2rem #797e84; }
 
 .primary-colors {
   flex-grow: 2; }
@@ -722,4 +757,5 @@ body {
 
 .dark-background {
   width: 100%;
+  padding: 20px 0;
   background-color: #797e84; }
