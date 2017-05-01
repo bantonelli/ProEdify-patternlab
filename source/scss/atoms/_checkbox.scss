@@ -48,8 +48,9 @@
         transition-duration: .25s;
         transition-property: opacity;
         transition-timing-function: $timing-function;
+        font-family: 'iconic';
         text-align: center;
-        content: "\2713";
+        content: $icon-checkmark;
         opacity: 0;
         z-index: 1;                        
     }
@@ -110,8 +111,7 @@
     &::before {        
         // Before is the check mark        
         @if $size <= ($pe-base-fontsize * 1.5) {
-            @include font-sizing-sub-paragraph();
-            transform: scale(1.2); 
+            @include font-sizing-paragraph();             
         } @else if $size > ($pe-base-fontsize * 2) {  
             @include font-sizing-h4(); 
         } @else {
