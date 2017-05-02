@@ -11,31 +11,12 @@
     display: inline-block;
     position: relative;
     width: 100%;
-    color: nth($pe-greyscale-color-list, 4);
-
-
-    &:hover &__label {
-        color: $pe-color-grey;
-    }
-
-    &:hover &__fill {
-        // border-color: nth($pe-greyscale-color-list, 3);
-        border-color: $pe-color-grey;
-    }
-
 }
 
 %radio__input {
     display: none;
     position: absolute;
     visibility: hidden;
-
-    &:checked + .radio__fill {
-        &::before {
-            background-color: nth($pe-primary-color-list, 3);
-            box-shadow: 0 1px 1px nth($pe-greyscale-color-list, 2);
-        }
-    }
 }
 
 %radio__label {
@@ -54,22 +35,18 @@
     transition-duration: .25s;
     transition-property: border;
     transition-timing-function: $timing-function;
-    border-width: 5px;
     border-style: solid;
     border-radius: 100%;
-    border-color: nth($pe-greyscale-color-list, 4);   
-    box-shadow: 0 0 1px nth($pe-greyscale-color-list, 2);  
 
     &::before {
         display: inline-block;
         position: absolute;
         top: 50%;  // position the top  edge of the element at the middle of the parent 
-        left: 50%; // position the left edge of the element at the middle of the parent 
-        transform: translate(-50%, -50%) scale(0.7);        
-        transition: background 0.25s $timing-function;
-        border-radius: 100%;
-        background-color: $pe-color-transparent;
-        box-shadow: 0 1px 1px $pe-color-transparent;                
+        left: 50%; // position the left edge of the element at the middle of the parent   
+        transition-duration: .25s;
+        transition-property: background, box-shadow;
+        transition-timing-function: $timing-function;              
+        border-radius: 100%;               
         content: '';
     }
 }
@@ -82,7 +59,9 @@
     $label-color-hover: $pe-color-grey, 
     $fill-border: nth($pe-greyscale-color-list, 4),
     $fill-border-hover: $pe-color-grey, 
-    $fill-color: nth($pe-primary-color-list, 3)
+    $fill-color: nth($pe-primary-color-list, 3),
+    $fill-shadow: nth($pe-greyscale-color-list, 2),
+    $fill-before-shadow: nth($pe-greyscale-color-list, 2)
     ) {        
     color: $label-color;
 
@@ -97,12 +76,19 @@
 
     .radio__fill {
         border-color: $fill-border;
+        box-shadow: 0 0 1px $fill-shadow;
+
+        &::before {
+            background-color: $pe-color-transparent;
+            box-shadow: 0 1px 1px $pe-color-transparent; 
+        }
     }
 
     .radio__input {
         &:checked + .radio__fill {
             &::before {
                 background-color: $fill-color;
+                box-shadow: 0 1px 1px $fill-before-shadow;
             }
         }
     }
@@ -154,12 +140,15 @@
         @if $size <= ($pe-base-fontsize) {
             width: $size / 2;   
             height: $size / 2;
+            transform: translate(-50%, -51.5%) scale(0.7);
         } @else if $size > ($pe-base-fontsize * 2) {
             width: (3 * $size) / 5;
             height: (3 * $size) / 5;
+            transform: translate(-50%, -50.5%) scale(0.7);
         } @else {
             width: (11 * $size) / 20;
             height: (11 * $size) / 20;
+            transform: translate(-50%, -52%) scale(0.7);
         }                   
     }
 }
@@ -169,6 +158,7 @@
 // ==========================================================================
 .radio {
     @extend %radio;
+    @include radio-color();
     @include radio-size(32px);
 
     &__input {
@@ -243,10 +233,12 @@
 // COLOR MODIFIERS
 .radio_color-invert {
     @include radio-color(
-        nth($pe-greyscale-color-list, 6), 
-        $pe-color-white, 
-        nth($pe-greyscale-color-list, 6), 
-        $pe-color-white, 
-        nth($pe-primary-color-list, 3)
+        $label-color: nth($pe-greyscale-color-list, 6), 
+        $label-color-hover: $pe-color-white, 
+        $fill-border: nth($pe-greyscale-color-list, 6), 
+        $fill-border-hover: $pe-color-white, 
+        $fill-color: nth($pe-primary-color-list, 3),
+        $fill-shadow: nth($pe-greyscale-color-list, 1),
+        $fill-before-shadow: nth($pe-greyscale-color-list, 1)
     );
 } 
