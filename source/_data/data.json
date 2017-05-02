@@ -41,6 +41,15 @@
     "large": "large",
     "xlarge": "xlarge"
   },
-  "radioLabel": "Radio Button"
- 
+  "radio": {
+    "radioLabel": "Radio Button",
+    "radioColorClass": "",
+    "radioSizeClass": ""
+  },  
+  "checkbox": {
+    "checkboxLabel": "Checkbox",
+    "checkboxColorClass": "",
+    "checkboxSizeClass": "",
+    "checkboxID": "checkbox_id"
+  }
 }
