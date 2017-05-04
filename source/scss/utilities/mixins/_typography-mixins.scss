@@ -57,39 +57,39 @@
 @mixin font-sizing-h2 {
     // Lorem ipsum dolor si_3.05125em Copy 3:
     font-size: 3.05125rem;     
-    letter-spacing: rem(-1.7px);
+    letter-spacing: rem(-1.5px);
     @content;
 }
 
 @mixin font-sizing-h3 {
     // Lorem ipsum dolor si_2.44125em:
     font-size: 2.44125rem;     
-    letter-spacing: rem(-1.4px);
+    letter-spacing: rem(-1.2px);
     @content;
 }
 
 @mixin font-sizing-h4 {
     // Lorem ipsum dolor si_1.95375em:
     font-size: 1.95375rem;         
-    letter-spacing: rem(-1px);
+    letter-spacing: rem(-0.8px);
     @content;
 }
 
 @mixin font-sizing-h5 {
     // Lorem ipsum dolor si_1.5625em:
     font-size: 1.5625rem;     
-    letter-spacing: rem(-0.75px);
+    letter-spacing: rem(-0.65px);
     @content;
 }
 
 @mixin font-sizing-h6 {
     // Lorem ipsum dolor si_1.25em: 
     font-size: 1.25rem;
-    letter-spacing: rem(-0.5px);
+    letter-spacing: rem(-0.4px);
     @content;
 }
 
-@mixin font-sizing-h7-forms {
+@mixin font-sizing-h7 {
     font-size: 1rem;
     letter-spacing: rem(-0.24px);
     @content;     

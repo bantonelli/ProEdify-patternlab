@@ -20,6 +20,7 @@
     padding: rem(10px) rem(2px);
     border: 0;
     @include font-family-forms();
+    @include font-sizing-h7();
 
     &:focus, &:active {
         outline: 0;

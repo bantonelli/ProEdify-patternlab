@@ -33,6 +33,10 @@
     cursor: pointer;
     vertical-align: top;
 
+    > span {
+        @include font-family-forms();
+    }
+
     &::before, 
     &::after {
         display: inline-block;
@@ -94,7 +98,7 @@
     > span {
         margin-left: rem($size + 10px);
         @if $size <= ($pe-base-fontsize * 1.5) {
-            @include font-sizing-paragraph(); 
+            @include font-sizing-h7(); 
         } @else if $size > ($pe-base-fontsize * 2) {  
             @include font-sizing-h4(); 
         } @else {
