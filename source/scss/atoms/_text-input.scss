@@ -14,23 +14,28 @@
 }
 
 %text-input__input {
+    @include font-family-forms();
+    @include font-sizing-h7();
     position: absolute;
-    z-index: 1;
     width: 100%;
     padding: rem(10px) rem(2px);
     border: 0;
-    @include font-family-forms();
-    @include font-sizing-h7();
+    z-index: 1;
 
-    &:focus, &:active {
+    &:focus, 
+    &:active {
         outline: 0;
     }    
 
-    &:invalid, &:-moz-submit-invalid, &:-moz-ui-invalid {
+     
+    // &:-moz-submit-invalid, 
+    // &:-moz-ui-invalid 
+    &:invalid {
         box-shadow: none;
     }
 
-    &:focus + .text-input__border, &:valid + .text-input__border {
+    &:focus + .text-input__border, 
+    &:valid + .text-input__border {
         border-width: rem(3px) 0 rem(3px) 0;
         border-radius: rem(4px);
         outline: none;
@@ -66,16 +71,18 @@
     .text-input__input {
         background-color: $pe-color-transparent;
         color: $text-color-done;
-        
+
         &::placeholder {
             color: $placeholder-color;
         }
 
-        &:focus, &:active {
+        &:focus, 
+        &:active {
             color: $text-color-active;
         }
 
-        &:focus + .text-input__border, &:valid + .text-input__border {
+        &:focus + .text-input__border, 
+        &:valid + .text-input__border {
             border-color: $border-color-focused;
             background-color: $border-color-focused;
         }        

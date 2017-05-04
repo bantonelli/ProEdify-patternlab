@@ -21,16 +21,16 @@
 }
 
 @mixin font-family-paragraph {
+    font-family: $pe-fontfamily-paragraph, $pe-fontfamily-sansserif-fallbacks;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: $pe-fontfamily-paragraph, $pe-fontfamily-sansserif-fallbacks;
     @content;
 }
 
 @mixin font-family-paragraph-bold {
+    font-family: $pe-fontfamily-paragraph-bold, $pe-fontfamily-sansserifbold-fallbacks;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    font-family: $pe-fontfamily-paragraph-bold, $pe-fontfamily-sansserifbold-fallbacks;
 }
 
 @mixin font-family-paragraph-italic {

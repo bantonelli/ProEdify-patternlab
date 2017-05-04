@@ -20,6 +20,7 @@
 }
 
 %radio__label {
+    @include font-family-forms();        
     display: inline-block;
     position: relative;
     transition-duration: 0.25s;
@@ -27,8 +28,6 @@
     transition-timing-function: $timing-function;
     cursor: pointer;
     vertical-align: top;
-    
-    @include font-family-forms();        
 }
 
 %radio__fill {
