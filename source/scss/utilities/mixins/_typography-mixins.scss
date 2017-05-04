@@ -5,21 +5,32 @@
 @mixin font-family-brand {
     font-family: $pe-fontfamily-brand, $pe-fontfamily-sansserif-fallbacks;
     text-transform: uppercase;
+    font-kerning: none;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     @content;
 }
 
 @mixin font-family-headline {
-    //-moz-osx-font-smoothing: grayscale;
-    //-webkit-font-smoothing: antialiased;
-    font-family: $pe-fontfamily-headline, $pe-fontfamily-sansserif-fallbacks;
+    font-family: $pe-fontfamily-headline, $pe-fontfamily-sansserifbold-fallbacks;
     @content;
 }
 
+@mixin font-family-forms {
+    font-family: $pe-fontfamily-forms, $pe-fontfamily-sansserifbold-fallbacks;
+}
+
 @mixin font-family-paragraph {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
     font-family: $pe-fontfamily-paragraph, $pe-fontfamily-sansserif-fallbacks;
     @content;
+}
+
+@mixin font-family-paragraph-bold {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-family: $pe-fontfamily-paragraph-bold, $pe-fontfamily-sansserifbold-fallbacks;
 }
 
 @mixin font-family-paragraph-italic {
@@ -39,43 +50,49 @@
 
 @mixin font-sizing-h1 {
     font-size: 3.05125rem;
-    letter-spacing: -0.3px;
+    letter-spacing: rem(-0.3px);
     @content;
 }
 
 @mixin font-sizing-h2 {
     // Lorem ipsum dolor si_3.05125em Copy 3:
     font-size: 3.05125rem;     
-    letter-spacing: -1.7px;
+    letter-spacing: rem(-1.7px);
     @content;
 }
 
 @mixin font-sizing-h3 {
     // Lorem ipsum dolor si_2.44125em:
     font-size: 2.44125rem;     
-    letter-spacing: -1.4px;
+    letter-spacing: rem(-1.4px);
     @content;
 }
 
 @mixin font-sizing-h4 {
     // Lorem ipsum dolor si_1.95375em:
     font-size: 1.95375rem;         
-    letter-spacing: -1px;
+    letter-spacing: rem(-1px);
     @content;
 }
 
 @mixin font-sizing-h5 {
     // Lorem ipsum dolor si_1.5625em:
     font-size: 1.5625rem;     
-    letter-spacing: -0.75px;
+    letter-spacing: rem(-0.75px);
     @content;
 }
 
 @mixin font-sizing-h6 {
     // Lorem ipsum dolor si_1.25em: 
     font-size: 1.25rem;
-    letter-spacing: -0.5px;
+    letter-spacing: rem(-0.5px);
     @content;
+}
+
+@mixin font-sizing-h7-forms {
+    font-size: 1rem;
+    letter-spacing: rem(-0.24px);
+    @content;     
 }
 
 @mixin font-sizing-paragraph {
@@ -86,20 +103,20 @@
 
 @mixin font-sizing-meta-data {
     font-size: 0.8rem; //12.8px
-    letter-spacing: -0.2px;
+    letter-spacing: rem(-0.2px);
     @content;
 }
 
 @mixin font-sizing-sub-paragraph {
     font-size: 0.625rem; //10px
-    letter-spacing: -0.2px;
+    letter-spacing: rem(-0.2px);
     @content;
 }
 
 @mixin font-sizing-legal {
     // Meta Data Text Source: 
     font-size: 0.5125rem;
-    letter-spacing: -0.2px;
+    letter-spacing: rem(-0.2px);
     @content;
 }
 
