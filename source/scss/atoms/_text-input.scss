@@ -25,11 +25,10 @@
     &:focus, 
     &:active {
         outline: 0;
-    }    
+    } 
 
-     
-    // &:-moz-submit-invalid, 
-    // &:-moz-ui-invalid 
+    //&:-moz-submit-invalid, 
+    //&:-moz-ui-invalid, 
     &:invalid {
         box-shadow: none;
     }

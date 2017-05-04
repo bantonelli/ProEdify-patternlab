@@ -51,5 +51,8 @@
     "checkboxColorClass": "",
     "checkboxSizeClass": "",
     "checkboxID": "checkbox_id"
+  },
+  "textInput": {
+    "placeholder": "Text Input"
   }
 }
