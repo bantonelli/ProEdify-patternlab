@@ -188,8 +188,8 @@ function devStyles() {
         // outputStyle: 'compressed',
         includePaths: ['node_modules/susy/sass', 'node_modules/breakpoint-sass/stylesheets']
     }).on('error', sass.logError))
-    .pipe(gulp.dest(resolvePath(paths().source.scss)))    
     .pipe(autoprefixer(config.styles.autoprefixer))
+    .pipe(gulp.dest(resolvePath(paths().source.scss)))    
     .pipe(sourcemaps.write())
     .pipe(size({ gzip: true, showFiles: true })) // Mina Markham
     // .pipe(gzip({ append: false })) // make gzip not change extension
