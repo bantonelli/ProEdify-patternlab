@@ -1,22 +1,52 @@
-<div class="checkbox {{checkbox.checkboxSizeClass}} {{checkbox.checkboxColorClass}}">
-    <input class="checkbox__input" type="checkbox" id="{{checkbox.checkboxID}}">    
-    <label class="checkbox__label" for="{{checkbox.checkboxID}}"><span>{{checkbox.checkboxLabel}}</span></label>
-</div>
-<br>
-<div class="checkbox">
-    <input class="checkbox__input" type="checkbox" id="checkbox_id2">    
-    <label class="checkbox__label" for="checkbox_id2"><span>Checkbox</span></label>
-</div>
-<br>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
 
-<div class="dark-background"> 
-    <div class="checkbox checkbox_size-large checkbox_color-invert">
-        <input class="checkbox__input" type="checkbox" id="checkbox_id_large">    
-        <label class="checkbox__label" for="checkbox_id_large"><span>Checkbox</span></label>
-    </div>    
-</div>
+<script type="text/javascript" src="/js/checkbox.js"></script>
 
-<div class="checkbox checkbox_size-large">
-    <input class="checkbox__input" type="checkbox" id="checkbox_id_large2">    
-    <label class="checkbox__label" for="checkbox_id_large2"><span>Checkbox</span></label>
-</div>
+<form id="checkbox">
+    <pe-checkbox 
+    :text='checkbox.label'
+    :id='checkbox.ID'
+    :classes='checkbox.class'
+    :formvalue='checkbox.value'
+    v-model="checked">
+    </pe-checkbox>
+    <pe-checkbox 
+    :text='otherCheckbox.label'
+    :id='otherCheckbox.ID'
+    :classes='otherCheckbox.class'
+    :formvalue='otherCheckbox.value'
+    v-model="checked">
+    </pe-checkbox>
+    \{{totalChecked}}
+</form>
+
+<script>
+var checkbox = {{{json checkbox}}};
+var otherCheckbox = {{{json otherCheckbox }}};
+new Vue({
+    el: "#checkbox",
+    data: {
+        checkbox: checkbox,
+        otherCheckbox: otherCheckbox,
+        checked: [],
+        totalChecked: []
+    },
+    watch: {
+        checked: function (val) {
+            var newVal = "";
+            if (val.charAt(val.length-1) == "*") {
+                newVal = val.substring(0, val.length - 1);
+                var index = this.totalChecked.indexOf(newVal);                
+                if (index > -1) {
+                    this.totalChecked.splice(index, 1);
+                }
+            } else {
+                this.totalChecked.push(val);
+            }              
+        }
+    },
+    components: {
+        'pe-checkbox': checkboxComponent
+    }
+});
+</script>

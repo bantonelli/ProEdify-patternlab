@@ -47,10 +47,28 @@
     "radioSizeClass": ""
   },  
   "checkbox": {
-    "checkboxLabel": "Checkbox",
-    "checkboxColorClass": "",
-    "checkboxSizeClass": "",
-    "checkboxID": "checkbox_id"
+    "ID": "checkbox_id",
+    "label": "Checkbox",
+    "class": {
+      "checkbox_size-xsmall": false,
+      "checkbox_size-small": true,
+      "checkbox_size-large": false,
+      "checkbox_size-xlarge": false,
+      "checkbox_color-invert": false
+    },
+    "value": "checkedAnOption"
+  },
+  "otherCheckbox": {
+    "ID": "checkbox_id_1",
+    "label": "Checkbox",
+    "class": {
+      "checkbox_size-xsmall": false,
+      "checkbox_size-small": false,
+      "checkbox_size-large": true,
+      "checkbox_size-xlarge": false,
+      "checkbox_color-invert": false
+    },
+    "value": "checkedAnOption1"
   },
   "textInput": {
     "placeholder": "Text Input"

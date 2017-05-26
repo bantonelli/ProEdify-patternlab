@@ -1,47 +1,72 @@
-<!--{{#block "hello"}}
-    OG Hello 
-{{/block}}-->
-
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <div id="exercise">
-  
-  <p>VueJS is pretty cool - \{{ name }} (\{{ age }})</p>
-  
-  <p>\{{ ageMultiply() }}</p>
- 
-  <p v-once>\{{ randomFloat() }}</p>
+    <button @click="changeImage"> CHANGE IMAGE </button>
+    <my-component :image="parentImage"></my-component>  
+</div>
 
-  <div>
-    <img style="width:100px;height:100px" v-bind:src="image">
-  </div>
+<script>
+// TEMPLATE FOR COMPONENT
+var template = `
+<div>  
+    <p>VueJS is pretty cool - \{{ name }} (\{{ age }})</p> 
+    <p>\{{ ageMultiply() }}</p> 
+    <p v-once>\{{ randomFloat() }}</p> 
+    <div>
+        <img style="width:100px;height:100px" :src="image">
+    </div> 
+    <div>
+        <input type="text" @keyup="setValue($event)">
+        \{{ inputValue }}        
+    </div> 
+</div>
+`;
 
-  <div>
-    <input type="text" v-on:keyup="setValue">
-    \{{ inputValue }}
-  </div>
-  <script>
-    var foo = {{{json img.avatar}}};
-    var bar = foo.src;
-    new Vue({
-        el: '#exercise',
-        data: {
+var component = {
+    props: ['image'],
+    template: template, 
+    data: function () {
+        return {
             name: "Brandon",
             age: 27,
             // image: "https://i.annihil.us/u/prod/marvel//universe3zx/images/b/bf/Acotilletta2--Iron_Fist_modern_green.jpg",
-            image: bar,
             inputValue: "Default"
-        },
-        methods: {
-            ageMultiply: function() {
-                return this.age * 3;
-            },
-            randomFloat: function() {
-                return Math.random();
-            },
-            setValue: function (event) {
-                this.inputValue = event.target.value;
-            }
         }
-    });
-  </script>
-</div>
+    },
+    methods: {
+        ageMultiply: function() {
+            return this.age * 3;
+        },
+        randomFloat: function() {
+            return Math.random();
+        },
+        setValue: function (event) {
+            this.inputValue = event.target.value;
+        }
+    }
+};
+
+// INSTANCE SIMULATES PARENT COMPONENT/INSTANCE
+// role is to send data from patternlab to component.
+var foo = {{{json img.avatar}}};
+var bar = foo.src;
+
+new Vue({
+    el: '#exercise',
+    data: {
+        parentImage: bar,
+        otherImage: "https://i.annihil.us/u/prod/marvel//universe3zx/images/b/bf/Acotilletta2--Iron_Fist_modern_green.jpg"
+    },
+    components: {
+        'my-component': component
+    },
+    methods: {
+        changeImage: function () {
+            if (this.parentImage == bar) {
+                this.parentImage = this.otherImage;
+            } else {
+                this.parentImage = bar;
+            }            
+        }
+    }
+});
+</script>
