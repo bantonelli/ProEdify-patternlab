@@ -86,8 +86,13 @@ gulp.task('sass-lint', function(done) {
  * COPY TASKS - stream assets from source to destination
 ******************************************************/
 // JS copy
-gulp.task('pl-copy:js', function(){
+gulp.task('pl-copy:srcjs', function(){
   return gulp.src(resolvePath(paths().source.buildjs) + '/**/*.js')
+    .pipe(gulp.dest(resolvePath(paths().public.js)));
+});
+
+gulp.task('pl-copy:js', function () {
+  return gulp.src(resolvePath(paths().source.js) + '/*.js')
     .pipe(gulp.dest(resolvePath(paths().public.js)));
 });
 
@@ -266,7 +271,7 @@ gulp.task('imagemin', function() {
 
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
-    gulp.series('dev:scripts', 'pl-copy:js', 'pl-copy:libjs', function(done){done();}),
+    gulp.series('dev:scripts', 'pl-copy:js', 'pl-copy:srcjs', 'pl-copy:libjs', function(done){done();}),
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
