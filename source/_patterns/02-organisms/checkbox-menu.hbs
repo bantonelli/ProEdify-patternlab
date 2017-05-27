@@ -1,0 +1,44 @@
+<!--{{> atoms-checkbox }}-->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script type="text/javascript" src="/js/checkbox.js"></script>
+<div id="search-form">
+    <pe-checkbox
+    v-for="checkbox in checkboxes"
+    :text='checkbox.label'
+    :id='checkbox.ID'
+    :classes='checkbox.class'
+    :formvalue='checkbox.value'
+    v-model="checked"
+    ></pe-checkbox>
+    \{{totalChecked}}
+</div>
+
+
+<script>
+var checkboxes = {{{json checkboxes}}};
+new Vue({
+    el: "#search-form",
+    data: {
+        checkboxes: checkboxes,
+        checked: [],
+        totalChecked: []
+    },
+    watch: {
+        checked: function (val) {
+            var newVal = "";
+            if (val.charAt(val.length-1) == "*") {
+                newVal = val.substring(0, val.length - 1);
+                var index = this.totalChecked.indexOf(newVal);                
+                if (index > -1) {
+                    this.totalChecked.splice(index, 1);
+                }
+            } else {
+                this.totalChecked.push(val);
+            }              
+        }
+    },
+    components: {
+        'pe-checkbox': checkboxComponent
+    }
+});
+</script>

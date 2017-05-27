@@ -87,8 +87,13 @@ gulp.task('sass-lint', function(done) {
 ******************************************************/
 // JS copy
 gulp.task('pl-copy:js', function(){
-  return gulp.src('**/*.js', {cwd: resolvePath(paths().source.js)} )
+  return gulp.src(resolvePath(paths().source.buildjs) + '/**/*.js')
     .pipe(gulp.dest(resolvePath(paths().public.js)));
+});
+
+gulp.task('pl-copy:libjs', function () {
+  return gulp.src(resolvePath(paths().source.libjs) + '/*.js')
+    .pipe(gulp.dest(resolvePath(paths().public.libjs)));
 });
 
 // JS copy FOR PRODUCTION BUILD 
@@ -224,7 +229,7 @@ function devScripts () {
     .pipe(sourcemaps.init())
     .pipe(babel())
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(resolvePath(paths().source.js)));
+    .pipe(gulp.dest(resolvePath(paths().source.buildjs)));
 }
 
 // PRODUCTION BUILD PROCESS FOR TRANSPILING ES2015 JS
@@ -261,7 +266,7 @@ gulp.task('imagemin', function() {
 
 gulp.task('pl-assets', gulp.series(
   gulp.parallel(
-    gulp.series('dev:scripts', 'pl-copy:js', function(done){done();}),
+    gulp.series('dev:scripts', 'pl-copy:js', 'pl-copy:libjs', function(done){done();}),
     'pl-copy:img',
     'pl-copy:favicon',
     'pl-copy:font',
@@ -276,7 +281,7 @@ gulp.task('pl-assets', gulp.series(
 
 gulp.task('pl-prod-assets', gulp.series(
   gulp.parallel(
-    gulp.series('prod:scripts', 'pl-copy:prodjs', function(done){done();}),
+    gulp.series('prod:scripts', 'pl-copy:prodjs', 'pl-copy:libjs', function(done){done();}),
     gulp.series('pl-copy:img', 'imagemin', function(done){done();}),
     'pl-copy:favicon',
     'pl-copy:font',
