@@ -1,0 +1,22 @@
+<div id="heyhey">
+    <pe-checkbox-menu></pe-checkbox-menu>
+</div>
+
+<script>
+requirejs(['vue', 'checkbox-menu'], function (Vue, CheckboxMenu) {
+    console.log(Vue);
+    console.log(CheckboxMenu);
+    new Vue({
+        el:"#heyhey",
+        data: {
+            stuff: "BRANDON WINS"
+        },
+        components: {
+            'pe-checkbox-menu': CheckboxMenu.default
+        }
+    });
+    // Vue.component('pe-checkbox-menu', CheckboxMenu.default);
+});
+</script>
+
+
