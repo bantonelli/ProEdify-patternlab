@@ -9,12 +9,13 @@
         <option value="5">Iris + Omithoalum</option>
     </select>
 </section>
-<script type="text/javascript" src="/js/select/classie.js"></script>
-<script type="text/javascript" src="/js/select/selectFx.js"></script>
-<script>
-    (function() {
-        [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
-            new SelectFx(el);
-        } );
-    })();
+<script>    
+requirejs(['../select/classie', '../select/selectFx'], function (classie, SelectFx) {
+    console.log("Classie OBJECT: ", classie);
+    console.log("SelectFx OBJECT: ", SelectFx);
+    var SelectFx = SelectFx.default;
+    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+        new SelectFx(el);
+    } );
+});
 </script>

@@ -1,7 +1,3 @@
-<script src="https://unpkg.com/vue/dist/vue.js"></script>
-
-<script type="text/javascript" src="/js/checkbox.js"></script>
-
 <form id="checkbox">
     <pe-checkbox 
     :text='checkbox.label'
@@ -10,43 +6,33 @@
     :formvalue='checkbox.value'
     v-model="checked">
     </pe-checkbox>
-    <pe-checkbox 
-    :text='otherCheckbox.label'
-    :id='otherCheckbox.ID'
-    :classes='otherCheckbox.class'
-    :formvalue='otherCheckbox.value'
-    v-model="checked">
-    </pe-checkbox>
-    \{{totalChecked}}
+    \{{checked}}
 </form>
 
 <script>
 var checkbox = {{{json checkbox}}};
-var otherCheckbox = {{{json otherCheckbox }}};
-new Vue({
-    el: "#checkbox",
-    data: {
-        checkbox: checkbox,
-        otherCheckbox: otherCheckbox,
-        checked: [],
-        totalChecked: []
-    },
-    watch: {
-        checked: function (val) {
-            var newVal = "";
-            if (val.charAt(val.length-1) == "*") {
-                newVal = val.substring(0, val.length - 1);
-                var index = this.totalChecked.indexOf(newVal);                
-                if (index > -1) {
-                    this.totalChecked.splice(index, 1);
+requirejs(['vue', 'atoms/checkbox'], function (Vue, Checkbox) {
+    new Vue({
+        el:"#checkbox",
+        data: function () {
+            return {
+                checkbox: checkbox,
+                checked: ""
+            }
+        },
+        watch: {
+            checked: function (newValue) {
+                if (newValue.charAt(newValue.length-1) == "*") {
+                    this.checked = "";
+                } else {
+                    this.checked = newValue;
                 }
-            } else {
-                this.totalChecked.push(val);
-            }              
+            }
+        },
+        components: {
+            'pe-checkbox': Checkbox.default
         }
-    },
-    components: {
-        'pe-checkbox': checkboxComponent
-    }
+    });
+    // Vue.component('pe-checkbox-menu', CheckboxMenu.default);
 });
 </script>

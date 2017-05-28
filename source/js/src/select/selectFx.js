@@ -8,10 +8,7 @@
  * Copyright 2014, Codrops
  * http://www.codrops.com
  */
-;( function( window ) {
-	
-	'use strict';
-
+import classie from './classie';
 	/**
 	 * based on from https://github.com/inuyaksa/jquery.nicescroll/blob/master/jquery.nicescroll.js
 	 */
@@ -329,9 +326,4 @@
 		}
 	}
 
-	/**
-	 * add to global namespace
-	 */
-	window.SelectFx = SelectFx;
-
-} )( window );
+export default SelectFx;
