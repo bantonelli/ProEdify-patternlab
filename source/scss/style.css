@@ -414,15 +414,15 @@ body {
     width: 2rem;
     height: 2rem; }
   .checkbox .checkbox__label::before {
-    font-size: 1.25rem;
-    letter-spacing: -0.025rem; }
+    font-size: 1rem;
+    letter-spacing: -0.015rem;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
   .checkbox .checkbox__label::after {
-    border-width: 0.1875rem;
-    -webkit-border-radius: 0.0625rem;
-            border-radius: 0.0625rem; }
+    border-width: 0.1875rem; }
 
 .checkbox_size-small .checkbox__input:checked + .checkbox__label::after {
-  border-width: 0.25rem; }
+  border-width: 0.3125rem; }
 
 .checkbox_size-small .checkbox__label {
   width: 1.5rem;
@@ -436,12 +436,14 @@ body {
     width: 1.5rem;
     height: 1.5rem; }
   .checkbox_size-small .checkbox__label::before {
-    font-size: 1rem;
-    letter-spacing: 0; }
+    font-size: 0.75rem;
+    letter-spacing: -0.0125rem;
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s; }
   .checkbox_size-small .checkbox__label::after {
-    border-width: 0.125rem;
-    -webkit-border-radius: 0.0625rem;
-            border-radius: 0.0625rem; }
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+    border-width: 0.125rem; }
 
 .checkbox_size-large .checkbox__input:checked + .checkbox__label::after {
   border-width: 0.5rem; }
@@ -458,12 +460,12 @@ body {
     width: 3rem;
     height: 3rem; }
   .checkbox_size-large .checkbox__label::before {
-    font-size: 1.95375rem;
-    letter-spacing: -0.05rem; }
+    font-size: 1.5625rem;
+    letter-spacing: -0.04063rem;
+    -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s; }
   .checkbox_size-large .checkbox__label::after {
-    border-width: 0.25rem;
-    -webkit-border-radius: 0.0625rem;
-            border-radius: 0.0625rem; }
+    border-width: 0.25rem; }
 
 .checkbox_color-invert .checkbox__input:checked + .checkbox__label:hover > span {
   color: #fff; }
@@ -672,10 +674,10 @@ body {
     letter-spacing: 0; }
 
 .typography-meta {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   letter-spacing: -0.0125rem; }
   .typography-meta--italic {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: -0.0125rem; }
 
 .typography-sub-paragraph {

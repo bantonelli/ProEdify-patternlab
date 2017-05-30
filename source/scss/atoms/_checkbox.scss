@@ -80,7 +80,7 @@
     &:checked + .checkbox__label {
         &::after {
             @if $size <= ($pe-base-fontsize * 1.5) {
-                border-width: rem(4px);  
+                border-width: rem(5px);
             } @else if $size > ($pe-base-fontsize * 2) {
                 border-width: rem(8px);
             } @else {            
@@ -115,24 +115,28 @@
     &::before {        
         // Before is the check mark        
         @if $size <= ($pe-base-fontsize * 1.5) {
-            @include font-sizing-paragraph();             
-        } @else if $size > ($pe-base-fontsize * 2) {  
-            @include font-sizing-h4(); 
+            @include font-sizing-meta-data();
+            transition-duration: 0.15s;             
+        } @else if $size > ($pe-base-fontsize * 2) {
+            @include font-sizing-h5();
+            transition-duration: 0.2s;  
         } @else {
-            @include font-sizing-h6();
+            @include font-sizing-h7();
+            transition-duration: 0.2s;
         }                               
     }
 
     &::after {
         @if $size <= ($pe-base-fontsize * 1.5) {
+            transition-duration: 0.2s; 
             border-width: rem(2px); 
-            border-radius: rem(1px); 
+            //border-radius: rem(1px);
         } @else if $size > ($pe-base-fontsize * 2) {
             border-width: rem(4px);
-            border-radius: rem(1px);
+            //border-radius: rem(2px);
         } @else {            
             border-width: rem(3px);
-            border-radius: rem(1px);
+            //border-radius: rem(2px);
         }
     }
 

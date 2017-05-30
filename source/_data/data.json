@@ -59,7 +59,19 @@
     "value": "checkedAnOption"
   },
   "otherCheckbox": {
-    "ID": "checkbox_id_1",
+    "ID": "checkbox_id_2",
+    "label": "Checkbox",
+    "class": {
+      "checkbox_size-xsmall": false,
+      "checkbox_size-small": false,
+      "checkbox_size-large": false,
+      "checkbox_size-xlarge": false,
+      "checkbox_color-invert": false
+    },
+    "value": "checkedAnOption1"
+  },
+  "thirdCheckbox": {
+    "ID": "checkbox_id_3",
     "label": "Checkbox",
     "class": {
       "checkbox_size-xsmall": false,

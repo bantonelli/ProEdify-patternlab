@@ -6,17 +6,34 @@
     :formvalue='checkbox.value'
     v-model="checked">
     </pe-checkbox>
-    \{{checked}}
+    <!--\{{checked}}-->
+    <pe-checkbox 
+    :text='otherCheckbox.label'
+    :id='otherCheckbox.ID'
+    :classes='otherCheckbox.class'
+    :formvalue='otherCheckbox.value'>
+    </pe-checkbox>
+    <pe-checkbox 
+    :text='thirdCheckbox.label'
+    :id='thirdCheckbox.ID'
+    :classes='thirdCheckbox.class'
+    :formvalue='thirdCheckbox.value'>
+    </pe-checkbox>
 </form>
 
 <script>
 var checkbox = {{{json checkbox}}};
+var otherCheckbox = {{{json otherCheckbox}}};
+var thirdCheckbox = {{{json thirdCheckbox}}};
+
 requirejs(['vue', 'atoms/checkbox'], function (Vue, Checkbox) {
     new Vue({
         el:"#checkbox",
         data: function () {
             return {
                 checkbox: checkbox,
+                otherCheckbox: otherCheckbox,
+                thirdCheckbox: thirdCheckbox,
                 checked: ""
             }
         },
