@@ -42,10 +42,29 @@
     "xlarge": "xlarge"
   },
   "radio": {
-    "radioLabel": "Radio Button",
-    "radioColorClass": "",
-    "radioSizeClass": ""
-  },  
+    "label": "Radio Button",
+    "ID": "radio_id_1",
+    "class": {
+      "radio_size-xsmall": false,
+      "radio_size-small": true,
+      "radio_size-large": false,
+      "radio_size-xlarge": false,
+      "radio_color-invert": false
+    },
+    "value": "Selected 1st Option"
+  },
+  "radio2": {
+      "label": "Radio Button 2",
+      "ID": "radio_id_2",
+      "class": {
+        "radio_size-xsmall": false,
+        "radio_size-small": true,
+        "radio_size-large": false,
+        "radio_size-xlarge": false,
+        "radio_color-invert": false
+      },
+      "value": "Selected 2nd Option"
+  },
   "checkbox": {
     "ID": "checkbox_id",
     "label": "Checkbox",
@@ -56,7 +75,7 @@
       "checkbox_size-xlarge": false,
       "checkbox_color-invert": false
     },
-    "value": "checkedAnOption"
+    "value": "checkedAnOption1"
   },
   "otherCheckbox": {
     "ID": "checkbox_id_2",
@@ -68,7 +87,7 @@
       "checkbox_size-xlarge": false,
       "checkbox_color-invert": false
     },
-    "value": "checkedAnOption1"
+    "value": "checkedAnOption2"
   },
   "thirdCheckbox": {
     "ID": "checkbox_id_3",
@@ -80,7 +99,7 @@
       "checkbox_size-xlarge": false,
       "checkbox_color-invert": false
     },
-    "value": "checkedAnOption1"
+    "value": "checkedAnOption3"
   },
   "textInput": {
     "placeholder": "Text Input"

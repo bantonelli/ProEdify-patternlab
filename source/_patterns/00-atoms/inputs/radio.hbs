@@ -1,30 +1,41 @@
-<div class="radio radio_size-{{inputSizes.xsmall}}">
-    <input class="radio__input" type="radio" id="a-option" name="selector">
-    <div class="radio__fill"></div>
-    <label class="radio__label" for="a-option">{{radio.radioLabel}}</label>
-</div>
-<div class="radio radio_size-{{inputSizes.small}}">
-    <input class="radio__input" type="radio" id="b-option" name="selector">
-    <div class="radio__fill"></div>
-    <label class="radio__label" for="b-option">{{radio.radioLabel}}</label>
-</div>
-<div class="radio {{radio.radioSizeClass}} {{radio.radioColorClass}}">
-    <input class="radio__input" type="radio" id="c-option" name="selector">
-    <div class="radio__fill"></div>
-    <label class="radio__label" for="c-option">{{radio.radioLabel}}</label>
-</div>
-<div class="dark-background"> 
-    <div class="radio radio_size-{{inputSizes.large}} radio_color-invert">
-        <input class="radio__input" type="radio" id="d-option" name="selector">
-        <div class="radio__fill"></div>
-        <label class="radio__label" for="d-option">{{radio.radioLabel}}</label>
-    </div>
-</div>
+<form id="radio">
+    <pe-radio 
+        :text='radio.label'
+        :id='radio.ID'
+        :classes='radio.class'
+        :formvalue='radio.value'
+        formname='radio-form'
+        v-model.lazy="selected">
+    </pe-radio>
+    <pe-radio 
+        :text='radio2.label'
+        :id='radio2.ID'
+        :classes='radio2.class'
+        :formvalue='radio2.value'
+        formname='radio-form'
+        v-model.lazy="selected">
+    </pe-radio>
+    <!--\{{selected}}-->
+</form>
 
-<div class="radio radio_size-{{inputSizes.xlarge}}">
-    <input class="radio__input" type="radio" id="e-option" name="selector">
-    <div class="radio__fill"></div>
-    <label class="radio__label" for="e-option">{{radio.radioLabel}}</label>
-</div>
+<script>
+const radio = {{{json radio}}};
+const radio2 = {{{json radio2}}};
 
-
+requirejs(['vue', 'atoms/Radio'], function (Vue, Radio) {
+    console.log(Radio.default);
+    new Vue({
+        el: "#radio",
+        data: function () {
+            return {
+                selected: [], 
+                radio: radio,
+                radio2: radio2
+            }
+        },
+        components: {
+            'pe-radio': Radio.default
+        }
+    });
+});
+</script>

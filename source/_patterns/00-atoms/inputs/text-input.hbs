@@ -1,11 +1,30 @@
-<div class="text-input">
-    <input type="text" class="text-input__input" placeholder="{{textInput.placeholder}}" pattern=".{2,}" required>
-    <div class="text-input__border"></div>
-</div>
-<br>
-<div class="dark-background">
+
+<!--<div class="dark-background">
     <div class="text-input text-input_color-invert">
         <input type="text" class="text-input__input" placeholder="{{textInput.placeholder}}" pattern=".{2,}" required>
         <div class="text-input__border"></div>
     </div>
-</div>
+</div>-->
+<form id="text-input">
+    <pe-text-input
+    
+    >
+    </pe-text-input>
+</form>
+
+<script>
+
+requirejs(['vue', 'atoms/TextInput'], function (Vue, TextInput) {
+    new Vue({
+        el: '#text-input',
+        data: function () {
+            return {
+
+            }
+        },
+        components: {
+            'pe-text-input': TextInput.default
+        }
+    });
+});
+</script>

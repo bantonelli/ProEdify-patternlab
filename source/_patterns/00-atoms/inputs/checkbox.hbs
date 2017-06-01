@@ -1,24 +1,26 @@
 <form id="checkbox">
     <pe-checkbox 
-    :text='checkbox.label'
-    :id='checkbox.ID'
-    :classes='checkbox.class'
-    :formvalue='checkbox.value'
-    v-model="checked">
+        :text='checkbox.label'
+        :id='checkbox.ID'
+        :classes='checkbox.class'
+        :formvalue='checkbox.value'
+        v-model.lazy="checked">
+    </pe-checkbox>    
+    <pe-checkbox 
+        :text='otherCheckbox.label'
+        :id='otherCheckbox.ID'
+        :classes='otherCheckbox.class'
+        :formvalue='otherCheckbox.value'
+        v-model.lazy="checked">
+    </pe-checkbox>
+    <pe-checkbox 
+        :text='thirdCheckbox.label'
+        :id='thirdCheckbox.ID'
+        :classes='thirdCheckbox.class'
+        :formvalue='thirdCheckbox.value'
+        v-model.lazy="checked">
     </pe-checkbox>
     <!--\{{checked}}-->
-    <pe-checkbox 
-    :text='otherCheckbox.label'
-    :id='otherCheckbox.ID'
-    :classes='otherCheckbox.class'
-    :formvalue='otherCheckbox.value'>
-    </pe-checkbox>
-    <pe-checkbox 
-    :text='thirdCheckbox.label'
-    :id='thirdCheckbox.ID'
-    :classes='thirdCheckbox.class'
-    :formvalue='thirdCheckbox.value'>
-    </pe-checkbox>
 </form>
 
 <script>
@@ -26,7 +28,7 @@ var checkbox = {{{json checkbox}}};
 var otherCheckbox = {{{json otherCheckbox}}};
 var thirdCheckbox = {{{json thirdCheckbox}}};
 
-requirejs(['vue', 'atoms/checkbox'], function (Vue, Checkbox) {
+requirejs(['vue', 'atoms/Checkbox'], function (Vue, Checkbox) {
     new Vue({
         el:"#checkbox",
         data: function () {
@@ -34,13 +36,13 @@ requirejs(['vue', 'atoms/checkbox'], function (Vue, Checkbox) {
                 checkbox: checkbox,
                 otherCheckbox: otherCheckbox,
                 thirdCheckbox: thirdCheckbox,
-                checked: ""
+                checked: []
             }
         },
         watch: {
             checked: function (newValue) {
                 if (newValue.charAt(newValue.length-1) == "*") {
-                    this.checked = "";
+                    this.checked = [];
                 } else {
                     this.checked = newValue;
                 }
