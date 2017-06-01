@@ -41,6 +41,13 @@
     "large": "large",
     "xlarge": "xlarge"
   },
+  "textInput": {
+    "placeHolder": "This is a text input field",
+    "class": {
+      "text-input_color-invert": false
+    },
+    "value": ""
+  },
   "radio": {
     "label": "Radio Button",
     "ID": "radio_id_1",
@@ -100,8 +107,5 @@
       "checkbox_color-invert": false
     },
     "value": "checkedAnOption3"
-  },
-  "textInput": {
-    "placeholder": "Text Input"
   }
 }
