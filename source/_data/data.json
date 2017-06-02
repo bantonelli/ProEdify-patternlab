@@ -48,6 +48,18 @@
     },
     "value": ""
   },
+  "selectBox": {
+    "placeHolder": "Select Input: Choose an Option",
+    "class": {
+      "select_color-invert": false
+    },
+    "options": [
+      "first",
+      "second",
+      "third",
+      "fourth"
+    ]
+  },
   "radio": {
     "label": "Radio Button",
     "ID": "radio_id_1",

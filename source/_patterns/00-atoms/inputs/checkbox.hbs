@@ -41,11 +41,7 @@ requirejs(['vue', 'atoms/Checkbox'], function (Vue, Checkbox) {
         },
         watch: {
             checked: function (newValue) {
-                if (newValue.charAt(newValue.length-1) == "*") {
-                    this.checked = [];
-                } else {
-                    this.checked = newValue;
-                }
+                this.checked = newValue;
             }
         },
         components: {

@@ -1,21 +1,58 @@
-
-<section>
+<!--<div class="select cs-select cs-skin-underline">
+    <span class="select__placeholder cs-placeholder">Choose Your Option</span>
+    <div class="cs-options">
+        <ul>
+            <li class="cs-selected">Option 1</li>
+            <li>Option 2</li>
+            <li>Option 3</li>
+        </ul>
+    </div>
     <select class="cs-select cs-skin-underline">
         <option value="" disabled selected>Choose a Bouquet</option>
         <option value="1">Gardenia + Daisies</option>
         <option value="2">Roses + Stephanotis</option>
         <option value="3">Peony + Gerbera</option>
-        <option value="4">Orchid + Limonium</option>
-        <option value="5">Iris + Omithoalum</option>
     </select>
-</section>
+</div>-->
+<form id="select-box">
+    <pe-select
+        v-model="selected"
+        :placeholdertext='selectBox.placeHolder'
+        :options='selectBox.options'
+        :classes='selectBox.class'
+        >
+    </pe-select>
+    \{{selected}}
+</form>
+
 <script>    
-requirejs(['../select/classie', '../select/selectFx'], function (classie, SelectFx) {
-    console.log("Classie OBJECT: ", classie);
-    console.log("SelectFx OBJECT: ", SelectFx);
-    var SelectFx = SelectFx.default;
-    [].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
-        new SelectFx(el);
-    } );
+
+const selectBox = {{{json selectBox}}};
+
+requirejs(['vue', 'atoms/Select'], function (Vue, Select) {
+
+    new Vue({
+        el: '#select-box',
+        data: function () {
+            return {
+                selectBox: selectBox,
+                selected: []
+            }
+        },
+        components: {
+            'pe-select': Select.default
+        }
+    });
+
 });
+/*
+CONCEPTS: 
+How does custom select work? 
+- Have custom input 
+    - Provide label and focus styles 
+    - Provide bindings to keyboard events 
+- Use the actual select element to set the selected value 
+
+*/
 </script>
+
