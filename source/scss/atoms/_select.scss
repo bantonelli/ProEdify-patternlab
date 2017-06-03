@@ -1,17 +1,19 @@
 // ==========================================================================
 // CHECKBOX STYLES
 // ==========================================================================
-// BEVM STRUCTURE: 
-// select, select__placeholder, select__options, select__option, select__input
+// BEVM STRUCTURE
+// Block: select 
+// Elements: __placeholder, __border, __options, __option
 
 // PSEUDO CLASSES 
 // ==========================================================================
 %select {
+    @include font-family-forms();
+    @include font-sizing-h7();
     display: inline-block;
     position: relative;
     width: 100%;
     max-width: 500px;
-    background: #fff;
     text-align: left;
     vertical-align: middle;
     z-index: 100;
@@ -22,19 +24,27 @@
         outline: none; // For better accessibility add a style for this in your skin 
     }
 
+    &:hover, &.is-active {
+        .select__border {
+            border-width: rem(3px) 0 rem(3px) 0;
+        }
+    }
+
     &.is-active {
         z-index: 200;
 
         .select__options {
             visibility: visible;
         }
-    }
+    }        
 }
 
 %select__placeholder {
     display: block;
     position: relative;
-    padding: 1em;
+    transition-duration: .15s; 
+    transition-property: color;
+    transition-timing-function: ease-in-out;
     text-overflow: ellipsis;
     white-space: nowrap;
     cursor: pointer;
@@ -43,18 +53,20 @@
     &::before {
         position: absolute;
         top: 50%;
-        right: 1em;
-        transform: translateY(-80%); 
+        transform: translateY(-70%) scale(0.8, 0.6); 
         content: '\25B2';       
     }
 
     &::after {
         position: absolute;
         top: 50%;
-        right: 1em;
-        transform: translateY(-20%); 
+        transform: translateY(-25%) scale(0.8, 0.6); 
         content: '\25BC';       
     }    
+}
+
+%select__border {
+    @include bottom-border();
 }
 
 %select__options {
@@ -62,45 +74,143 @@
     width: 100%;
     margin: 0;
     padding: 0;
-    background: #fff;
     list-style: none;
     overflow: hidden;
     visibility: hidden;
 }
 
 %select__option {
-    &.is-focused {
-        background-color: #ddd;
+    display: block;
+    position: relative;
+    transition-duration: .15s; 
+    transition-property: color;
+    transition-timing-function: ease-in-out;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: hidden;
+    > div {
+        @include bottom-border($border-width: rem(2px) 0, $border-radius: rem(2px));
     }
-}
-
-%select__input {
-    display: none;
 }
 
 // MIXINS
 // ==========================================================================
+// Elements: __placeholder, __border, __options, __option
+@mixin select-color (
+    $background-color: $pe-color-white,
+    $placeholder-color: nth($pe-greyscale-color-list, 4),
+    $text-color-active: nth($pe-greyscale-color-list, 2),
+    $text-color-done: nth($pe-greyscale-color-list, 2),
+    $border-color: $pe-color-grey, 
+    $border-color-focused: nth($pe-primary-color-list, 3),
+    $box-shadow: nth($pe-greyscale-color-list, 5)
+) {
+    background-color: $background-color;
+    &:hover, &.is-active {        
+        .select__placeholder {
+            color: $text-color-active;
+
+            &::before, 
+            &::after {
+                color: $text-color-active;
+            }
+        }      
+
+        .select__border {
+            border-color: $border-color-focused;
+            background-color: $border-color-focused;
+        }         
+    }
+
+    .select__placeholder {
+        color: $placeholder-color; 
+        &.is-chosen {
+            color: $text-color-done;
+        }     
+    }
+
+    .select__border {
+        border-color: $border-color;
+        background-color: $border-color;
+        box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
+    } 
+}
+
+
+@mixin select-options-color (
+    $background-color: $pe-color-white,
+    $border-color: $pe-color-grey, 
+    $border-color-hover: nth($pe-primary-color-list, 3),
+    $box-shadow: nth($pe-greyscale-color-list, 5),
+    $option-background: $pe-color-white
+) {
+    .select__option {
+        color: $border-color;
+        background-color: $background-color;
+                
+        > div {
+            border-color: $border-color;
+            box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
+        }
+
+        &:hover {
+            color: $border-color-hover;            
+            > div {
+                border-color: $border-color-hover;
+            }
+        }
+
+        &.is-focused {
+            background-color: $option-background;
+        }        
+    }
+}
+
+@mixin select-padding($padding: rem(10px)) {
+    .select__placeholder {
+        padding: $padding $padding $padding ($padding / 5);
+        &::before {
+            right: $padding;     
+        }
+
+        &::after {
+            right: $padding;      
+        } 
+    }
+    .select__options {
+        .select__option {
+            padding: ($padding * 1.5) $padding ($padding * 1.5) ($padding / 5);
+            > div {
+                margin-left: -($padding / 5);
+            }
+        }
+    }
+}
 
 
 // MAIN CLASSES
 // ========================================================================== 
 .select {
     @extend %select;
+    @include select-color();
+    @include select-padding();
 
     .select__placeholder {
         @extend %select__placeholder;
     }
 
+    .select__border {
+        @extend %select__border;
+    }
+
     .select__options {
         @extend %select__options;
+        @include select-options-color();
 
         .select__option {
             @extend %select__option;
         }
-    }
-
-    .select__input {
-        @extend %select__input;
     }
 }
 

@@ -1,8 +1,12 @@
 Basic text input.
 
 --- 
-Variables: 
-* {{textInput.placeholder}} 
+Object Properties: 
+* {{textInput.placeHolder}} 
+  * The placeholder text for input
+* {{textInput.class}}
+  * An object of modifier/variation class names mapped to booleans
+  * If class name is false it will not be applied and vice-versa
 
 Content Blocks: N/A
 

@@ -1,8 +1,11 @@
 const selectTemplate = `
 <div @click="toggleSelect" class="select" :class="[isActiveClass, classes]">
-    <span class="select__placeholder">\{{ selectedOption }}</span>
+    <span class="select__placeholder" :class="isChosenClass">\{{ selectedOption }}</span>
+    <div class="select__border"></div>
     <ul class="select__options">
-        <li class="select__option" v-for="option in options" @click="selectOption($event, option)">\{{option}}</li>
+        <li class="select__option" v-for="option in options" @click="selectOption($event, option)">\{{option}}
+            <div></div>
+        </li>
     </ul>
 </div>
 `;
@@ -20,6 +23,9 @@ export default {
             selectedOption: this.placeholdertext,
             isActiveClass: {
                 'is-active': false
+            },
+            isChosenClass: {
+                'is-chosen': false
             }
         }
     },
@@ -33,8 +39,9 @@ export default {
             }
         },
         selectOption: function (event, option) {
-            // console.log('Event: ', event);
-            // console.log('Option: ', option);
+            if (this.selectedOption !== this.placeholdertext) {
+                this.isChosenClass['is-chosen'] = true;
+            }
             this.selectedOption = option;
             this.$emit('input', this.selectedOption);
         }

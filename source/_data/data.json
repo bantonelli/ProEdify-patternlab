@@ -77,8 +77,8 @@
       "ID": "radio_id_2",
       "class": {
         "radio_size-xsmall": false,
-        "radio_size-small": true,
-        "radio_size-large": false,
+        "radio_size-small": false,
+        "radio_size-large": true,
         "radio_size-xlarge": false,
         "radio_color-invert": false
       },
