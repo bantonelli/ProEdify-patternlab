@@ -1,4 +1,4 @@
-import CheckboxComponent from './atoms/checkbox';
+import CheckboxComponent from './atoms/Checkbox';
 
 const checkboxMenuTemplate = `
 <div>

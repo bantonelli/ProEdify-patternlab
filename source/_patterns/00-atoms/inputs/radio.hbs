@@ -1,11 +1,11 @@
-<form id="radio">
+<div id="radio">
     <pe-radio 
         :text='radio.label'
         :id='radio.ID'
         :classes='radio.class'
         :formvalue='radio.value'
         formname='radio-form'
-        v-model.lazy="selected">
+        >
     </pe-radio>
     <pe-radio 
         :text='radio2.label'
@@ -13,14 +13,14 @@
         :classes='radio2.class'
         :formvalue='radio2.value'
         formname='radio-form'
-        v-model.lazy="selected">
+        >
     </pe-radio>
     <!--\{{selected}}-->
-</form>
+</div>
 
 <script>
-const radio = {{{json radio}}};
-const radio2 = {{{json radio2}}};
+var radio = {{{json radio}}};
+var radio2 = {{{json radio2}}};
 
 requirejs(['vue', 'atoms/Radio'], function (Vue, Radio) {
     console.log(Radio.default);
