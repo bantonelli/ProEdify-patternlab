@@ -759,19 +759,19 @@ body {
     outline: none; }
 
 .input__border {
+  -webkit-transition-duration: border-width;
+          transition-duration: border-width;
+  -webkit-transition-property: border-color, -webkit-border-radius;
+  transition-property: border-color, -webkit-border-radius;
+  transition-property: border-color, border-radius;
+  transition-property: border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
   display: block;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 0;
-  -webkit-transition-duration: .15s;
-          transition-duration: .15s;
-  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
-  transition-property: border-width, border-color, -webkit-border-radius;
-  transition-property: border-width, border-color, border-radius;
-  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
   border-width: 0.0625rem 0;
   border-style: solid;
   -webkit-border-radius: 0.1875rem;
@@ -779,17 +779,15 @@ body {
   z-index: 2; }
 
 .input__icon {
+  -webkit-transition-duration: color;
+          transition-duration: color;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
   position: absolute;
   top: 0;
   right: 0;
   width: 40px;
   height: 40px;
-  -webkit-transition-duration: .15s;
-          transition-duration: .15s;
-  -webkit-transition-property: color;
-  transition-property: color;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
   z-index: 2; }
   .input__icon::before {
     font-family: "iconic";
@@ -886,30 +884,30 @@ body {
     padding: 0;
     vertical-align: middle; }
   .checkbox .checkbox__label::before {
-    top: 0;
-    left: 0;
-    -webkit-transition-duration: .25s;
-            transition-duration: .25s;
-    -webkit-transition-property: opacity;
-    transition-property: opacity;
+    -webkit-transition-duration: opacity;
+            transition-duration: opacity;
+    -webkit-transition-property: ;
+    transition-property:;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
+    top: 0;
+    left: 0;
     font-family: 'iconic';
     text-align: center;
     content: "";
     opacity: 0;
     z-index: 1; }
   .checkbox .checkbox__label::after {
-    top: 0;
-    left: 0;
-    -webkit-transition-duration: .25s;
-            transition-duration: .25s;
-    -webkit-transition-property: border-width, border-color, background, -webkit-box-shadow;
-    transition-property: border-width, border-color, background, -webkit-box-shadow;
-    transition-property: border-width, border-color, background, box-shadow;
-    transition-property: border-width, border-color, background, box-shadow, -webkit-box-shadow;
+    -webkit-transition-duration: border-width;
+            transition-duration: border-width;
+    -webkit-transition-property: border-color, background, -webkit-box-shadow;
+    transition-property: border-color, background, -webkit-box-shadow;
+    transition-property: border-color, background, box-shadow;
+    transition-property: border-color, background, box-shadow, -webkit-box-shadow;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
+    top: 0;
+    left: 0;
     border-style: solid;
     content: "\00a0";
     z-index: 0;
@@ -1254,42 +1252,42 @@ body {
 
 .radio__label {
   font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
-  display: inline-block;
-  position: relative;
-  -webkit-transition-duration: 0.25s;
-          transition-duration: 0.25s;
-  -webkit-transition-property: color;
-  transition-property: color;
+  -webkit-transition-duration: color;
+          transition-duration: color;
+  -webkit-transition-property: ;
+  transition-property:;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  display: inline-block;
+  position: relative;
   cursor: pointer;
   vertical-align: top; }
 
 .radio__fill {
-  display: inline-block;
-  position: relative;
-  -webkit-transition-duration: .25s;
-          transition-duration: .25s;
-  -webkit-transition-property: border;
-  transition-property: border;
+  -webkit-transition-duration: border;
+          transition-duration: border;
+  -webkit-transition-property: ;
+  transition-property:;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  display: inline-block;
+  position: relative;
   border-style: solid;
   -webkit-border-radius: 100%;
           border-radius: 100%; }
   .radio__fill::before {
+    -webkit-transition-duration: background;
+            transition-duration: background;
+    -webkit-transition-property: -webkit-box-shadow;
+    transition-property: -webkit-box-shadow;
+    transition-property: box-shadow;
+    transition-property: box-shadow, -webkit-box-shadow;
+    -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
     display: inline-block;
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transition-duration: .25s;
-            transition-duration: .25s;
-    -webkit-transition-property: background, -webkit-box-shadow;
-    transition-property: background, -webkit-box-shadow;
-    transition-property: background, box-shadow;
-    transition-property: background, box-shadow, -webkit-box-shadow;
-    -webkit-transition-timing-function: ease-in-out;
-            transition-timing-function: ease-in-out;
     -webkit-border-radius: 100%;
             border-radius: 100%;
     content: ''; }
@@ -1465,14 +1463,12 @@ body {
       visibility: visible; }
 
 .select .select__placeholder {
-  display: block;
-  position: relative;
-  -webkit-transition-duration: .15s;
-          transition-duration: .15s;
-  -webkit-transition-property: color;
-  transition-property: color;
+  -webkit-transition-duration: color;
+          transition-duration: color;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  display: block;
+  position: relative;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
@@ -1493,19 +1489,19 @@ body {
     content: '\25BC'; }
 
 .select .select__border {
+  -webkit-transition-duration: border-width;
+          transition-duration: border-width;
+  -webkit-transition-property: border-color, -webkit-border-radius;
+  transition-property: border-color, -webkit-border-radius;
+  transition-property: border-color, border-radius;
+  transition-property: border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
   display: block;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 0;
-  -webkit-transition-duration: .15s;
-          transition-duration: .15s;
-  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
-  transition-property: border-width, border-color, -webkit-border-radius;
-  transition-property: border-width, border-color, border-radius;
-  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
   border-width: 0.0625rem 0;
   border-style: solid;
   -webkit-border-radius: 0;
@@ -1522,32 +1518,30 @@ body {
   visibility: hidden; }
 
 .select .select__options .select__option {
-  display: block;
-  position: relative;
-  -webkit-transition-duration: .15s;
-          transition-duration: .15s;
-  -webkit-transition-property: color;
-  transition-property: color;
+  -webkit-transition-duration: color;
+          transition-duration: color;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
+  display: block;
+  position: relative;
   text-overflow: ellipsis;
   white-space: nowrap;
   cursor: pointer;
   overflow: hidden; }
   .select .select__options .select__option > div {
+    -webkit-transition-duration: border-width;
+            transition-duration: border-width;
+    -webkit-transition-property: border-color, -webkit-border-radius;
+    transition-property: border-color, -webkit-border-radius;
+    transition-property: border-color, border-radius;
+    transition-property: border-color, border-radius, -webkit-border-radius;
+    -webkit-transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
     display: block;
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 0;
-    -webkit-transition-duration: .15s;
-            transition-duration: .15s;
-    -webkit-transition-property: border-width, border-color, -webkit-border-radius;
-    transition-property: border-width, border-color, -webkit-border-radius;
-    transition-property: border-width, border-color, border-radius;
-    transition-property: border-width, border-color, border-radius, -webkit-border-radius;
-    -webkit-transition-timing-function: ease-in-out;
-            transition-timing-function: ease-in-out;
     border-width: 0.125rem 0;
     border-style: solid;
     -webkit-border-radius: 0;
@@ -1635,19 +1629,19 @@ body {
     outline: none; }
 
 .text-area__border {
+  -webkit-transition-duration: border-width;
+          transition-duration: border-width;
+  -webkit-transition-property: border-color, -webkit-border-radius;
+  transition-property: border-color, -webkit-border-radius;
+  transition-property: border-color, border-radius;
+  transition-property: border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
   display: block;
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 0;
-  -webkit-transition-duration: .15s;
-          transition-duration: .15s;
-  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
-  transition-property: border-width, border-color, -webkit-border-radius;
-  transition-property: border-width, border-color, border-radius;
-  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
-  -webkit-transition-timing-function: ease-in-out;
-          transition-timing-function: ease-in-out;
   border-width: 0.0625rem 0;
   border-style: solid;
   -webkit-border-radius: 0.1875rem;

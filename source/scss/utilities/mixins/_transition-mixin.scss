@@ -1,5 +1,5 @@
-@mixin pe-transition ($properties, $duration: .15s) {
+@mixin pe-transition ($duration: .15s, $properties...) {
     transition-duration: $duration; 
     transition-property: $properties;
-    transition-timing-function: ease-in-out;
+    transition-timing-function: $timing-function;
 }

@@ -47,11 +47,9 @@
 
     &::before {        
         // Before is the check mark
+        @include pe-transition(opacity, $duration: .25s);
         top: 0;        
         left: 0;
-        transition-duration: .25s;
-        transition-property: opacity;
-        transition-timing-function: $timing-function;
         font-family: 'iconic';
         text-align: center;
         content: $icon-checkmark;
@@ -61,11 +59,9 @@
 
     &::after {            
         // After is the black box
+        @include pe-transition(border-width, border-color, background, box-shadow, $duration: .25s);
         top: 0;
         left: 0;
-        transition-duration: .25s;
-        transition-property: border-width, border-color, background, box-shadow;
-        transition-timing-function: $timing-function;        
         border-style: solid;        
         content: "\00a0";
         z-index: 0;
