@@ -20,6 +20,7 @@
     @include font-sizing-h7();
     position: absolute;
     width: 100%;
+    max-width: 100%;
     height: 100%;
     max-height: 400px;
     // @include breakpoint(map-get($pe-grid-breakpoints, md)) {
@@ -30,9 +31,9 @@
     text-overflow: clip;
     z-index: 1; 
     resize: vertical;
-    /*word-wrap: break-word;*/
+    // word-wrap: break-word; // MS alternative to overflow-wrap
     word-break: break-all;
-    /*overflow-wrap: break-word;*/
+    overflow-wrap: break-word;
     overflow-x: hidden;
     overflow-y: auto; // something other than visible
     // resize: both;

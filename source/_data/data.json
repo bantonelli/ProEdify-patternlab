@@ -44,7 +44,7 @@
   "textArea": {
     "placeHolder": "This is a text area",
     "class": {
-      "input_color-invert": false
+      "text-area_color-invert": true
     },
     "value": "",
     "columns": 20,
