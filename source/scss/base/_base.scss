@@ -10,7 +10,7 @@
 
 html, 
 body {        
-    @include font-family-paragraph {
+    @include pe-font-family-paragraph {
         background-color: $pe-color-white;
         font-size: $pe-base-fontsize;
         line-height: ($pe-base-lineheight / $pe-base-fontsize);

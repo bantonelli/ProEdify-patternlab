@@ -8,8 +8,8 @@
 // PSEUDO CLASSES 
 // ==========================================================================
 %select {
-    @include font-family-forms();
-    @include font-sizing-h7();
+    @include pe-font-family-forms();
+    @include pe-font-sizing-h7();
     display: inline-block;
     position: relative;
     width: 100%;
@@ -67,7 +67,7 @@
 }
 
 %select__border {
-    @include bottom-border($border-width: rem(1px) 0, $border-radius: 0);;
+    @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);;
 }
 
 %select__options {
@@ -92,7 +92,7 @@
     overflow: hidden;
 
     > div {
-        @include bottom-border($border-width: rem(2px) 0, $border-radius: 0);
+        @include pe-bottom-border($border-width: rem(2px) 0, $border-radius: 0);
     }
 }
 

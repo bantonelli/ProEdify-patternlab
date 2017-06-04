@@ -1,4 +1,4 @@
-@mixin bottom-border($border-width: rem(1px) 0, $border-radius: rem(3px)) {
+@mixin pe-bottom-border($border-width: rem(1px) 0, $border-radius: rem(3px)) {
     display: block;
     position: absolute;
     bottom: 0;

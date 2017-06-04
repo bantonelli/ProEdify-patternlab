@@ -34,7 +34,7 @@
     vertical-align: top;
 
     > span {
-        @include font-family-forms();
+        @include pe-font-family-forms();
     }
 
     &::before, 
@@ -98,11 +98,11 @@
     > span {
         margin-left: rem($size + 10px);
         @if $size <= ($pe-base-fontsize * 1.5) {
-            @include font-sizing-h7(); 
+            @include pe-font-sizing-h7(); 
         } @else if $size > ($pe-base-fontsize * 2) {  
-            @include font-sizing-h4(); 
+            @include pe-font-sizing-h4(); 
         } @else {
-            @include font-sizing-h6();
+            @include pe-font-sizing-h6();
         }  
     }
 
@@ -115,13 +115,13 @@
     &::before {        
         // Before is the check mark        
         @if $size <= ($pe-base-fontsize * 1.5) {
-            @include font-sizing-meta-data();
+            @include pe-font-sizing-meta-data();
             transition-duration: 0.15s;             
         } @else if $size > ($pe-base-fontsize * 2) {
-            @include font-sizing-h5();
+            @include pe-font-sizing-h5();
             transition-duration: 0.2s;  
         } @else {
-            @include font-sizing-h7();
+            @include pe-font-sizing-h7();
             transition-duration: 0.2s;
         }                               
     }

@@ -15,85 +15,85 @@
 // Will plan these later as they are needed.
 
 %paragraph {
-    @include font-family-paragraph();
+    @include pe-font-family-paragraph();
 } 
 
 %paragraph--italic {
-    @include font-family-paragraph-italic();
+    @include pe-font-family-paragraph-italic();
 }
 
 %headline {
-    @include font-family-headline();
+    @include pe-font-family-headline();
 }
 
 .typography {
     &-h1 {
-        @include font-family-brand();
-        @include font-sizing-h1();
+        @include pe-font-family-brand();
+        @include pe-font-sizing-h1();
     }
 
     &-h2 {
         @extend %headline;
-        @include font-sizing-h2();
+        @include pe-font-sizing-h2();
     }
 
     &-h3 {
         @extend %headline;
-        @include font-sizing-h3();
+        @include pe-font-sizing-h3();
     }
 
     &-h4 {
         @extend %headline;
-        @include font-sizing-h4();
+        @include pe-font-sizing-h4();
     }
 
     &-h5 {
         @extend %headline;
-        @include font-sizing-h5();
+        @include pe-font-sizing-h5();
     }
 
     &-h6 {
         @extend %headline;
-        @include font-sizing-h6();
+        @include pe-font-sizing-h6();
     }   
 
     &-paragraph {
         @extend %paragraph;
-        @include font-sizing-paragraph();
+        @include pe-font-sizing-paragraph();
 
         &--italic {
             @extend %paragraph--italic;
-            @include font-sizing-paragraph();        
+            @include pe-font-sizing-paragraph();        
         }
     }
 
     &-meta {
         @extend %paragraph;
-        @include font-sizing-meta-data();
+        @include pe-font-sizing-meta-data();
 
         &--italic {
             @extend %paragraph--italic;
-            @include font-sizing-meta-data();
+            @include pe-font-sizing-meta-data();
         }
     }
 
     &-sub-paragraph {
         @extend %paragraph;
-        @include font-sizing-sub-paragraph();
+        @include pe-font-sizing-sub-paragraph();
 
         &--italic {
             @extend %paragraph--italic;
-            @include font-sizing-sub-paragraph();
+            @include pe-font-sizing-sub-paragraph();
         }
     }
 
     &-legal {
-        @include font-family-legal();
-        @include font-sizing-legal();
+        @include pe-font-family-legal();
+        @include pe-font-sizing-legal();
 
         &--italic {
-            @include font-family-legal-italic();
-            @include font-sizing-legal();
+            @include pe-font-family-legal-italic();
+            @include pe-font-sizing-legal();
         }
     }
 }

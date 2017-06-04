@@ -16,8 +16,8 @@
 }
 
 %text-area__input {
-    @include font-family-forms();
-    @include font-sizing-h7();
+    @include pe-font-family-forms();
+    @include pe-font-sizing-h7();
     position: absolute;
     width: 100%;
     max-width: 100%;
@@ -58,7 +58,7 @@
 }
 
 %text-area__border {
-    @include bottom-border() {
+    @include pe-bottom-border() {
         bottom: rem(-12px);
     };
     transform: translateY(-50%);

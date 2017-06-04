@@ -702,10 +702,7 @@ body {
   transition: border-width, background, -webkit-filter .2s;
   transition: border-width, background, filter .2s;
   transition: border-width, background, filter .2s, -webkit-filter .2s;
-  border-width: 0 0 3px;
   border-style: solid;
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
   vertical-align: middle; }
   .button:hover {
     -webkit-transition-duration: .1s;
@@ -719,8 +716,6 @@ body {
     outline: none; }
 
 .button {
-  display: inline-block;
-  width: 200px;
   border-color: #797e84;
   background: #94989c; }
   .button:active {

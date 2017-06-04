@@ -1,12 +1,13 @@
 // ==========================================================================
 // BUTTON STYLES
 // ==========================================================================
+
+// PSEUDO CLASSES 
+// ==========================================================================
 %button {
     height: 50px;    
     transition: border-width, background, filter .2s;
-    border-width: 0 0 3px;
     border-style: solid;    
-    border-radius: 4px;
     vertical-align: middle;
 
     &:hover {
@@ -24,20 +25,58 @@
     }
 }
 
-.button {
-    @extend %button;  
+%button__text {
     display: inline-block;
-    width: 200px;
-    border-color: nth($pe-greyscale-color-list, 2);
-    background: nth($pe-greyscale-color-list, 3);
+    text-align: center;
+}
+
+// MIXINS
+// ==========================================================================
+@mixin button-color (
+    $border-color: nth($pe-greyscale-color-list, 2),
+    $background: nth($pe-greyscale-color-list, 3),
+    $background-active: nth($pe-greyscale-color-list, 3)   
+) {
+    border-color: $border-color;
+    background: $background;
 
     &:active {
-        background: nth($pe-greyscale-color-list, 3);
+        background: $background-active;
     }  
 }
 
-// MODIFIERS
-// ----------------------------------------------
+@mixin button-size (
+    $button-width: 200px,
+    $button-height: 50px,
+    $border-radius: rem(4px),
+    $border-width: rem(3px),
+    $border-width-hover: rem(6px),
+    $border-width-active: rem(4px)
+) {
+    width: $button-width;
+    height: $button-height;
+    border-width: 0 0 $border-width;
+    border-radius: 4px;
+
+    &:hover {    
+        border-bottom: $border-width-hover solid;    
+    }
+
+    &:active {
+        border-bottom: $border-width-active solid;
+    }    
+}
+
+// MAIN CLASSES
+// ==========================================================================
+.button {
+    @extend %button;
+    @include button-color();  
+}
+
+
+// MODIFIER CLASSES 
+// ==========================================================================
 // sass-lint:disable class-name-format
 .button_color-primary { 
     border-color: nth($pe-primary-color-list, 1);

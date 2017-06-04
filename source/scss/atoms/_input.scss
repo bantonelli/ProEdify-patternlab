@@ -14,8 +14,8 @@
 }
 
 %input__input {
-    @include font-family-forms();
-    @include font-sizing-h7();
+    @include pe-font-family-forms();
+    @include pe-font-sizing-h7();
     position: absolute;
     width: 100%;
     padding: rem(10px) rem(2px);
@@ -42,7 +42,7 @@
 }
 
 %input__border {
-    @include bottom-border();
+    @include pe-bottom-border();
 }
 
 %input__icon {
@@ -57,8 +57,8 @@
     z-index: 2;
 
     &::before {
-        @include font-family-icon();
-        @include font-sizing-h7();
+        @include pe-font-family-icon();
+        @include pe-font-sizing-h7();
         position: absolute;
         top: 50%;
         transform: translateY(-50%) translateX(50%); 

@@ -2,7 +2,7 @@
 // Typographic Mixins 
 // ==========================================================================
 // sass-lint:disable no-vendor-prefixes
-@mixin font-family-brand {
+@mixin pe-font-family-brand {
     font-family: $pe-fontfamily-brand, $pe-fontfamily-sansserif-fallbacks;
     text-transform: uppercase;
     font-kerning: none;
@@ -11,115 +11,115 @@
     @content;
 }
 
-@mixin font-family-headline {
+@mixin pe-font-family-headline {
     font-family: $pe-fontfamily-headline, $pe-fontfamily-sansserifbold-fallbacks;
     @content;
 }
 
-@mixin font-family-icon {
+@mixin pe-font-family-icon {
     font-family: $pe-fontfamily-icons;
     @content;
 }
 
-@mixin font-family-forms {
+@mixin pe-font-family-forms {
     font-family: $pe-fontfamily-forms, $pe-fontfamily-sansserifbold-fallbacks;
     @content;
 }
 
-@mixin font-family-paragraph {
+@mixin pe-font-family-paragraph {
     font-family: $pe-fontfamily-paragraph, $pe-fontfamily-sansserif-fallbacks;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     @content;
 }
 
-@mixin font-family-paragraph-bold {
+@mixin pe-font-family-paragraph-bold {
     font-family: $pe-fontfamily-paragraph-bold, $pe-fontfamily-sansserifbold-fallbacks;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
 
-@mixin font-family-paragraph-italic {
+@mixin pe-font-family-paragraph-italic {
     font-family: $pe-fontfamily-paragraph-italic, $pe-fontfamily-sansserif-fallbacks;
     @content;
 }
 
-@mixin font-family-legal {
+@mixin pe-font-family-legal {
     font-family: $pe-fontfamily-legal, $pe-fontfamily-serif-fallbacks;
     @content;
 }
 
-@mixin font-family-legal-italic {
+@mixin pe-font-family-legal-italic {
     font-family: $pe-fontfamily-legal-italic, $pe-fontfamily-serif-fallbacks;
     @content;
 }
 
-@mixin font-sizing-h1 {
+@mixin pe-font-sizing-h1 {
     font-size: 3.05125rem;
     letter-spacing: rem(-0.3px);
     @content;
 }
 
-@mixin font-sizing-h2 {
+@mixin pe-font-sizing-h2 {
     // Lorem ipsum dolor si_3.05125em Copy 3:
     font-size: 3.05125rem;     
     letter-spacing: rem(-1.5px);
     @content;
 }
 
-@mixin font-sizing-h3 {
+@mixin pe-font-sizing-h3 {
     // Lorem ipsum dolor si_2.44125em:
     font-size: 2.44125rem;     
     letter-spacing: rem(-1.2px);
     @content;
 }
 
-@mixin font-sizing-h4 {
+@mixin pe-font-sizing-h4 {
     // Lorem ipsum dolor si_1.95375em:
     font-size: 1.95375rem;         
     letter-spacing: rem(-0.8px);
     @content;
 }
 
-@mixin font-sizing-h5 {
+@mixin pe-font-sizing-h5 {
     // Lorem ipsum dolor si_1.5625em:
     font-size: 1.5625rem;     
     letter-spacing: rem(-0.65px);
     @content;
 }
 
-@mixin font-sizing-h6 {
+@mixin pe-font-sizing-h6 {
     // Lorem ipsum dolor si_1.25em: 
     font-size: 1.25rem;
     letter-spacing: rem(-0.4px);
     @content;
 }
 
-@mixin font-sizing-h7 {
+@mixin pe-font-sizing-h7 {
     font-size: 1rem;
     letter-spacing: rem(-0.24px);
     @content;     
 }
 
-@mixin font-sizing-paragraph {
+@mixin pe-font-sizing-paragraph {
     font-size: 1rem;
     letter-spacing: 0;
     @content;
 }
 
-@mixin font-sizing-meta-data {
+@mixin pe-font-sizing-meta-data {
     font-size: 0.75rem; // 0.8 == 12.8px
     letter-spacing: rem(-0.2px);
     @content;
 }
 
-@mixin font-sizing-sub-paragraph {
+@mixin pe-font-sizing-sub-paragraph {
     font-size: 0.625rem; //10px
     letter-spacing: rem(-0.2px);
     @content;
 }
 
-@mixin font-sizing-legal {
+@mixin pe-font-sizing-legal {
     // Meta Data Text Source: 
     font-size: 0.5125rem;
     letter-spacing: rem(-0.2px);
