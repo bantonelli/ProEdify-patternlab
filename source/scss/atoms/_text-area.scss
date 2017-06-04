@@ -1,26 +1,41 @@
 // ==========================================================================
-// TEXT INPUT STYLES
+// TEXT AREA STYLES: For <textarea> inputs 
 // ==========================================================================
-// BEVM: text-input, text-input__input, text-input__border
+// BEVM: text-area, text-area__input, text-area__border
 
 // PSEUDO CLASSES 
 // ==========================================================================
-%text-input {
+%text-area {
     position: relative;
     width: 100%;
-    height: 40px;
+    height: 100%;
+    max-height: 400px;
     margin: 0 auto;
+    margin-bottom: rem(12px);
     border: 0;
 }
 
-%text-input__input {
+%text-area__input {
     @include font-family-forms();
     @include font-sizing-h7();
     position: absolute;
     width: 100%;
-    padding: rem(10px) rem(2px);
+    height: 100%;
+    max-height: 400px;
+    // @include breakpoint(map-get($pe-grid-breakpoints, md)) {
+    //     height: 300px;
+    // }    
+    padding: rem(5px) rem(10px);
     border: 0;
-    z-index: 1;
+    text-overflow: clip;
+    z-index: 1; 
+    resize: vertical;
+    /*word-wrap: break-word;*/
+    word-break: break-all;
+    /*overflow-wrap: break-word;*/
+    overflow-x: hidden;
+    overflow-y: auto; // something other than visible
+    // resize: both;
 
     &:focus, 
     &:active {
@@ -33,21 +48,25 @@
         box-shadow: none;
     }
 
-    &:focus + .text-input__border, 
-    &:valid + .text-input__border {
+    &:focus + .text-area__border, 
+    &:valid + .text-area__border {
         border-width: rem(3px) 0 rem(3px) 0;
         border-radius: rem(4px);
         outline: none;
     }
 }
 
-%text-input__border {
-    @include bottom-border();
+%text-area__border {
+    @include bottom-border() {
+        bottom: rem(-12px);
+    };
+    transform: translateY(-50%);
 }
+
 
 // MIXINS
 // ==========================================================================
-@mixin text-input-color (
+@mixin text-area-color (
     $placeholder-color: nth($pe-greyscale-color-list, 4),
     $text-color-active: nth($pe-greyscale-color-list, 2),
     $text-color-done: nth($pe-greyscale-color-list, 2),
@@ -55,7 +74,7 @@
     $border-color-focused: nth($pe-primary-color-list, 3),
     $box-shadow: nth($pe-greyscale-color-list, 5)
 ) {
-    .text-input__input {
+    .text-area__input {
         background-color: $pe-color-transparent;
         color: $text-color-done;
 
@@ -68,33 +87,33 @@
             color: $text-color-active;
         }
 
-        &:focus + .text-input__border, 
-        &:valid + .text-input__border {
+        &:focus + .text-area__border, 
+        &:valid + .text-area__border {
             border-color: $border-color-focused;
             background-color: $border-color-focused;
         }        
     }
 
-    .text-input__border {
+    .text-area__border {
         border-color: $border-color;
         background-color: $border-color;
         box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
-    }    
+    } 
 }
 
 
 // MAIN CLASSES 
 // ==========================================================================
-.text-input {
-    @extend %text-input;
-    @include text-input-color();
+.text-area {
+    @extend %text-area;
+    @include text-area-color();
 
     &__input {
-        @extend %text-input__input;
+        @extend %text-area__input;
     }
 
     &__border {
-        @extend %text-input__border;
+        @extend %text-area__border;
     }
 }
 
@@ -104,8 +123,8 @@
 // sass-lint:disable class-name-format
 
 // Color Modifiers 
-.text-input_color-invert {
-    @include text-input-color (
+.text-area_color-invert {
+    @include text-area-color (
         $placeholder-color: nth($pe-greyscale-color-list, 6),
         $text-color-active: $pe-color-white,
         $text-color-done: $pe-color-white,

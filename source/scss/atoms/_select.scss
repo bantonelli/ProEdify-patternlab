@@ -1,5 +1,5 @@
 // ==========================================================================
-// CHECKBOX STYLES
+// SELECT BOX STYLES
 // ==========================================================================
 // BEVM STRUCTURE
 // Block: select 
@@ -24,7 +24,8 @@
         outline: none; // For better accessibility add a style for this in your skin 
     }
 
-    &:hover, &.is-active {
+    &:hover, 
+    &.is-active {
         .select__border {
             border-width: rem(3px) 0 rem(3px) 0;
         }
@@ -66,7 +67,7 @@
 }
 
 %select__border {
-    @include bottom-border();
+    @include bottom-border($border-width: rem(1px) 0, $border-radius: 0);;
 }
 
 %select__options {
@@ -89,8 +90,9 @@
     white-space: nowrap;
     cursor: pointer;
     overflow: hidden;
+
     > div {
-        @include bottom-border($border-width: rem(2px) 0, $border-radius: rem(2px));
+        @include bottom-border($border-width: rem(2px) 0, $border-radius: 0);
     }
 }
 
@@ -107,7 +109,9 @@
     $box-shadow: nth($pe-greyscale-color-list, 5)
 ) {
     background-color: $background-color;
-    &:hover, &.is-active {        
+
+    &:hover, 
+    &.is-active {        
         .select__placeholder {
             color: $text-color-active;
 
@@ -125,6 +129,7 @@
 
     .select__placeholder {
         color: $placeholder-color; 
+
         &.is-chosen {
             color: $text-color-done;
         }     
@@ -146,16 +151,17 @@
     $option-background: $pe-color-white
 ) {
     .select__option {
-        color: $border-color;
         background-color: $background-color;
-                
+        color: $border-color;
+
         > div {
             border-color: $border-color;
             box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
         }
 
         &:hover {
-            color: $border-color-hover;            
+            color: $border-color-hover;
+
             > div {
                 border-color: $border-color-hover;
             }
@@ -170,6 +176,7 @@
 @mixin select-padding($padding: rem(10px)) {
     .select__placeholder {
         padding: $padding $padding $padding ($padding / 5);
+
         &::before {
             right: $padding;     
         }
@@ -178,9 +185,11 @@
             right: $padding;      
         } 
     }
+
     .select__options {
         .select__option {
             padding: ($padding * 1.5) $padding ($padding * 1.5) ($padding / 5);
+
             > div {
                 margin-left: -($padding / 5);
             }

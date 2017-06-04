@@ -41,12 +41,30 @@
     "large": "large",
     "xlarge": "xlarge"
   },
-  "textInput": {
-    "placeHolder": "This is a text input field",
+  "textArea": {
+    "placeHolder": "This is a text area",
     "class": {
-      "text-input_color-invert": false
+      "input_color-invert": false
     },
-    "value": ""
+    "value": "",
+    "columns": 20,
+    "rows": 3
+  },
+  "textInput": {
+    "placeHolder": "This is a text input",
+    "class": {
+      "input_color-invert": false
+    },
+    "value": "",
+    "type": "text"
+  },
+  "searchInput": {
+    "placeHolder": "This is a search input field",
+    "class": {
+      "input_color-invert": false
+    },
+    "value": "",
+    "type": "search"
   },
   "selectBox": {
     "placeHolder": "Select Input: Choose an Option",

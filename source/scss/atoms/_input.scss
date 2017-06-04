@@ -1,0 +1,153 @@
+// ==========================================================================
+// INPUT STYLES: Also used for search-fields, email-fields and password-field
+// ==========================================================================
+// BEVM: input, input__input, input__border, input__icon
+
+// PSEUDO CLASSES 
+// ==========================================================================
+%input {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 0 auto;
+    border: 0;
+}
+
+%input__input {
+    @include font-family-forms();
+    @include font-sizing-h7();
+    position: absolute;
+    width: 100%;
+    padding: rem(10px) rem(2px);
+    border: 0;
+    z-index: 1;
+
+    &:focus, 
+    &:active {
+        outline: 0;
+    } 
+
+    //&:-moz-submit-invalid, 
+    //&:-moz-ui-invalid, 
+    &:invalid {
+        box-shadow: none;
+    }
+
+    &:focus + .input__border, 
+    &:valid + .input__border {
+        border-width: rem(3px) 0 rem(3px) 0;
+        border-radius: rem(4px);
+        outline: none;
+    }
+}
+
+%input__border {
+    @include bottom-border();
+}
+
+%input__icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transition-duration: .15s; 
+    transition-property: color;
+    transition-timing-function: ease-in-out;
+    z-index: 2;
+
+    &::before {
+        @include font-family-icon();
+        @include font-sizing-h7();
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX(50%); 
+        font-family: 'iconic';
+        // content: $icon-magnifying-glass;
+    }
+}
+
+// MIXINS
+// ==========================================================================
+@mixin input-color (
+    $placeholder-color: nth($pe-greyscale-color-list, 4),
+    $text-color-active: nth($pe-greyscale-color-list, 2),
+    $text-color-done: nth($pe-greyscale-color-list, 2),
+    $icon-color-focused: nth($pe-primary-color-list, 3),
+    $border-color: $pe-color-grey, 
+    $border-color-focused: nth($pe-primary-color-list, 3),
+    $box-shadow: nth($pe-greyscale-color-list, 5)
+) {
+    .input__input {
+        background-color: $pe-color-transparent;
+        color: $text-color-done;
+
+        &::placeholder {
+            color: $placeholder-color;
+        }
+
+        &:focus, 
+        &:active {
+            color: $text-color-active;
+        }
+
+        &:focus ~ .input__icon,
+        &:valid ~ .input__icon {
+            color: $icon-color-focused;
+        }
+
+        &:focus + .input__border, 
+        &:valid + .input__border {
+            border-color: $border-color-focused;
+            background-color: $border-color-focused;
+        }        
+    }
+
+    .input__border {
+        border-color: $border-color;
+        background-color: $border-color;
+        box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
+    } 
+
+    .input__icon {
+        color: $placeholder-color;
+    }   
+}
+
+
+// MAIN CLASSES 
+// ==========================================================================
+.input {
+    @extend %input;
+    @include input-color();
+
+    &__input {
+        @extend %input__input;
+    }
+
+    &__border {
+        @extend %input__border;
+    }
+
+    &__icon {
+        @extend %input__icon;
+    }
+}
+
+
+// MODIFIER CLASSES 
+// ==========================================================================
+// sass-lint:disable class-name-format
+
+// Color Modifiers 
+.input_color-invert {
+    @include input-color (
+        $placeholder-color: nth($pe-greyscale-color-list, 6),
+        $text-color-active: $pe-color-white,
+        $text-color-done: $pe-color-white,
+        $icon-color-focused: nth($pe-primary-color-list, 4),
+        $border-color: $pe-color-white, 
+        $border-color-focused: nth($pe-primary-color-list, 3),
+        $box-shadow: nth($pe-greyscale-color-list, 2)
+    );
+}

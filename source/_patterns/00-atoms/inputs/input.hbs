@@ -1,0 +1,27 @@
+<form id="input">
+    <pe-input
+    :classes="input.class"
+    :placeholder="input.placeHolder"
+    v-model="Value"
+    >
+    </pe-input>
+    <!--\{{Value}}-->
+</form>
+
+<script>
+    var input = {{{json textInput}}};
+    requirejs(['vue', 'atoms/Input'], function (Vue, Input) {
+        new Vue({
+            el: '#input',
+            data: function () {
+                return {
+                    input: input,
+                    Value: ""
+                }
+            },
+            components: {
+                'pe-input': Input.default
+            }
+        });
+    });
+</script>

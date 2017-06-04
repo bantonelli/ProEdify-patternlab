@@ -1,0 +1,27 @@
+<form id="text-area" style="height: 500px;">
+    <pe-text-area
+    :classes="textArea.class"
+    :placeholder="textArea.placeHolder"
+    v-model="Value"
+    >
+    </pe-text-area>
+    \{{Value}}
+</form>
+
+<script>
+    var textArea = {{{json textArea}}};
+    requirejs(['vue', 'atoms/TextArea'], function (Vue, TextArea) {
+        new Vue({
+            el: '#text-area',
+            data: function () {
+                return {
+                    textArea: textArea,
+                    Value: ""
+                }
+            },
+            components: {
+                'pe-text-area': TextArea.default
+            }
+        });
+    });
+</script>
