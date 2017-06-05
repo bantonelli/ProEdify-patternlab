@@ -697,8 +697,8 @@ body {
   height: 100% !important; }
 
 .button {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: border, background, -webkit-filter;
   transition-property: border, background, -webkit-filter;
   transition-property: border, background, filter;
@@ -769,8 +769,8 @@ body {
     outline: none; }
 
 .input__border {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: border-width, border-color, -webkit-border-radius;
   transition-property: border-width, border-color, -webkit-border-radius;
   transition-property: border-width, border-color, border-radius;
@@ -789,8 +789,8 @@ body {
   z-index: 2; }
 
 .input__icon {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
@@ -896,8 +896,8 @@ body {
     padding: 0;
     vertical-align: middle; }
   .checkbox .checkbox__label::before {
-    -webkit-transition-duration: 0.15s;
-            transition-duration: 0.15s;
+    -webkit-transition-duration: .1s;
+            transition-duration: .1s;
     -webkit-transition-property: opacity;
     transition-property: opacity;
     -webkit-transition-timing-function: ease-in-out;
@@ -910,12 +910,12 @@ body {
     opacity: 0;
     z-index: 1; }
   .checkbox .checkbox__label::after {
-    -webkit-transition-duration: 0.15s;
-            transition-duration: 0.15s;
-    -webkit-transition-property: border-width, border-color, background, -webkit-box-shadow;
-    transition-property: border-width, border-color, background, -webkit-box-shadow;
-    transition-property: border-width, border-color, background, box-shadow;
-    transition-property: border-width, border-color, background, box-shadow, -webkit-box-shadow;
+    -webkit-transition-duration: .1s;
+            transition-duration: .1s;
+    -webkit-transition-property: border, background, -webkit-box-shadow;
+    transition-property: border, background, -webkit-box-shadow;
+    transition-property: border, background, box-shadow;
+    transition-property: border, background, box-shadow, -webkit-box-shadow;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     top: 0;
@@ -972,9 +972,11 @@ body {
   .checkbox .checkbox__label::before {
     font-size: 1rem;
     letter-spacing: -0.015rem;
-    -webkit-transition-duration: 0.2s;
-            transition-duration: 0.2s; }
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s; }
   .checkbox .checkbox__label::after {
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
     border-width: 0.1875rem; }
 
 .checkbox_size-small .checkbox__input:checked + .checkbox__label::after {
@@ -993,12 +995,8 @@ body {
     height: 1.5rem; }
   .checkbox_size-small .checkbox__label::before {
     font-size: 0.75rem;
-    letter-spacing: -0.0125rem;
-    -webkit-transition-duration: 0.15s;
-            transition-duration: 0.15s; }
+    letter-spacing: -0.0125rem; }
   .checkbox_size-small .checkbox__label::after {
-    -webkit-transition-duration: 0.2s;
-            transition-duration: 0.2s;
     border-width: 0.125rem; }
 
 .checkbox_size-large .checkbox__input:checked + .checkbox__label::after {
@@ -1018,9 +1016,11 @@ body {
   .checkbox_size-large .checkbox__label::before {
     font-size: 1.5625rem;
     letter-spacing: -0.04063rem;
-    -webkit-transition-duration: 0.2s;
-            transition-duration: 0.2s; }
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s; }
   .checkbox_size-large .checkbox__label::after {
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
     border-width: 0.25rem; }
 
 .checkbox_color-invert .checkbox__input:checked + .checkbox__label:hover > span {
@@ -1264,8 +1264,8 @@ body {
 
 .radio__label {
   font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
@@ -1276,8 +1276,8 @@ body {
   vertical-align: top; }
 
 .radio__fill {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
   -webkit-transition-property: border;
   transition-property: border;
   -webkit-transition-timing-function: ease-in-out;
@@ -1288,8 +1288,8 @@ body {
   -webkit-border-radius: 100%;
           border-radius: 100%; }
   .radio__fill::before {
-    -webkit-transition-duration: 0.15s;
-            transition-duration: 0.15s;
+    -webkit-transition-duration: 0.25s;
+            transition-duration: 0.25s;
     -webkit-transition-property: background, -webkit-box-shadow;
     transition-property: background, -webkit-box-shadow;
     transition-property: background, box-shadow;
@@ -1475,8 +1475,8 @@ body {
       visibility: visible; }
 
 .select .select__placeholder {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
@@ -1503,8 +1503,8 @@ body {
     content: '\25BC'; }
 
 .select .select__border {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: border-width, border-color, -webkit-border-radius;
   transition-property: border-width, border-color, -webkit-border-radius;
   transition-property: border-width, border-color, border-radius;
@@ -1532,8 +1532,8 @@ body {
   visibility: hidden; }
 
 .select .select__options .select__option {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
@@ -1545,8 +1545,8 @@ body {
   cursor: pointer;
   overflow: hidden; }
   .select .select__options .select__option > div {
-    -webkit-transition-duration: 0.15s;
-            transition-duration: 0.15s;
+    -webkit-transition-duration: .1s;
+            transition-duration: .1s;
     -webkit-transition-property: border-width, border-color, -webkit-border-radius;
     transition-property: border-width, border-color, -webkit-border-radius;
     transition-property: border-width, border-color, border-radius;
@@ -1645,8 +1645,8 @@ body {
     outline: none; }
 
 .text-area__border {
-  -webkit-transition-duration: 0.15s;
-          transition-duration: 0.15s;
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
   -webkit-transition-property: border-width, border-color, -webkit-border-radius;
   transition-property: border-width, border-color, -webkit-border-radius;
   transition-property: border-width, border-color, border-radius;

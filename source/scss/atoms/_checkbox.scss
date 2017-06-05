@@ -47,7 +47,7 @@
 
     &::before {        
         // Before is the check mark
-        @include pe-transition(opacity, $duration: .25s);
+        @include pe-transition(opacity);
         top: 0;        
         left: 0;
         font-family: 'iconic';
@@ -59,7 +59,7 @@
 
     &::after {            
         // After is the black box
-        @include pe-transition(border-width, border-color, background, box-shadow, $duration: .25s);
+        @include pe-transition(border, background, box-shadow);
         top: 0;
         left: 0;
         border-style: solid;        
@@ -111,26 +111,26 @@
     &::before {        
         // Before is the check mark        
         @if $size <= ($pe-base-fontsize * 1.5) {
-            @include pe-font-sizing-meta-data();
-            transition-duration: 0.15s;             
+            @include pe-font-sizing-meta-data();             
         } @else if $size > ($pe-base-fontsize * 2) {
             @include pe-font-sizing-h5();
-            transition-duration: 0.2s;  
+            transition-duration: 0.15s;  
         } @else {
             @include pe-font-sizing-h7();
-            transition-duration: 0.2s;
+            transition-duration: 0.15s;
         }                               
     }
 
     &::after {
-        @if $size <= ($pe-base-fontsize * 1.5) {
-            transition-duration: 0.2s; 
+        @if $size <= ($pe-base-fontsize * 1.5) {             
             border-width: rem(2px); 
             //border-radius: rem(1px);
         } @else if $size > ($pe-base-fontsize * 2) {
+            transition-duration: 0.15s;
             border-width: rem(4px);
             //border-radius: rem(2px);
         } @else {            
+            transition-duration: 0.15s;
             border-width: rem(3px);
             //border-radius: rem(2px);
         }

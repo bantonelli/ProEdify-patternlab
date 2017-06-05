@@ -21,7 +21,7 @@
 
 %radio__label {
     @include pe-font-family-forms();        
-    @include pe-transition(color, $duration: 0.25s);
+    @include pe-transition(0.25s, color);
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -29,14 +29,14 @@
 }
 
 %radio__fill {
-    @include pe-transition(border, $duration: 0.25s);
+    @include pe-transition(0.25s, border);
     display: inline-block;
     position: relative;
     border-style: solid;
     border-radius: 100%;
 
     &::before {
-        @include pe-transition(background, box-shadow, $duration: 0.25s);
+        @include pe-transition(0.25s, background, box-shadow);
         display: inline-block;
         position: absolute;
         top: 50%;  // position the top  edge of the element at the middle of the parent 
