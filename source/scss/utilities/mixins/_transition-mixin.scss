@@ -1,5 +1,13 @@
-@mixin pe-transition ($duration: .15s, $properties...) {
-    transition-duration: $duration; 
-    transition-property: $properties;
-    transition-timing-function: $timing-function;
+@mixin pe-transition ($properties...) {
+    @if type-of(nth($properties, 1)) == number {
+        transition-duration: nth($properties, 1);
+        transition-property: slice($properties, 2, length($properties));
+        transition-timing-function: $timing-function; 
+    } @else {
+        transition-duration: 0.15s;
+        transition-property: $properties;
+        transition-timing-function: $timing-function;
+    }       
 }
+
+

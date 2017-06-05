@@ -697,27 +697,37 @@ body {
   height: 100% !important; }
 
 .button {
-  height: 50px;
-  -webkit-transition: border-width, background, -webkit-filter .2s;
-  transition: border-width, background, -webkit-filter .2s;
-  transition: border-width, background, filter .2s;
-  transition: border-width, background, filter .2s, -webkit-filter .2s;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: border, background, -webkit-filter;
+  transition-property: border, background, -webkit-filter;
+  transition-property: border, background, filter;
+  transition-property: border, background, filter, -webkit-filter;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
   border-style: solid;
   vertical-align: middle; }
-  .button:hover {
-    -webkit-transition-duration: .1s;
-            transition-duration: .1s;
-    border-bottom: 6px solid; }
   .button:active {
     -webkit-transition-duration: 0s;
-            transition-duration: 0s;
-    border-bottom: 4px solid; }
+            transition-duration: 0s; }
   .button:focus {
     outline: none; }
 
 .button {
+  width: 200px;
+  height: 50px;
+  border-width: 0 0 0.1875rem;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+  font-size: 1.25rem;
+  letter-spacing: -0.025rem;
   border-color: #797e84;
   background: #94989c; }
+  .button:hover {
+    border-bottom: 0.375rem solid; }
+  .button:active {
+    border-bottom: 0.25rem solid; }
   .button:active {
     background: #94989c; }
 
@@ -759,12 +769,12 @@ body {
     outline: none; }
 
 .input__border {
-  -webkit-transition-duration: border-width;
-          transition-duration: border-width;
-  -webkit-transition-property: border-color, -webkit-border-radius;
-  transition-property: border-color, -webkit-border-radius;
-  transition-property: border-color, border-radius;
-  transition-property: border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, border-radius;
+  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: block;
@@ -779,8 +789,10 @@ body {
   z-index: 2; }
 
 .input__icon {
-  -webkit-transition-duration: color;
-          transition-duration: color;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: color;
+  transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   position: absolute;
@@ -884,10 +896,10 @@ body {
     padding: 0;
     vertical-align: middle; }
   .checkbox .checkbox__label::before {
-    -webkit-transition-duration: opacity;
-            transition-duration: opacity;
-    -webkit-transition-property: ;
-    transition-property:;
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     top: 0;
@@ -898,12 +910,12 @@ body {
     opacity: 0;
     z-index: 1; }
   .checkbox .checkbox__label::after {
-    -webkit-transition-duration: border-width;
-            transition-duration: border-width;
-    -webkit-transition-property: border-color, background, -webkit-box-shadow;
-    transition-property: border-color, background, -webkit-box-shadow;
-    transition-property: border-color, background, box-shadow;
-    transition-property: border-color, background, box-shadow, -webkit-box-shadow;
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+    -webkit-transition-property: border-width, border-color, background, -webkit-box-shadow;
+    transition-property: border-width, border-color, background, -webkit-box-shadow;
+    transition-property: border-width, border-color, background, box-shadow;
+    transition-property: border-width, border-color, background, box-shadow, -webkit-box-shadow;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     top: 0;
@@ -1252,10 +1264,10 @@ body {
 
 .radio__label {
   font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
-  -webkit-transition-duration: color;
-          transition-duration: color;
-  -webkit-transition-property: ;
-  transition-property:;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: color;
+  transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: inline-block;
@@ -1264,10 +1276,10 @@ body {
   vertical-align: top; }
 
 .radio__fill {
-  -webkit-transition-duration: border;
-          transition-duration: border;
-  -webkit-transition-property: ;
-  transition-property:;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: border;
+  transition-property: border;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: inline-block;
@@ -1276,12 +1288,12 @@ body {
   -webkit-border-radius: 100%;
           border-radius: 100%; }
   .radio__fill::before {
-    -webkit-transition-duration: background;
-            transition-duration: background;
-    -webkit-transition-property: -webkit-box-shadow;
-    transition-property: -webkit-box-shadow;
-    transition-property: box-shadow;
-    transition-property: box-shadow, -webkit-box-shadow;
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+    -webkit-transition-property: background, -webkit-box-shadow;
+    transition-property: background, -webkit-box-shadow;
+    transition-property: background, box-shadow;
+    transition-property: background, box-shadow, -webkit-box-shadow;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     display: inline-block;
@@ -1463,8 +1475,10 @@ body {
       visibility: visible; }
 
 .select .select__placeholder {
-  -webkit-transition-duration: color;
-          transition-duration: color;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: color;
+  transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: block;
@@ -1489,12 +1503,12 @@ body {
     content: '\25BC'; }
 
 .select .select__border {
-  -webkit-transition-duration: border-width;
-          transition-duration: border-width;
-  -webkit-transition-property: border-color, -webkit-border-radius;
-  transition-property: border-color, -webkit-border-radius;
-  transition-property: border-color, border-radius;
-  transition-property: border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, border-radius;
+  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: block;
@@ -1518,8 +1532,10 @@ body {
   visibility: hidden; }
 
 .select .select__options .select__option {
-  -webkit-transition-duration: color;
-          transition-duration: color;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: color;
+  transition-property: color;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: block;
@@ -1529,12 +1545,12 @@ body {
   cursor: pointer;
   overflow: hidden; }
   .select .select__options .select__option > div {
-    -webkit-transition-duration: border-width;
-            transition-duration: border-width;
-    -webkit-transition-property: border-color, -webkit-border-radius;
-    transition-property: border-color, -webkit-border-radius;
-    transition-property: border-color, border-radius;
-    transition-property: border-color, border-radius, -webkit-border-radius;
+    -webkit-transition-duration: 0.15s;
+            transition-duration: 0.15s;
+    -webkit-transition-property: border-width, border-color, -webkit-border-radius;
+    transition-property: border-width, border-color, -webkit-border-radius;
+    transition-property: border-width, border-color, border-radius;
+    transition-property: border-width, border-color, border-radius, -webkit-border-radius;
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     display: block;
@@ -1629,12 +1645,12 @@ body {
     outline: none; }
 
 .text-area__border {
-  -webkit-transition-duration: border-width;
-          transition-duration: border-width;
-  -webkit-transition-property: border-color, -webkit-border-radius;
-  transition-property: border-color, -webkit-border-radius;
-  transition-property: border-color, border-radius;
-  transition-property: border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-duration: 0.15s;
+          transition-duration: 0.15s;
+  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, border-radius;
+  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
   -webkit-transition-timing-function: ease-in-out;
           transition-timing-function: ease-in-out;
   display: block;

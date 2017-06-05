@@ -5,19 +5,13 @@
 // PSEUDO CLASSES 
 // ==========================================================================
 %button {
-    height: 50px;    
-    transition: border-width, background, filter .2s;
+    @include pe-transition(border, background, filter);
+    @include pe-font-family-forms();    
     border-style: solid;    
     vertical-align: middle;
 
-    &:hover {
-        transition-duration: .1s;
-        border-bottom: 6px solid;    
-    }
-
     &:active {
         transition-duration: 0s;
-        border-bottom: 4px solid;
     }
 
     &:focus {
@@ -58,6 +52,14 @@
     border-width: 0 0 $border-width;
     border-radius: 4px;
 
+    @if $button-height <= ($pe-base-fontsize * 3) {
+        @include pe-font-sizing-h7(); 
+    } @else if $button-height > ($pe-base-fontsize * 5) {  
+        @include pe-font-sizing-h4(); 
+    } @else {
+        @include pe-font-sizing-h6();
+    }
+
     &:hover {    
         border-bottom: $border-width-hover solid;    
     }
@@ -71,6 +73,7 @@
 // ==========================================================================
 .button {
     @extend %button;
+    @include button-size();
     @include button-color();  
 }
 
