@@ -27,30 +27,40 @@
 // MIXINS
 // ==========================================================================
 @mixin button-color (
-    $border-color: nth($pe-greyscale-color-list, 2),
-    $background: nth($pe-greyscale-color-list, 3),
-    $background-active: nth($pe-greyscale-color-list, 3)   
+    $text-color: $pe-color-white,
+    $border-color: nth($pe-greyscale-color-list, 1),
+    $background: nth($pe-greyscale-color-list, 4),
+    $background-active: nth($pe-greyscale-color-list, 4)   
 ) {
     border-color: $border-color;
     background: $background;
+    color: $text-color;
 
     &:active {
-        background: $background-active;
+        &:hover {
+            border-color: $border-color;
+            background: $background-active;
+        }
+    }
+
+    &:hover {
+        border-color: $border-color;    
+        background: $background;    
     }  
 }
 
 @mixin button-size (
     $button-width: 200px,
     $button-height: 50px,
-    $border-radius: rem(4px),
+    $border-radius: rem(3px),
     $border-width: rem(3px),
     $border-width-hover: rem(6px),
-    $border-width-active: rem(4px)
+    $border-width-active: rem(2px)
 ) {
     width: $button-width;
     height: $button-height;
     border-width: 0 0 $border-width;
-    border-radius: 4px;
+    border-radius: ($border-radius * 2) ($border-radius * 2) $border-radius $border-radius;
 
     @if $button-height <= ($pe-base-fontsize * 3) {
         @include pe-font-sizing-h7(); 
@@ -61,11 +71,11 @@
     }
 
     &:hover {    
-        border-bottom: $border-width-hover solid;    
+        border-width: 0 0 $border-width-hover;    
     }
 
     &:active {
-        border-bottom: $border-width-active solid;
+        border-width: 0 0 $border-width-active;
     }    
 }
 

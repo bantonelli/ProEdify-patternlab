@@ -718,18 +718,23 @@ body {
   width: 200px;
   height: 50px;
   border-width: 0 0 0.1875rem;
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
+  -webkit-border-radius: 0.375rem 0.375rem 0.1875rem 0.1875rem;
+          border-radius: 0.375rem 0.375rem 0.1875rem 0.1875rem;
   font-size: 1.25rem;
   letter-spacing: -0.025rem;
-  border-color: #797e84;
-  background: #94989c; }
+  border-color: #616569;
+  background: #aeb1b5;
+  color: #fff; }
   .button:hover {
-    border-bottom: 0.375rem solid; }
+    border-width: 0 0 0.375rem; }
   .button:active {
-    border-bottom: 0.25rem solid; }
-  .button:active {
-    background: #94989c; }
+    border-width: 0 0 0.125rem; }
+  .button:active:hover {
+    border-color: #616569;
+    background: #aeb1b5; }
+  .button:hover {
+    border-color: #616569;
+    background: #aeb1b5; }
 
 .button_color-primary {
   border-color: #247c66;
