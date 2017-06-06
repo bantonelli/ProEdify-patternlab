@@ -28,31 +28,31 @@
 // ==========================================================================
 @mixin button-color (
     $text-color: $pe-color-white,
-    $border-color: nth($pe-greyscale-color-list, 1),
+    $border-color: darken(nth($pe-greyscale-color-list, 2), 5%),
     $background: nth($pe-greyscale-color-list, 4),
-    $background-active: nth($pe-greyscale-color-list, 4)   
+    $background-active-color1: nth($pe-greyscale-color-list, 4),
+    $background-active-color2: nth($pe-greyscale-color-list, 3)   
 ) {
     border-color: $border-color;
     background: $background;
     color: $text-color;
 
+    /*&:hover, 
     &:active {
-        &:hover {
-            border-color: $border-color;
-            background: $background-active;
-        }
-    }
-
-    &:hover {
         border-color: $border-color;    
-        background: $background;    
+        background-image: linear-gradient(0deg, $background-active-color2 -20%, $background-active-color1 80%);    
+    }  */
+
+    &:active {
+        border-color: $border-color;    
+        background-image: linear-gradient(0deg, $background-active-color1 -20%, $background-active-color2 80%);    
     }  
 }
 
 @mixin button-size (
     $button-width: 200px,
     $button-height: 50px,
-    $border-radius: rem(3px),
+    $border-radius: rem(4px),
     $border-width: rem(3px),
     $border-width-hover: rem(6px),
     $border-width-active: rem(2px)
@@ -60,14 +60,14 @@
     width: $button-width;
     height: $button-height;
     border-width: 0 0 $border-width;
-    border-radius: ($border-radius * 2) ($border-radius * 2) $border-radius $border-radius;
+    border-radius: ($border-radius * 1.5) ($border-radius * 1.5) $border-radius $border-radius;
 
     @if $button-height <= ($pe-base-fontsize * 3) {
-        @include pe-font-sizing-h7(); 
-    } @else if $button-height > ($pe-base-fontsize * 5) {  
-        @include pe-font-sizing-h4(); 
+        @include pe-font-sizing-meta-data(); 
+    } @else if $button-height >= ($pe-base-fontsize * 5) {  
+        @include pe-font-sizing-h5(); 
     } @else {
-        @include pe-font-sizing-h6();
+        @include pe-font-sizing-h7();
     }
 
     &:hover {    
@@ -91,16 +91,53 @@
 // MODIFIER CLASSES 
 // ==========================================================================
 // sass-lint:disable class-name-format
-.button_color-primary { 
-    border-color: nth($pe-primary-color-list, 1);
-    background: nth($pe-primary-color-list, 3);
 
-    &:active {
-        background: nth($pe-primary-color-list, 2);
-    }
+// Color Modifiers 
+.button_color-primary { 
+    @include button-color(
+        $text-color: $pe-color-white,
+        $border-color: nth($pe-primary-color-list, 1),
+        $background: nth($pe-primary-color-list, 3),
+        $background-active-color1: nth($pe-primary-color-list, 3),
+        $background-active-color2: nth($pe-primary-color-list, 2) 
+    ); 
 }
 
+.button_color-accent { 
+    @include button-color(
+        $text-color: $pe-color-white,
+        $border-color: lighten(nth($pe-accent-color-list, 2), 10%),
+        $background: nth($pe-accent-color-list, 5),
+        $background-active-color1: nth($pe-accent-color-list, 5),
+        $background-active-color2: nth($pe-accent-color-list, 4) 
+    ); 
+}
+
+.button_size-small {
+    @include button-size(
+        $button-width: 100px,
+        $button-height: 30px,
+        $border-radius: rem(2px),
+        $border-width: rem(2px),
+        $border-width-hover: rem(4px),
+        $border-width-active: rem(1px)
+    );
+}
+
+.button_size-large {
+    @include button-size(
+        $button-width: 300px,
+        $button-height: 80px,
+        $border-radius: rem(6px),
+        $border-width: rem(4px),
+        $border-width-hover: rem(8px),
+        $border-width-active: rem(3px)
+    );
+}
+
+// Size Modifiers
 .button_width-full {
     display: block;
     width: 100%;
 }  
+
