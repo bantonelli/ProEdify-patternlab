@@ -1,0 +1,162 @@
+// ==========================================================================
+// TEXT HYPERLINK STYLES
+// ==========================================================================
+// BEVM STRUCTURE: text-link
+
+// PSEUDO CLASSES 
+// ==========================================================================
+%text-link {
+    @include pe-font-family-paragraph();
+    display: inline-block;
+    position: relative;
+    height: $pe-base-lineheight;
+    padding: -5px;
+}
+
+%text-link__link {
+    @include pe-transition(0.3s, color);
+
+    &:link { 
+        text-decoration: none;
+    }
+
+    &:visited,
+    &:hover,
+    &:active {
+        position: relative;        
+        transition-duration: 0s;        
+        text-decoration: none;        
+        backface-visibility: hidden;
+    }
+
+    &:hover + .text-link__border {
+        &::before, 
+        &::after {
+            width: 100%;
+            transition-delay: 0.075s;                        
+            // transition-duration: 0s;
+            border-radius: rem(1px);
+            outline: none;
+            opacity: 1;
+        }
+    }
+
+    &::before, 
+    &::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+%text-link__border {
+    &::before, 
+    &::after {
+        @include pe-bottom-border();
+        @include pe-transition(0.175s, width, color, opacity);
+        left: 50%;
+        width: 0;
+        transform: translateX(-50%);
+        transition-delay: 0.15s;
+        content: "";
+        opacity: 0;               
+    }
+}
+
+
+// MIXINS
+// ==========================================================================
+@mixin text-link-color(
+    $link-color: darken(nth($pe-primary-color-list, 3), 5%),
+    $visited-color: nth($pe-accent-color-list, 3),
+    $focus-color: nth($pe-primary-color-list, 3),
+    $hover-color: nth($pe-primary-color-list, 1),
+    $active-color: lighten(nth($pe-accent-color-list, 3), 10%)
+) {
+    &:link {
+        color: $link-color;
+
+        + .text-link__border {
+            &::before, 
+            &::after {
+                border-color: $link-color;              
+            }
+        }
+    }
+
+    &:visited {
+        color: $visited-color;
+
+        + .text-link__border {
+            &::before, 
+            &::after {
+                border-color: $visited-color;              
+            }
+        }
+    }
+
+    &:focus {
+        color: $focus-color;
+
+        + .text-link__border {
+            &::before, 
+            &::after {
+                border-color: $focus-color;              
+            }
+        }
+    }
+
+    &:hover {
+        color: $hover-color;
+
+        + .text-link__border {
+            &::before, 
+            &::after {
+                border-color: $hover-color;              
+            }
+        }
+    }
+
+    &:active {
+        color: $active-color;
+
+        + .text-link__border {
+            &::before, 
+            &::after {
+                border-color: $active-color;              
+            }
+        }
+    }
+}
+
+// MAIN CLASSES
+// ==========================================================================
+.text-link {
+    @extend %text-link;
+
+    &__link {
+        @extend %text-link__link;
+        @include text-link-color();
+    }
+
+    &__border {
+        @extend %text-link__border;
+    }
+}
+
+
+// MODIFIER CLASSES 
+// ==========================================================================
+// sass-lint:disable class-name-format
+
+// Color Modifiers 
+.text-link_color-invert {
+    .text-link__link {
+        @include text-link-color(
+            $link-color: lighten(nth($pe-primary-color-list, 3), 5%),
+            $visited-color: nth($pe-accent-color-list, 3),
+            $focus-color: nth($pe-primary-color-list, 5),
+            $hover-color: nth($pe-primary-color-list, 6),
+            $active-color: lighten(nth($pe-accent-color-list, 5), 20%)
+        );
+    }
+}
