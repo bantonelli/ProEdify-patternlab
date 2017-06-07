@@ -1,15 +1,57 @@
-<div class="text-link">
-    <a href="#" class="text-link__link">
-        This is a text hyperlink 
-    </a>
-    <div class="text-link__border"></div>
+<div id="text-link">
+    <p> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, mollitia, obcaecati! Fuga, ipsam, magnam!         
+        <pe-text-link
+            :linkurl="link.linkUrl"
+            :showborder="link.showBorder"
+            :classes="link.classes"
+            >     
+        </pe-text-link>
+        <span>Eius animi illum culpa itaque, ipsam, aut distinctio, adipisci dolorum enim accusantium facilis deserunt ullam beatae.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, debitis dolor blanditiis repudiandae ipsa facere voluptatum sequi, rem enim itaque aliquam id nemo, accusantium. Earum, ullam officiis explicabo accusamus expedita.</span>
+    </p>  
+    <p class="dark-background"> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, mollitia, obcaecati! Fuga, ipsam, magnam!         
+        <pe-text-link
+            :linkurl="link.linkUrl"
+            :showborder="link.showBorder"
+            :classes="{'text-link_bgcolor-dark': true}"
+            >     
+        </pe-text-link>
+        <span style="color: white;">Eius animi illum culpa itaque, ipsam, aut distinctio, adipisci dolorum enim accusantium facilis deserunt ullam beatae.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, debitis dolor blanditiis repudiandae ipsa facere voluptatum sequi, rem enim itaque aliquam id nemo, accusantium. Earum, ullam officiis explicabo accusamus expedita.</span>
+    </p>   
+    <p class="gray-background"> 
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, mollitia, obcaecati! Fuga, ipsam, magnam!         
+        <pe-text-link
+            :linkurl="link.linkUrl"
+            :showborder="link.showBorder"
+            :classes="{'text-link_bgcolor-gray': true}"
+            >     
+        </pe-text-link>
+        <span style="color: white;">Eius animi illum culpa itaque, ipsam, aut distinctio, adipisci dolorum enim accusantium facilis deserunt ullam beatae.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, debitis dolor blanditiis repudiandae ipsa facere voluptatum sequi, rem enim itaque aliquam id nemo, accusantium. Earum, ullam officiis explicabo accusamus expedita.</span>
+    </p>   
 </div>
 
-<div class="dark-background">
-    <div class="text-link text-link_color-invert">
-        <a href="#" class="text-link__link">
-            This is a text hyperlink 
-        </a>
-        <div class="text-link__border"></div>
-    </div>
-</div>
+<script>
+
+    requirejs(['vue', 'atoms/TextLink'], function (Vue, TextLink) {
+        new Vue({
+            el: "#text-link",
+            data: {
+                link: {
+                    "linkUrl": "#",
+                    "showBorder": true,
+                    "classes": { 
+                        "text-link_bgcolor-dark": false, 
+                        "text-link_bgcolor-gray": false
+                    }   
+                }
+            },
+            components: {
+                'pe-text-link': TextLink.default
+            }
+        }); 
+    });
+</script>

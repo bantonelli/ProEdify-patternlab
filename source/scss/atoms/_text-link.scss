@@ -24,7 +24,7 @@
     &:hover,
     &:active {
         position: relative;        
-        transition-duration: 0s;        
+        transition-duration: 0.05s;        
         text-decoration: none;        
         backface-visibility: hidden;
     }
@@ -33,13 +33,22 @@
         &::before, 
         &::after {
             width: 100%;
-            transition-delay: 0.075s;                        
-            // transition-duration: 0s;
+            transition-delay: 0s;
+            transition-duration: 0.05s;                        
+            transition-property: border-color, opacity;
             border-radius: rem(1px);
             outline: none;
             opacity: 1;
         }
     }
+
+    &:active + .text-link__border {
+        &::before, 
+        &::after {
+            transition-delay: 0s;                                
+            transition-duration: 0s;
+        }  
+    } 
 
     &::before, 
     &::after {
@@ -52,7 +61,7 @@
     &::before, 
     &::after {
         @include pe-bottom-border();
-        @include pe-transition(0.175s, width, color, opacity);
+        @include pe-transition(0.175s, width, border-color, opacity);
         left: 50%;
         width: 0;
         transform: translateX(-50%);
@@ -149,14 +158,26 @@
 // sass-lint:disable class-name-format
 
 // Color Modifiers 
-.text-link_color-invert {
+.text-link_bgcolor-dark {
     .text-link__link {
         @include text-link-color(
             $link-color: lighten(nth($pe-primary-color-list, 3), 5%),
             $visited-color: nth($pe-accent-color-list, 3),
             $focus-color: nth($pe-primary-color-list, 5),
-            $hover-color: nth($pe-primary-color-list, 6),
-            $active-color: lighten(nth($pe-accent-color-list, 5), 20%)
+            $hover-color: nth($pe-primary-color-list, 5),
+            $active-color: lighten(nth($pe-accent-color-list, 4), 0%)
+        );
+    }
+}
+
+.text-link_bgcolor-gray {
+    .text-link__link {
+        @include text-link-color(
+            $link-color: lighten(nth($pe-primary-color-list, 4), 5%),
+            $visited-color: nth($pe-accent-color-list, 3),
+            $focus-color: nth($pe-primary-color-list, 4),
+            $hover-color: nth($pe-primary-color-list, 4),
+            $active-color: darken(nth($pe-accent-color-list, 4), 5%)
         );
     }
 }

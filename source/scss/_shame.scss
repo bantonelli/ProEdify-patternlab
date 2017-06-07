@@ -36,5 +36,14 @@
 .dark-background {
     width: 100%;
     padding: 20px 0;
-    background-color: nth($pe-greyscale-color-list, 3);
+    background-color: nth($pe-shadow-color-list, 1);
+    color: $pe-color-white;
+}
+
+
+.gray-background {
+    width: 100%;
+    padding: 20px 0;
+    background-color: nth($pe-greyscale-color-list, 2);
+    color: $pe-color-white;
 }
