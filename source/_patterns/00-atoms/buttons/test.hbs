@@ -3,7 +3,8 @@
 </div>
 
 <script>
-requirejs(['vue', 'checkbox-menu'], function (Vue, CheckboxMenu) {
+requirejs(['vue', 'jquery', 'checkbox-menu'], function (Vue, $, CheckboxMenu) {
+    console.log('JQUERY: ', $);
     console.log(Vue);
     console.log(CheckboxMenu);
     new Vue({
