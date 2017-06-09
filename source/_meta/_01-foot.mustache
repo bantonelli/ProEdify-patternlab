@@ -4,5 +4,27 @@
   <script type="text/javascript" src="/js/nav.js"></script>
   <script type="text/javascript" src="/js/progress.js"></script>
   <script type="text/javascript" src="/js/overlay.js"></script>
+  <script>
+        requirejs(['jquery'], function ($) {
+            $(document).ready(function() {
+                $('body').bind('touchstart', function(event) {
+                    // event.preventDefault();
+                    // event.stopPropagation();
+                    // $(event.target).toggleClass('hover_effect');
+                });
+                // $('body').bind('touchend', function(event) {                    
+                //     $(event.target).toggleClass('hover_effect');
+                //     // $(event.target).trigger('click');
+                // });
+            });
+        });
+
+           // THIS REMOVES RIGHT-CLICK/TOUCH-HOLD MENU
+            //   $('body').bind('contextmenu', function(event) {
+            //       event.preventDefault();
+            //       event.stopPropagation();
+            //       return false;
+            //   });
+  </script>
   </body>
 </html>

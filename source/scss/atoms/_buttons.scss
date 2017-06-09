@@ -7,8 +7,10 @@
 // ==========================================================================
 %button {
     @include pe-transition(border, background, filter);
-    @include pe-font-family-forms();    
+    @include pe-font-family-forms();  
+    display: inline-block;  
     border-style: solid;    
+    text-align: center;
     vertical-align: middle;
 
     &:active {
