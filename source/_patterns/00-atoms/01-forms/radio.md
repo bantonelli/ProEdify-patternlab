@@ -1,19 +1,27 @@
 Basic radio button input.
 
 --- 
-Object Properties: 
-* {{radio.label}} 
+JS Component Properties:
+* :text = {{radio.label}} 
   * Text label associated with radio button input
-* {{radio.ID}}
+* :id = {{radio.ID}}
   * CSS #id for radio 
   * Used with label to provide check functionality 
-* {{radio.class}}
+* :classes = {{radio.class}}
   * An object of modifier/variation class names mapped to booleans
   * If class name is false it will not be applied and vice-versa
-* {{radio.value}}
+* :formvalue = {{radio.value}}
   * The value attached to the radio input 
   * This is what will be sent with the completed form
-
+* formname = "formName"
+  * String passed to component  
+  * Sets the name="" property of the radio button 
+  * Pass this same string to other radio buttons in the form 
+* v-model = selectedArray
+  * Array on the parent Vue instance   
+  * Stores the value emitted from the input
+  
+---
 Content Blocks: N/A
 
 --- 

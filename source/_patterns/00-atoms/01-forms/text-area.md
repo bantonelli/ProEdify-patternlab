@@ -1,12 +1,18 @@
 Basic text area input.
 
 --- 
-Object Properties: 
-* {{textArea.placeHolder}}
+JS Component Properties:
+* :placeholder = {{textArea.placeHolder}}
   * The placeholder text for input  
-* {{textArea.class}}
+* :classes = {{textArea.class}}
   * An object of modifier/variation class names mapped to booleans
   * If class name is false it will not be applied and vice-versa  
+* v-model = valueString
+  * Empty String declared on the parent Vue instance   
+  * Stores the value emitted from the input
+
+---
+Content Blocks: N/A
 
 --- 
 BEM STRUCTURE: `text-area`, `text-area__input`, `text-area__border`

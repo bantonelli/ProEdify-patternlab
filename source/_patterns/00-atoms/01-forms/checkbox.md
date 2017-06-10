@@ -1,19 +1,23 @@
 Basic checkbox input.
 
 --- 
-Object Properties: 
-* {{checkbox.label}} 
+JS Component Properties: 
+* :text = {{checkbox.label}} 
   * Text label associated with checkbox input
-* {{checkbox.ID}}
+* :id = {{checkbox.ID}}
   * CSS #id for checkbox
   * Used with label to provide scheck functionality 
-* {{checkbox.class}}
+* :classes = {{checkbox.class}}
   * An object of modifier/variation class names mapped to booleans
   * If class name is false it will not be applied and vice-versa
-* {{checkbox.value}}
+* :formvalue = {{checkbox.value}}
   * The value attached to the checkbox input 
   * This is what will be sent with the completed form
+* v-model = checkedArray
+  * Array on the parent Vue instance   
+  * Stores the values emitted from the input
 
+---
 Content Blocks: N/A
 
 --- 

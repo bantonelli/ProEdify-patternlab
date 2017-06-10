@@ -1,25 +1,26 @@
 Basic text input.
 
 --- 
-Object Properties: 
-* {{textInput.placeHolder}} 
+JS Component Properties: 
+* :placeholder = {{textInput.placeHolder}} 
   * The placeholder text for input
-* {{textInput.class}}
+* :classes = {{textInput.class}}
   * An object of modifier/variation class names mapped to booleans
   * If class name is false it will not be applied and vice-versa
+* v-model = valueString
+  * Empty String declared on the parent Vue instance   
+  * Stores the value emitted from the input
 
-Content Blocks: N/A
+---
+Content Blocks: 
+* VueJS SLOT: `icon` , CLASS: `input__icon`
 
 --- 
 BEM STRUCTURE: `input`, `input__input`, `input__border`
 
-Content Blocks: 
-* VueJS SLOT: `icon` , CLASS: `input__icon`
-
 Color Modifiers: `input_color-invert`
 
 ---
-
 input:
   * Container block that wraps the component.
 
