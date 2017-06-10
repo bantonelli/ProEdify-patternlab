@@ -6,14 +6,19 @@
 // PSEUDO CLASSES 
 // ==========================================================================
 %button {
-    @include pe-transition(border, background, filter);
+    @include pe-transition(border, background, filter, line-height);
     @include pe-font-family-forms();  
-    display: inline-block;  
+    display: inline-block;
+    position: relative;  
+    padding: 0;
     border-style: solid;    
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
     vertical-align: middle;
 
     &:active {
+        padding: 0;
         transition-duration: 0s;
     }
 
@@ -22,9 +27,11 @@
     }
 }
 
-%button__text {
-    display: inline-block;
-    text-align: center;
+%button__text {    
+    // position: absolute;
+    // left: 50%;
+    // transform: translateX(-50%); 
+    cursor: pointer;  
 }
 
 // MIXINS
@@ -38,18 +45,20 @@
 ) {
     border-color: $border-color;
     background: $background;
-    color: $text-color;
-
-    /*&:hover, 
-    &:active {
-        border-color: $border-color;    
-        background-image: linear-gradient(0deg, $background-active-color2 -20%, $background-active-color1 80%);    
-    }  */
+    //&:hover, 
+    //&:active {
+    //    border-color: $border-color;    
+    //    background-image: linear-gradient(0deg, $background-active-color2 -20%, $background-active-color1 80%);    
+    //}  
 
     &:active {
         border-color: $border-color;    
         background-image: linear-gradient(0deg, $background-active-color1 -20%, $background-active-color2 80%);    
-    }  
+    } 
+
+    .button__text {
+        color: $text-color;
+    } 
 }
 
 @mixin button-size (
@@ -59,14 +68,16 @@
     $border-width: rem(3px),
     $border-width-hover: rem(6px),
     $border-width-active: rem(2px)
-) {
+) { 
     width: $button-width;
     height: $button-height;
     border-width: 0 0 $border-width;
     border-radius: ($border-radius * 1.5) ($border-radius * 1.5) $border-radius $border-radius;
+    line-height: $button-height - px($border-width);
 
     @if $button-height <= ($pe-base-fontsize * 3) {
-        @include pe-font-sizing-meta-data(); 
+        @include pe-font-sizing-meta-data();
+        line-height: $button-height;         
     } @else if $button-height >= ($pe-base-fontsize * 5) {  
         @include pe-font-sizing-h5(); 
     } @else {
@@ -74,12 +85,14 @@
     }
 
     &:hover {    
-        border-width: 0 0 $border-width-hover;    
+        border-width: 0 0 $border-width-hover;  
+        line-height: $button-height - px($border-width-hover);  
     }
 
     &:active {
         border-width: 0 0 $border-width-active;
-    }    
+        line-height: $button-height - px($border-width-active);
+    }   
 }
 
 // MAIN CLASSES
@@ -87,7 +100,11 @@
 .button {
     @extend %button;
     @include button-size();
-    @include button-color();  
+    @include button-color();
+
+    &__text {
+        @extend %button__text;
+    }  
 }
 
 
@@ -116,6 +133,7 @@
     ); 
 }
 
+// Size Modifiers
 .button_size-small {
     @include button-size(
         $button-width: 100px,
@@ -137,10 +155,4 @@
         $border-width-active: rem(3px)
     );
 }
-
-// Size Modifiers
-.button_width-full {
-    display: block;
-    width: 100%;
-}  
 

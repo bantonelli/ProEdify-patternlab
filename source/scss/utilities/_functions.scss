@@ -7,6 +7,10 @@
     // Need to put *1em to convert units to ems.
 }
 
+@function px($target, $context: $pe-base-fontsize) {
+    @return ($target / 1rem) * $context;
+}
+
 @function create-color-list($color, $desaturate-val: 10, $lighten-increment: 20) {
     $color-list: (desaturate(darken($color, 10), $desaturate-val), $color);
     $lighten-val: $lighten-increment;

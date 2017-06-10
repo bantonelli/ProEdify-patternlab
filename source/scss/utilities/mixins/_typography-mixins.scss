@@ -55,73 +55,73 @@
 }
 
 @mixin pe-font-sizing-h1 {
-    font-size: 3.05125rem;
+    font-size: $pe-fontsize-h1;
     letter-spacing: rem(-0.3px);
     @content;
 }
 
 @mixin pe-font-sizing-h2 {
     // Lorem ipsum dolor si_3.05125em Copy 3:
-    font-size: 3.05125rem;     
+    font-size: $pe-fontsize-h2;     
     letter-spacing: rem(-1.5px);
     @content;
 }
 
 @mixin pe-font-sizing-h3 {
     // Lorem ipsum dolor si_2.44125em:
-    font-size: 2.44125rem;     
+    font-size: $pe-fontsize-h3;     
     letter-spacing: rem(-1.2px);
     @content;
 }
 
 @mixin pe-font-sizing-h4 {
     // Lorem ipsum dolor si_1.95375em:
-    font-size: 1.95375rem;         
+    font-size: $pe-fontsize-h4;         
     letter-spacing: rem(-0.8px);
     @content;
 }
 
 @mixin pe-font-sizing-h5 {
     // Lorem ipsum dolor si_1.5625em:
-    font-size: 1.5625rem;     
+    font-size: $pe-fontsize-h5;     
     letter-spacing: rem(-0.65px);
     @content;
 }
 
 @mixin pe-font-sizing-h6 {
     // Lorem ipsum dolor si_1.25em: 
-    font-size: 1.25rem;
+    font-size: $pe-fontsize-h6;
     letter-spacing: rem(-0.4px);
     @content;
 }
 
 @mixin pe-font-sizing-h7 {
-    font-size: 1.125rem;
+    font-size: $pe-fontsize-h7;
     letter-spacing: rem(-0.24px);
     @content;     
 }
 
 @mixin pe-font-sizing-paragraph {
-    font-size: 1rem;
+    font-size: $pe-fontsize-paragraph;
     letter-spacing: 0;
     @content;
 }
 
 @mixin pe-font-sizing-meta-data {
-    font-size: 0.75rem; // 0.8 == 12.8px
+    font-size: $pe-fontsize-meta; // 0.8 == 12.8px
     letter-spacing: rem(-0.2px);
     @content;
 }
 
 @mixin pe-font-sizing-sub-paragraph {
-    font-size: 0.625rem; //10px
+    font-size: $pe-fontsize-subparagraph; //10px
     letter-spacing: rem(-0.2px);
     @content;
 }
 
 @mixin pe-font-sizing-legal {
     // Meta Data Text Source: 
-    font-size: 0.5125rem;
+    font-size: $pe-fontsize-legal;
     letter-spacing: rem(-0.2px);
     @content;
 }
