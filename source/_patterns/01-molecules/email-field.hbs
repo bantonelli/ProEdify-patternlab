@@ -1,0 +1,26 @@
+<form id="email-field" class="">
+    <pe-email
+        :emailinput="emailInput"
+        @input="output = $event"
+        >
+    </pe-email>
+    \{{output}}
+</form>
+
+<script>
+    var emailInput = {{{json emailInput}}};    
+    requirejs(['vue', 'molecules/EmailField'], function (Vue, EmailField) {
+        new Vue({
+            el: '#email-field',
+            data: function () {
+                return {
+                    emailInput: emailInput,
+                    output: ""      
+                }
+            },
+            components: {
+                'pe-email': EmailField.default
+            }
+        });
+    });
+</script>

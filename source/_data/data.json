@@ -66,6 +66,14 @@
     "value": "",
     "type": "search"
   },
+  "emailInput": {
+    "placeHolder": "This is an email input field",
+    "class": {
+      "input_color-invert": false
+    },
+    "value": "",
+    "type": "email"
+  },
   "selectBox": {
     "placeHolder": "Select Input: Choose an Option",
     "class": {
