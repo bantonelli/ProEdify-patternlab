@@ -1,0 +1,22 @@
+<div id="pagination" class="block">
+    <span class="demonstration">When you have few pages</span>
+    <el-pagination
+        layout="prev, pager, next"
+        :total="50">
+    </el-pagination>
+    <el-pagination
+        layout="prev, pager, next"
+        :total="1000">
+    </el-pagination>
+</div>
+
+<script>    
+    requirejs(['vue', 'molecules/pagination/pagination'], function (Vue, Pagination) {
+        new Vue({
+            el: '#pagination',
+            components: {
+                'el-pagination': Pagination.default
+            }
+        });
+    });
+</script>
