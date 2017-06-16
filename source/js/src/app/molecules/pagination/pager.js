@@ -51,15 +51,22 @@ export default {
 
   methods: {
     onPagerClick(event) {
+      // Method gets the desired newPage number via @click 
+      // If you click the .more arrows newPage will be 5 more or less  
+      // otherwise the page change logic will be handled by parent  
+      // via @change event.    
       const target = event.target;
       if (target.tagName === 'UL') {
         return;
       }
 
+      // Grab the <li> number that was clicked 
       let newPage = Number(event.target.textContent);
       const pageCount = this.pageCount;
       const currentPage = this.currentPage;
-
+ 
+      // If the <li> that was clicked is a .more double arrow icon 
+      // Then automatically jump five pages less or more.
       if (target.className.indexOf('more') !== -1) {
         if (target.className.indexOf('quickprev') !== -1) {
           newPage = currentPage - 5;
@@ -68,6 +75,7 @@ export default {
         }
       }
 
+      // Checks to keep the new active page within bounds 
       /* istanbul ignore if */
       if (!isNaN(newPage)) {
         if (newPage < 1) {
@@ -79,6 +87,9 @@ export default {
         }
       }
 
+      // If the new page clicked is different from the og page 
+      // emit the @change event to the parent component.
+      // Pagination component will handle this change event.  
       if (newPage !== currentPage) {
         this.$emit('change', newPage);
       }
