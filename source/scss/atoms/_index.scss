@@ -8,7 +8,7 @@
 //
 // @source - http://atomicdesign.bradfrost.com/chapter-2/
 
-@import 'buttons';
+@import 'button'; 
 @import 'input';
 @import 'checkbox';
 @import 'colorway';
@@ -17,3 +17,5 @@
 @import 'select';
 @import 'text-area';
 @import 'text-link';
+@import 'circle-button';
+@import 'pager';

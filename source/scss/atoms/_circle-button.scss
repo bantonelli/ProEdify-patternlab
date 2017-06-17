@@ -1,0 +1,179 @@
+// ==========================================================================
+// BUTTON STYLES
+// ==========================================================================
+// BEVM STRUCTURE: button, button__text
+
+// PSEUDO CLASSES 
+// ==========================================================================
+%circle-button {
+    @include pe-font-family-forms();  
+    @include pe-transition(border, background, filter, line-height);
+    display: inline-block;
+    position: relative;
+    padding: 0;  
+    transform-origin: center;
+    border-style: solid;    
+    border-radius: 100%;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 0 rem(1px) nth($pe-greyscale-color-list, 2);
+    cursor: pointer;
+    vertical-align: middle;
+    box-sizing: content-box;
+
+    &::after {
+        @include pe-transition(0.15s, height, width, background, filter);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;  
+        height: 0; 
+        transform: translateX(-50%) translateY(-50%); 
+        border-radius: 100%;
+        box-shadow: 0 0 rem(1px) nth($pe-greyscale-color-list, 2);
+        content: "";
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:active, 
+    .active {
+        &::after {
+            transition-duration: 0s;
+        }        
+    }
+}
+
+%circle-button__text {    
+    position: absolute;
+    top: 50%;
+    left: 50%;     
+    transform: translateX(-50%) translateY(-50%); 
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+// MIXINS
+// ==========================================================================
+@mixin circle-button-color (
+    $text-color: nth($pe-greyscale-color-list, 3),
+    $text-color-hover: $pe-color-grey,
+    $text-color-active: $pe-color-white,
+    $border-color: nth($pe-greyscale-color-list, 3),     
+    $border-color-hover: $pe-color-grey,
+    $background: $pe-color-transparent,
+    $background-active-color: nth($pe-primary-color-list, 3)  
+) {
+    border-color: $border-color;
+    background: $background;
+
+    &:hover {    
+        border-color: $border-color-hover;
+
+        .circle-button__text {
+            color: $text-color-hover;            
+        }
+    }
+
+    &:active,
+    .active {
+        &::after {
+            background-color: $background-active-color;
+        }
+
+        .circle-button__text {
+            color: $text-color-active;
+        } 
+    }  
+
+    .circle-button__text {
+        background-color: $pe-color-transparent;
+        color: $text-color;
+    }    
+}
+
+@mixin circle-button-size (
+    $button-width: 50px,
+    $button-height: 50px,
+    $border-radius: 50%,
+    $border-width: rem(3px)
+) {
+    width: $button-width;
+    height: $button-height;
+    margin: 0.1 * $button-height;
+    border-width: $border-width;
+    border-radius: $border-radius;
+    line-height: $button-height - px($border-width);
+
+    @if $button-height <= ($pe-base-fontsize * 3) {
+        @include pe-font-sizing-meta-data();
+        line-height: $button-height;         
+    } @else if $button-height >= ($pe-base-fontsize * 5) {  
+        @include pe-font-sizing-h5(); 
+    } @else {
+        @include pe-font-sizing-h7();
+    }
+
+    &:active, 
+    .active {
+        &::after {
+            width: $button-width * 1.2;
+            height: $button-height * 1.2;
+        }
+    }
+}
+
+// MAIN CLASSES
+// ==========================================================================
+.circle-button {
+    @extend %circle-button;
+    @include circle-button-size();
+    @include circle-button-color();
+
+    .circle-button__text {
+        @extend %circle-button__text;        
+    }
+}
+
+
+// MODIFIER CLASSES 
+// ==========================================================================
+// sass-lint:disable class-name-format
+
+// Color Modifiers 
+.circle-button_color-invert {
+    @include circle-button-color(
+        $text-color: nth($pe-greyscale-color-list, 5),
+        $text-color-hover: nth($pe-greyscale-color-list, 6),
+        $text-color-active: $pe-color-white,
+        $border-color: nth($pe-greyscale-color-list, 5),     
+        $border-color-hover: nth($pe-greyscale-color-list, 6),
+        $background: $pe-color-transparent,
+        $background-active-color: nth($pe-primary-color-list, 3)  
+    );
+}
+
+// Size Modifiers
+.circle-button_size-small {
+    @include circle-button-size (
+        $button-width: 30px,
+        $button-height: 30px,
+        $border-radius: 50%,
+        $border-width: rem(2px)
+    ); 
+}
+
+.circle-button_size-large {
+    @include circle-button-size (
+        $button-width: 80px,
+        $button-height: 80px,
+        $border-radius: 50%,
+        $border-width: rem(4px)
+    );
+}
+

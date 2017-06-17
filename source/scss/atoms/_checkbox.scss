@@ -139,7 +139,7 @@
 }
 
 @mixin checkbox-color(
-    $text: nth($pe-greyscale-color-list, 4),
+    $text: nth($pe-greyscale-color-list, 3),
     $text-hovered: $pe-color-grey,
     $text-checked: $pe-color-grey,   
     $box-border: nth($pe-greyscale-color-list, 5),

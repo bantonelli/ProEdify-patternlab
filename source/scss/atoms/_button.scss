@@ -6,7 +6,6 @@
 // PSEUDO CLASSES 
 // ==========================================================================
 %button {
-    @include pe-transition(border, background, filter, line-height);
     @include pe-font-family-forms();  
     display: inline-block;
     position: relative;  
@@ -16,11 +15,6 @@
     text-decoration: none;
     cursor: pointer;
     vertical-align: middle;
-
-    &:active {
-        padding: 0;
-        transition-duration: 0s;
-    }
 
     &:focus {
         outline: none;
@@ -33,6 +27,7 @@
     // transform: translateX(-50%); 
     cursor: pointer;  
 }
+
 
 // MIXINS
 // ==========================================================================
@@ -95,16 +90,22 @@
     }   
 }
 
+
 // MAIN CLASSES
 // ==========================================================================
 .button {
     @extend %button;
+    @include pe-transition(border, background, filter, line-height);
     @include button-size();
     @include button-color();
 
-    &__text {
+    &:active {
+        transition-duration: 0s;
+    }
+
+    .button__text {
         @extend %button__text;
-    }  
+    }
 }
 
 

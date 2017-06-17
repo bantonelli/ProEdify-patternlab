@@ -50,9 +50,9 @@
 // MIXINS
 // ==========================================================================
 @mixin radio-color(
-    $label-color: nth($pe-greyscale-color-list, 4), 
+    $label-color: nth($pe-greyscale-color-list, 3), 
     $label-color-hover: $pe-color-grey, 
-    $fill-border: nth($pe-greyscale-color-list, 4),
+    $fill-border: nth($pe-greyscale-color-list, 3),
     $fill-border-hover: $pe-color-grey, 
     $fill-color: nth($pe-primary-color-list, 3),
     $fill-shadow: nth($pe-greyscale-color-list, 2),
