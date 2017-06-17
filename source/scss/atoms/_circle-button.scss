@@ -41,7 +41,7 @@
     }
 
     &:active, 
-    .active {
+    &.active {
         &::after {
             transition-duration: 0s;
         }        
@@ -81,7 +81,7 @@
     }
 
     &:active,
-    .active {
+    &.active {
         &::after {
             background-color: $background-active-color;
         }
@@ -120,7 +120,7 @@
     }
 
     &:active, 
-    .active {
+    &.active {
         &::after {
             width: $button-width * 1.2;
             height: $button-height * 1.2;
