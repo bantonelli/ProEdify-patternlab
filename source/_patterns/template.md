@@ -1,6 +1,6 @@
 Basic text area input.
 
-JS COMPONENT PROPERTIES:
+JS COMPONENT PROPERTIES: N/A (Not a javascript component)
 ___
 
 * `:placeholder = {{textArea.placeHolder}}`

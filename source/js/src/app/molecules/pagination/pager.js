@@ -1,51 +1,60 @@
 const pagerTemplate = `
-<ul @click="onPagerClick" class="el-pager">
+<ul @click="onPagerClick" class="pager" :class="modifierStyles">
   <li
     :class="{ active: currentPage === 1 }"
     v-if="pageCount > 0"
-    class="number">1</li>
+    class="circle-button">
+    <span class="circle-button__text">1</span>
+  </li>
   <li
-    class="el-icon more btn-quickprev"
-    :class="[quickprevIconClass]"
+    class="circle-button more quickprev"    
     v-if="showPrevMore"
-    @mouseenter="quickprevIconClass = 'el-icon-d-arrow-left'"
-    @mouseleave="quickprevIconClass = 'el-icon-more'">
+    @mouseenter="quickprevIconClass = 'fa-icon-angle-double-left'"
+    @mouseleave="quickprevIconClass = 'fa-icon-ellipsis-h'">
+    <span class="circle-button__text" :class="[quickprevIconClass]"></span>
   </li>
   <li
     v-for="pager in pagers"
     :class="{ active: currentPage === pager }"
-    class="number">{{ pager }}</li>
+    class="circle-button">
+    <span class="circle-button__text">{{ pager }}</span>
+  </li>
   <li
-    class="el-icon more btn-quicknext"
-    :class="[quicknextIconClass]"
+    class="circle-button more quicknext"
     v-if="showNextMore"
-    @mouseenter="quicknextIconClass = 'el-icon-d-arrow-right'"
-    @mouseleave="quicknextIconClass = 'el-icon-more'">
+    @mouseenter="quicknextIconClass = 'fa-icon-angle-double-right'"
+    @mouseleave="quicknextIconClass = 'fa-icon-ellipsis-h'">
+    <span class="circle-button__text" :class="[quicknextIconClass]"></span>
   </li>
   <li
     :class="{ active: currentPage === pageCount }"
-    class="number"
-    v-if="pageCount > 1">{{ pageCount }}</li>
+    class="circle-button"
+    v-if="pageCount > 1">
+    <span class="circle-button__text">{{ pageCount }}</span>
+    </li>
 </ul>
 `;
 
 
 export default {
   template: pagerTemplate,
-  name: 'ElPager',
+  name: 'Pager',
   props: {
     currentPage: Number,
-
-    pageCount: Number
+    pageCount: Number,
+    modifierStyles: {
+      type: Array, 
+      default: null
+    }
   },
 
   watch: {
     showPrevMore(val) {
-      if (!val) this.quickprevIconClass = 'el-icon-more';
+      if (!val) this.quickprevIconClass = 'fa-icon-angle-double-left';
     },
 
     showNextMore(val) {
-      if (!val) this.quicknextIconClass = 'el-icon-more';
+      if (!val) this.quicknextIconClass = 'fa-icon-angle-double-right';
     }
   },
 
@@ -64,20 +73,26 @@ export default {
       let newPage = Number(event.target.textContent);
       const pageCount = this.pageCount;
       const currentPage = this.currentPage;
- 
+      const lastPageInSet = this.pagers[this.pagers.length - 1];
+      console.log("PAGERS: ", lastPageInSet);
+
       // If the <li> that was clicked is a .more double arrow icon 
       // Then automatically jump five pages less or more.
       if (target.className.indexOf('more') !== -1) {
         if (target.className.indexOf('quickprev') !== -1) {
-          newPage = currentPage - 5;
+          if (lastPageInSet - currentPage <= 1 && lastPageInSet + 1 == pageCount) {
+            newPage = lastPageInSet - 2;    
+          } else {
+            newPage = lastPageInSet - 3;
+          }          
         } else if (target.className.indexOf('quicknext') !== -1) {
-          newPage = currentPage + 5;
+          newPage = lastPageInSet + 1;
         }
       }
 
       // Checks to keep the new active page within bounds 
       /* istanbul ignore if */
-      if (!isNaN(newPage)) {
+      // if (!isNaN(newPage)) {
         if (newPage < 1) {
           newPage = 1;
         }
@@ -85,7 +100,7 @@ export default {
         if (newPage > pageCount) {
           newPage = pageCount;
         }
-      }
+      // }
 
       // If the new page clicked is different from the og page 
       // emit the @change event to the parent component.
@@ -98,20 +113,24 @@ export default {
 
   computed: {
     pagers() {
-      const pagerCount = 7;
+      const pagerCount = 4;
 
       const currentPage = Number(this.currentPage);
-      const pageCount = Number(this.pageCount);
+      const totalPages = Number(this.pageCount);
 
       let showPrevMore = false;
       let showNextMore = false;
 
-      if (pageCount > pagerCount) {
+      if (totalPages > pagerCount) {
         if (currentPage > pagerCount - 2) {
           showPrevMore = true;
         }
 
-        if (currentPage < pageCount - 2) {
+        if (currentPage <= 3) {
+          showPrevMore = false;
+        }
+
+        if (currentPage < totalPages - 2) {
           showNextMore = true;
         }
       }
@@ -119,8 +138,8 @@ export default {
       const array = [];
 
       if (showPrevMore && !showNextMore) {
-        const startPage = pageCount - (pagerCount - 2);
-        for (let i = startPage; i < pageCount; i++) {
+        const startPage = totalPages - (pagerCount - 2);
+        for (let i = startPage; i < totalPages; i++) {
           array.push(i);
         }
       } else if (!showPrevMore && showNextMore) {
@@ -133,7 +152,7 @@ export default {
           array.push(i);
         }
       } else {
-        for (let i = 2; i < pageCount; i++) {
+        for (let i = 2; i < totalPages; i++) {
           array.push(i);
         }
       }
@@ -150,8 +169,8 @@ export default {
       current: null,
       showPrevMore: false,
       showNextMore: false,
-      quicknextIconClass: 'el-icon-more',
-      quickprevIconClass: 'el-icon-more'
+      quicknextIconClass: 'fa-icon-ellipsis-h',
+      quickprevIconClass: 'fa-icon-ellipsis-h'
     };
   }
 };
