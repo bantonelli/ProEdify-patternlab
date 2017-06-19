@@ -2,10 +2,15 @@ const textAreaTemplate = `
 <div class="text-area" :class="classes">
     <div 
         class="text-area__input" 
-        @keyup="changed"
+        ref="input"
         contenteditable="true"
-        cols="30"
-        rows="10"
+        v-bind="parentProps"
+        :data-value="currentValue"
+        :style="styles"
+        @paste.lazy="pasted"
+        @cut.lazy="changed"
+        @keyup="changed"
+        @keydown.ctrl.alt.shift="changed"
         >
         <span v-if="placeHolder">{{placeHolder}}</span>
     </div>
@@ -15,13 +20,28 @@ const textAreaTemplate = `
 
 export default {
     template: textAreaTemplate,
-    // name: 'checkbox-component',
-    props: ['placeholder', 'classes'],
+    props: {
+        classes: {
+            type: Object,
+            default: function () {
+                return {
+                    "text-area_color-invert": false
+                };
+            }
+        },
+        parentProps: {
+            type: Object
+        },
+        styles: {
+            type: Object
+        }
+    },
     data: function () {
         return {
             height: 40,
             observer: null,
-            placeHolder: this.placeholder 
+            placeHolder: this.parentProps.placeholder,
+            currentValue: "" 
         }
     },
     mounted: function () {
@@ -47,9 +67,24 @@ export default {
     },
     methods: {
         changed: function (event) {
-            var value = event.target.innerHTML;
             this.placeHolder = null;
-            this.$emit('input', value);    
+            this.currentValue = event.target.textContent;
+            this.$emit('input', this.currentValue);    
+        },
+        pasted: function (e) {
+            var target = e.target;
+            var content = "";
+            e.preventDefault();
+            if (e.clipboardData) {
+                content = (e.originalEvent || e).clipboardData.getData('text/plain');
+                document.execCommand('insertText', false, content);
+            }
+            else if (window.clipboardData) {
+                content = window.clipboardData.getData('Text');
+                document.selection.createRange().pasteHTML(content);
+            }   
+            this.currentValue = target.textContent;
+            this.$emit('input', this.currentValue);
         }
     }
 };

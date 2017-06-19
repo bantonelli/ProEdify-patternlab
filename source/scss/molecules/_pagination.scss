@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.el-pagination {
+.pagination {
     padding: 2px 5px;
     color: #48576a;
     white-space: nowrap;
@@ -13,62 +13,6 @@
 
     &::after {
         clear:both;
-    }
-
-    button, 
-    span {
-        display: inline-block;
-        min-width: 28px;
-        height: 28px;
-        font-size: 13px;
-        line-height: 28px;
-        vertical-align: top;
-        box-sizing: border-box;
-    }
-
-    button {
-        padding: 0 6px;
-        border: 0;
-        background: 0 0;
-
-        &:focus {
-            outline: 0;
-        }
-
-        &:hover {
-            color: #20a0ff;
-        }
-
-        &.disabled {
-            background-color: #fff;
-            color: #e4e4e4;
-            cursor: not-allowed;
-        }
-    }
-
-    .btn-next,
-    .btn-prev {
-        margin: 0;
-        border: 1px solid #d1dbe5;
-        background: center center no-repeat #fff;
-        background-size: 16px;
-        color: #97a8be;
-        cursor: pointer;
-
-        .el-icon {
-            display: block;
-            font-size: 12px;
-        }
-    }
-
-    .btn-next {
-        border-left: 0;
-        border-radius: 0 2px 2px 0;
-    }
-
-    .btn-prev {
-        border-right: 0;
-        border-radius: 2px 0 0 2px;
     }
 
     &__sizes {
@@ -88,15 +32,7 @@
         margin-left: 10px;
     }
 
-    &__total {
-        margin: 0 10px;
-    }
-
-    &__rightwrapper {
-        float: right;
-    }
-
-    &__editor {
+    &__jump-input {
         width: 30px; 
         margin: 0 6px;
         padding: 4px 2px;
@@ -112,11 +48,24 @@
             outline: 0;
         }
 
-        &::-webkit-inner-spin-button, 
+        // sass-lint:disable no-vendor-prefixes
+        /*&::-webkit-inner-spin-button, 
         &::-webkit-outer-spin-button {
-            -webkit-appearance: none;
             margin: 0;
-        }
+            -webkit-appearance: none; 
+        }*/
+
+        // sass-lint:enable no-vendor-prefixes
+        appearance: textfield;
     }
+
+    &__total {
+        margin: 0 10px;
+    }
+
+    &__rightwrapper {
+        float: right;
+    }
+
 }
 

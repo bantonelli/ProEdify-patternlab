@@ -1,0 +1,30 @@
+<div id="pager">
+    <pager
+        :current-page="currentPage1" 
+        :page-count="10"
+        @change="handleCurrentChange"
+        >
+    </pager>
+</div>
+
+<script> 
+    requirejs(['vue', 'molecules/Pagination/Pager'], function (Vue, Pager) {
+        new Vue({
+            el: '#pager',
+            data: function () {
+                return {
+                    pageCount: 10,
+                    currentPage1: 5
+                }
+            },
+            components: {
+                'pager': Pager.default
+            },
+            methods: {
+                handleCurrentChange: function (value) {
+                    this.currentPage1 = value;
+                }   
+            }
+        });
+    });
+</script>

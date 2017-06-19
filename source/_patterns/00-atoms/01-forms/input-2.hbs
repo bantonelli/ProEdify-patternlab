@@ -1,0 +1,26 @@
+<form id="input2">
+    <pe-input 
+        type="textarea"
+        autosize
+        placeholder="Please input"
+    >
+    </pe-input>
+    <!--\{{Value}}-->
+</form>
+
+<script>
+    // var input = {{{json textInput}}};
+    requirejs(['vue', 'atoms/InputField/InputField'], function (Vue, Input) {
+        new Vue({
+            el: '#input2',
+            data: function () {
+                return {
+                    Value: ""
+                }
+            },
+            components: {
+                'pe-input': Input.default
+            }
+        });
+    });
+</script>

@@ -74,7 +74,7 @@ export default {
       const pageCount = this.pageCount;
       const currentPage = this.currentPage;
       const lastPageInSet = this.pagers[this.pagers.length - 1];
-      console.log("PAGERS: ", lastPageInSet);
+      // console.log("PAGERS: ", lastPageInSet);
 
       // If the <li> that was clicked is a .more double arrow icon 
       // Then automatically jump five pages less or more.

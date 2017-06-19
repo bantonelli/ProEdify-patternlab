@@ -11,7 +11,8 @@
     "patternlab-node": "^2.0.0",
     "plugin-node-handlebars-helpers": "git+https://github.com/bantonelli/patternlab-plugin-handlebars-helpers.git",
     "styleguidekit-assets-default": "^3.0.0",
-    "styleguidekit-mustache-default": "^3.0.0"
+    "styleguidekit-mustache-default": "^3.0.0",
+    "throttle-debounce": "^1.0.1"
   },
   "keywords": [
     "Pattern Lab",

@@ -5,7 +5,7 @@ import Select from '../../atoms/Select';
 // import Locale from '../../mixins/locale';
 
 export default {
-  name: 'ElPagination',
+  name: 'Pagination',
 
   props: {
     pageSize: {
@@ -45,7 +45,7 @@ export default {
 
   render(h) {
     // make master template 
-    let template = <div class='el-pagination'></div>;
+    let template = <div class='pagination'></div>;
 
     // layout is either taken as a prop or is an empty string if not passed in 
     const layout = this.layout || '';
@@ -64,7 +64,7 @@ export default {
 
     // components = array of strings that correlate to keys in TEMPLATE_MAP 
     const components = layout.split(',').map((item) => item.trim());
-    const rightWrapper = <div class="el-pagination__rightwrapper"></div>;
+    const rightWrapper = <div class="pagination__rightwrapper"></div>;
     let haveRightWrapper = false;
 
     // if (this.small) {
@@ -107,9 +107,9 @@ export default {
         return (
           <button
             type="button"
-            class={['btn-prev', { disabled: this.$parent.internalCurrentPage <= 1 }]}
+            class={['circle-button', { disabled: this.$parent.internalCurrentPage <= 1 }]}
             on-click={ this.$parent.prev }>
-            <i class="el-icon el-icon-arrow-left"></i>
+            <span class="circle-button__text icon-arrow-left"></span>
           </button>
         );
       }
@@ -121,11 +121,11 @@ export default {
           <button
             type="button"
             class={[
-              'btn-next',
+              'circle-button',
               { disabled: this.$parent.internalCurrentPage === this.$parent.internalPageCount || this.$parent.internalPageCount === 0 }
             ]}
             on-click={ this.$parent.next }>
-            <i class="el-icon el-icon-arrow-right"></i>
+            <span class="circle-button__text icon-arrow-right"></span>
           </button>
         );
       }
@@ -215,9 +215,9 @@ export default {
         //   </span>
         // );
         return (
-          <span class="el-pagination__jump">
+          <span class="pagination__jump">
             <input
-              class="el-pagination__editor"
+              class="pagination__jump-input"
               type="number"
               min={ 1 }
               max={ this.internalPageCount }
@@ -242,7 +242,7 @@ export default {
         // );
         return (
           typeof this.$parent.total === 'number'
-            ? <span class="el-pagination__total">total: { this.$parent.total }</span>
+            ? <span class="pagination__total">total: { this.$parent.total }</span>
             : ''
         );
       }
