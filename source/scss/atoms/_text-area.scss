@@ -37,6 +37,7 @@
     overflow-x: hidden;
     overflow-y: auto; // something other than visible
     // resize: both;
+    user-select: text;
 
     &:focus, 
     &:active {

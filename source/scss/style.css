@@ -3909,7 +3909,11 @@ body {
   word-break: break-all;
   overflow-wrap: break-word;
   overflow-x: hidden;
-  overflow-y: auto; }
+  overflow-y: auto;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text; }
   .text-area__input:focus, .text-area__input:active {
     outline: 0; }
   .text-area__input:invalid {
