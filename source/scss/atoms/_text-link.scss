@@ -35,7 +35,7 @@
             width: 100%;
             transition-delay: 0s;
             transition-duration: 0.05s;                        
-            transition-property: border-color, opacity;
+            transition-property: border-color, background-color, opacity;
             border-radius: rem(1px);
             outline: none;
             opacity: 1;
@@ -61,7 +61,7 @@
     &::before, 
     &::after {
         @include pe-bottom-border();
-        @include pe-transition(0.175s, width, border-color, opacity);
+        @include pe-transition(0.175s, width, border-color, background-color, opacity);
         left: 50%;
         width: 0;
         transform: translateX(-50%);
@@ -87,7 +87,8 @@
         + .text-link__border {
             &::before, 
             &::after {
-                border-color: $link-color;              
+                border-color: $link-color; 
+                background-color: $link-color;             
             }
         }
     }
@@ -99,6 +100,7 @@
             &::before, 
             &::after {
                 border-color: $visited-color;              
+                background-color: $visited-color;
             }
         }
     }
@@ -109,7 +111,8 @@
         + .text-link__border {
             &::before, 
             &::after {
-                border-color: $focus-color;              
+                border-color: $focus-color;
+                background-color: $focus-color;              
             }
         }
     }
@@ -120,7 +123,8 @@
         + .text-link__border {
             &::before, 
             &::after {
-                border-color: $hover-color;              
+                border-color: $hover-color;
+                background-color: $hover-color;              
             }
         }
     }
@@ -131,7 +135,8 @@
         + .text-link__border {
             &::before, 
             &::after {
-                border-color: $active-color;              
+                border-color: $active-color;
+                background-color: $active-color;              
             }
         }
     }

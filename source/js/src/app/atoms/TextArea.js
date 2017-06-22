@@ -39,9 +39,19 @@ export default {
     data: function () {
         return {
             height: 40,
-            observer: null,
-            placeHolder: this.parentProps.placeholder,
+            observer: null,            
             currentValue: "" 
+        }
+    },
+    computed: {
+        placeHolder: function () {
+            if (this.currentValue !== "") {
+                return null;
+            } else if (!this.parentProps || !this.parentProps.placeholder) {
+                return "This is a text area input";
+            } else {
+                return this.parentProps.placeholder;
+            }
         }
     },
     mounted: function () {
@@ -67,7 +77,6 @@ export default {
     },
     methods: {
         changed: function (event) {
-            this.placeHolder = null;
             this.currentValue = event.target.textContent;
             this.$emit('input', this.currentValue);    
         },
