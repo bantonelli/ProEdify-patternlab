@@ -18,7 +18,7 @@
     @include pe-font-sizing-h7();
     position: absolute;
     width: 100%;
-    padding: rem(10px) rem(2px);
+    padding: rem(10px) rem(10px);
     border: 0;
     z-index: 1;
 
@@ -34,7 +34,8 @@
     }
 
     &:focus + .input__border, 
-    &:valid + .input__border {
+    // &:valid + .input__border,
+    &.valid + .input__border {
         border-width: rem(3px) 0 rem(3px) 0;
         border-radius: rem(4px);
         outline: none;
@@ -42,7 +43,9 @@
 }
 
 %input__border {
-    @include pe-bottom-border();
+    @include pe-bottom-border() {
+        bottom: rem(-2px);
+    };    
 }
 
 %input__icon {
@@ -90,12 +93,14 @@
         }
 
         &:focus ~ .input__icon,
-        &:valid ~ .input__icon {
+        // &:valid ~ .input__icon,
+        &.valid ~ .input__icon {
             color: $icon-color-focused;
         }
 
         &:focus + .input__border, 
-        &:valid + .input__border {
+        // &:valid + .input__border,
+        &.valid + .input__border {
             border-color: $border-color-focused;
             background-color: $border-color-focused;
         }        

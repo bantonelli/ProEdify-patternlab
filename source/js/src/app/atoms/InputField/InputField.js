@@ -153,7 +153,7 @@ export default {
     },
     resizeTextarea() {
       // method to calculate text area size 
-      console.log("***** Called RESIZE *********");
+      // console.log("***** Called RESIZE *********");
       // if on server stop execution 
       if (this.$isServer) return;
 
@@ -168,7 +168,7 @@ export default {
       // Update dataProp textareaCalcStyle with new text area height. 
       // console.log(this.$refs.textarea.$refs.input);
       this.textareaCalcStyle = calcTextareaHeight(this.$refs.textarea.$refs.input, minRows, maxRows);
-      console.log("*** textareaCalcStyle: ", this.textareaCalcStyle.height);
+      // console.log("*** textareaCalcStyle: ", this.textareaCalcStyle.height);
     },
     handleFocus(event) {
       this.$emit('focus', event);
@@ -180,7 +180,7 @@ export default {
       } else {
         value = event;
       }
-      console.log("VALUE: ", value);
+      // console.log("VALUE: ", value);
       this.$emit('input', value);
       this.setCurrentValue(value);
       this.$emit('change', value);

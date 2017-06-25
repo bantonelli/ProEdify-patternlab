@@ -76,7 +76,7 @@ export default function calcTextareaHeight(
   
   // Set the hiddenTextarea to have the value of the real textarea
   // OLD CODE:hiddenTextarea.value = targetNode.value || targetNode.placeholder || '';
-  hiddenTextarea.value = targetNode.getAttribute("data-value") || targetNode.value || targetNode.placeholder || '';
+  hiddenTextarea.value = targetNode.getAttribute("value") || targetNode.value || targetNode.placeholder || '';
 
   // Use the scrollHeight of the hidden textarea 
   // to find the calculated height of the real textarea 

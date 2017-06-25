@@ -5,15 +5,14 @@ const textAreaTemplate = `
         ref="input"
         contenteditable="true"
         v-bind="parentProps"
-        :data-value="currentValue"
         :style="styles"
         @paste.lazy="pasted"
         @cut.lazy="changed"
         @keyup="changed"
         @keydown.ctrl.alt.shift="changed"
-        >
-        <span v-if="placeHolder">{{placeHolder}}</span>
+        >        
     </div>
+    <span class="text-area__placeholder" v-if="placeHolder">{{placeHolder}}</span>
     <div class="text-area__border"></div>
 </div>
 `;
@@ -45,12 +44,14 @@ export default {
     },
     computed: {
         placeHolder: function () {
-            if (this.currentValue !== "") {
-                return null;
-            } else if (!this.parentProps || !this.parentProps.placeholder) {
-                return "This is a text area input";
+            if (this.currentValue === "") {
+                if (this.parentProps && this.parentProps.placeholder) {
+                    return this.parentProps.placeholder;
+                } else {
+                    return "This is a text area input";    
+                }                                
             } else {
-                return this.parentProps.placeholder;
+                return null;
             }
         }
     },

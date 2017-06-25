@@ -9,9 +9,9 @@
     position: relative;
     width: 100%;
     height: 100%;
+    min-height: 39px;
     max-height: 400px;
-    margin: 0 auto;
-    margin-bottom: rem(12px);
+    margin: 0 auto;    
     border: 0;
 }
 
@@ -22,14 +22,16 @@
     width: 100%;
     max-width: 100%;
     height: 100%;
+    min-height: 39px;
     max-height: 400px;
     // @include breakpoint(map-get($pe-grid-breakpoints, md)) {
     //     height: 300px;
     // }    
-    padding: rem(5px) rem(10px);
+    // padding: rem(5px) rem(10px);
+    padding: rem(12px) rem(10px) 0;
     border: 0;
     text-overflow: clip;
-    z-index: 1; 
+    z-index: 2; 
     resize: vertical;
     // word-wrap: break-word; // MS alternative to overflow-wrap
     word-break: break-all;
@@ -60,9 +62,22 @@
 
 %text-area__border {
     @include pe-bottom-border() {
-        bottom: rem(-12px);
+        bottom: rem(-10px);
     };
     transform: translateY(-50%);
+}
+
+%text-area__placeholder {
+    @include pe-font-family-forms();
+    @include pe-font-sizing-h7();
+    position: absolute;
+    width: 100%;
+    max-width: 100%;
+    padding: rem(12px) rem(10px) 0;
+    text-overflow: clip;
+    z-index: 1; 
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 
@@ -80,9 +95,7 @@
         background-color: $pe-color-transparent;
         color: $text-color-done;
 
-        &::placeholder {
-            color: $placeholder-color;
-        }
+        // &::placeholder { color: $placeholder-color; }
 
         &:focus, 
         &:active {
@@ -101,6 +114,10 @@
         background-color: $border-color;
         box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
     } 
+
+    .text-area__placeholder {
+        color: $placeholder-color;
+    }
 }
 
 
@@ -116,6 +133,10 @@
 
     &__border {
         @extend %text-area__border;
+    }
+
+    &__placeholder {
+        @extend %text-area__placeholder;
     }
 }
 
