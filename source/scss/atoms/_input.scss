@@ -58,13 +58,10 @@
     z-index: 2;
 
     &::before {
-        @include pe-font-family-icon();
         @include pe-font-sizing-h7();
         position: absolute;
         top: 50%;
         transform: translateY(-50%) translateX(50%); 
-        font-family: 'iconic';
-        // content: $icon-magnifying-glass;
     }
 }
 

@@ -16,11 +16,6 @@
     @content;
 }
 
-@mixin pe-font-family-icon {
-    font-family: $pe-fontfamily-icons;
-    @content;
-}
-
 @mixin pe-font-family-forms {
     font-family: $pe-fontfamily-forms, $pe-fontfamily-sansserifbold-fallbacks;
     @content;
