@@ -2761,13 +2761,12 @@ body {
   height: 40px;
   z-index: 2; }
   .input__icon::before {
-    font-size: 1.125rem;
-    letter-spacing: -0.015rem;
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%) translateX(50%);
         -ms-transform: translateY(-50%) translateX(50%);
-            transform: translateY(-50%) translateX(50%); }
+            transform: translateY(-50%) translateX(50%);
+    font-size: 1.25rem; }
 
 .input .input__input {
   background-color: transparent;
