@@ -2443,10 +2443,6 @@
   content: "\e618";
   font-family: 'element-icons' !important; }
 
-.icon-minus:before {
-  content: "\e619";
-  font-family: 'element-icons' !important; }
-
 .icon-more:before {
   content: "\e61a";
   font-family: 'element-icons' !important; }
@@ -2455,9 +2451,13 @@
   content: "\e61b";
   font-family: 'element-icons' !important; }
 
+.icon-minus:before {
+  content: "";
+  font-family: 'iconic' !important; }
+
 .icon-plus:before {
-  content: "\e61c";
-  font-family: 'element-icons' !important; }
+  content: "";
+  font-family: 'iconic' !important; }
 
 .icon-search:before {
   content: "\e61d";
