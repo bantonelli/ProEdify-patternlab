@@ -17,6 +17,7 @@
     @include pe-font-family-forms();
     @include pe-font-sizing-h7();
     position: absolute;
+    left: 0;
     width: 100%;
     padding: rem(10px) rem(10px);
     border: 0;
