@@ -4068,7 +4068,7 @@ body {
   .pagination__rightwrapper {
     float: right; }
 
-.disabled {
+.is-disabled {
   cursor: not-allowed;
   opacity: 0.4;
   pointer-events: none; }
