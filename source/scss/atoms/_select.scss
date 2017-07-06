@@ -152,6 +152,7 @@
 
         > div {
             border-color: $border-color;
+            background-color: $border-color;
             box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
         }
 
@@ -160,6 +161,7 @@
 
             > div {
                 border-color: $border-color-hover;
+                background-color: $border-color-hover;
             }
         }
 

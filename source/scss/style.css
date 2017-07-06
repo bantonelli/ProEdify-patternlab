@@ -3554,12 +3554,14 @@ body {
     color: #838383; }
     .select .select__options .select__option > div {
       border-color: #838383;
+      background-color: #838383;
       -webkit-box-shadow: 0 0.0625rem 1px rgba(208, 208, 208, 0.2);
               box-shadow: 0 0.0625rem 1px rgba(208, 208, 208, 0.2); }
     .select .select__options .select__option:hover {
       color: #3fc7a6; }
       .select .select__options .select__option:hover > div {
-        border-color: #3fc7a6; }
+        border-color: #3fc7a6;
+        background-color: #3fc7a6; }
     .select .select__options .select__option.is-focused {
       background-color: #fff; }
 
