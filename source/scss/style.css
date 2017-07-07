@@ -3479,7 +3479,7 @@ body {
           border-radius: 0;
   z-index: 2; }
 
-.select .select__options {
+.select .select__options, .select-dropdown .select__options {
   position: absolute;
   width: 100%;
   margin: 0;
@@ -3488,7 +3488,7 @@ body {
   overflow: hidden;
   visibility: hidden; }
 
-.select .select__options .select__option {
+.select .select__options .select__option, .select-dropdown .select__options .select__option {
   -webkit-transition-duration: .1s;
           transition-duration: .1s;
   -webkit-transition-property: color;
@@ -3501,7 +3501,7 @@ body {
   white-space: nowrap;
   cursor: pointer;
   overflow: hidden; }
-  .select .select__options .select__option > div {
+  .select .select__options .select__option > div, .select-dropdown .select__options .select__option > div {
     -webkit-transition-duration: .1s;
             transition-duration: .1s;
     -webkit-transition-property: border-width, border-color, -webkit-border-radius;
@@ -3564,6 +3564,38 @@ body {
         background-color: #3fc7a6; }
     .select .select__options .select__option.is-focused {
       background-color: #fff; }
+
+.select-dropdown {
+  font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
+  font-size: 1.125rem;
+  letter-spacing: -0.015rem; }
+  .select-dropdown .select__placeholder {
+    padding: 0.625rem 0.625rem 0.625rem 0.125rem; }
+    .select-dropdown .select__placeholder::before {
+      right: 0.625rem; }
+    .select-dropdown .select__placeholder::after {
+      right: 0.625rem; }
+  .select-dropdown .select__options .select__option {
+    padding: 0.9375rem 0.625rem 0.9375rem 0.125rem; }
+    .select-dropdown .select__options .select__option > div {
+      margin-left: -0.125rem; }
+  .select-dropdown .select__options {
+    visibility: visible; }
+    .select-dropdown .select__options .select__option {
+      background-color: #fff;
+      color: #838383; }
+      .select-dropdown .select__options .select__option > div {
+        border-color: #838383;
+        background-color: #838383;
+        -webkit-box-shadow: 0 0.0625rem 1px rgba(208, 208, 208, 0.2);
+                box-shadow: 0 0.0625rem 1px rgba(208, 208, 208, 0.2); }
+      .select-dropdown .select__options .select__option:hover {
+        color: #3fc7a6; }
+        .select-dropdown .select__options .select__option:hover > div {
+          border-color: #3fc7a6;
+          background-color: #3fc7a6; }
+      .select-dropdown .select__options .select__option.is-focused {
+        background-color: #fff; }
 
 .text-area {
   position: relative;

@@ -221,6 +221,22 @@
     }
 }
 
+.select-dropdown {
+    @include select-padding();
+    @include pe-font-family-forms();
+    @include pe-font-sizing-h7();
+
+    .select__options {
+        @extend %select__options;
+        @include select-options-color();
+        visibility: visible;
+
+        .select__option {
+            @extend %select__option;
+        }
+    }
+}
+
 // MODIFIER CLASSES 
 // ==========================================================================
 // sass-lint:disable class-name-format
