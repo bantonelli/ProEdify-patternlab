@@ -58,7 +58,8 @@
     height: 40px;
     z-index: 2;
 
-    &::before {
+    &::before, 
+    &::after {
         // @include pe-font-sizing-h7();
         position: absolute;
         top: 50%;

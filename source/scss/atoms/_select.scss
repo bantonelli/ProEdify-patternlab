@@ -1,9 +1,14 @@
 // ==========================================================================
 // SELECT BOX STYLES
 // ==========================================================================
-// BEVM STRUCTURE
+// BEVM STRUCTURE: Simple Select
 // Block: select 
 // Elements: __placeholder, __border, __options, __option
+
+
+// BEVM STRUCTURE: Enhanced Select 
+// Block: select
+// Elements: __tags, __input, __empty, __dropdown __options, __option
 
 // PSEUDO CLASSES 
 // ==========================================================================
@@ -65,7 +70,7 @@
 }
 
 %select__border {
-    @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);;
+    @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);
 }
 
 %select__options {
@@ -92,9 +97,35 @@
     }
 }
 
+%select__input {
+
+    .input__input {
+        &:focus + .input__border, 
+        // &:valid + .input__border,
+        &.valid + .input__border {
+            border-width: rem(3px) 0 rem(3px) 0;
+            border-radius: 0;
+            outline: none;
+        }
+    }
+
+    .input__icon {
+        &::before, 
+        &::after {
+            font-size: 1rem;
+        }
+    }
+
+    .input__border {
+        @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);
+    }
+}
+
 // MIXINS
 // ==========================================================================
 // Elements: __placeholder, __border, __options, __option
+// Simple Select Only 
+// (For Enhanced Select color changes) use modifiers on .input 
 @mixin select-color (
     $background-color: $pe-color-white,
     $placeholder-color: nth($pe-greyscale-color-list, 4),
@@ -138,7 +169,7 @@
     } 
 }
 
-
+// Simple Select & Enhanced Select 
 @mixin select-options-color (
     $background-color: $pe-color-white,
     $border-color: $pe-color-grey, 
@@ -171,6 +202,7 @@
     }
 }
 
+// Simple Select & Enhanced Select 
 @mixin select-padding($padding: rem(10px)) {
     .select__placeholder {
         padding: $padding $padding $padding ($padding / 5);
@@ -219,9 +251,15 @@
             @extend %select__option;
         }
     }
+
+    // Enhanced Select Only 
+    .select__input {
+        @extend %select__input;
+    }
 }
 
-.select-dropdown {
+// Enhanced Select Only 
+.select__dropdown {
     @include select-padding();
     @include pe-font-family-forms();
     @include pe-font-sizing-h7();

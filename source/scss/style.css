@@ -2525,6 +2525,24 @@
     -webkit-transform: rotateZ(360deg);
             transform: rotateZ(360deg); } }
 
+.icon-up-down-arrow::before {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  -webkit-transform: translateY(-80%) scale(0.8, 0.6) !important;
+      -ms-transform: translateY(-80%) scale(0.8, 0.6) !important;
+          transform: translateY(-80%) scale(0.8, 0.6) !important;
+  content: '\25B2'; }
+
+.icon-up-down-arrow::after {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  -webkit-transform: translateY(-20%) scale(0.8, 0.6) !important;
+      -ms-transform: translateY(-20%) scale(0.8, 0.6) !important;
+          transform: translateY(-20%) scale(0.8, 0.6) !important;
+  content: '\25BC'; }
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -2761,7 +2779,7 @@ body {
   width: 40px;
   height: 40px;
   z-index: 2; }
-  .input__icon::before {
+  .input__icon::before, .input__icon::after {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%) translateX(50%);
@@ -3479,7 +3497,7 @@ body {
           border-radius: 0;
   z-index: 2; }
 
-.select .select__options, .select-dropdown .select__options {
+.select .select__options, .select__dropdown .select__options {
   position: absolute;
   width: 100%;
   margin: 0;
@@ -3488,7 +3506,7 @@ body {
   overflow: hidden;
   visibility: hidden; }
 
-.select .select__options .select__option, .select-dropdown .select__options .select__option {
+.select .select__options .select__option, .select__dropdown .select__options .select__option {
   -webkit-transition-duration: .1s;
           transition-duration: .1s;
   -webkit-transition-property: color;
@@ -3501,7 +3519,7 @@ body {
   white-space: nowrap;
   cursor: pointer;
   overflow: hidden; }
-  .select .select__options .select__option > div, .select-dropdown .select__options .select__option > div {
+  .select .select__options .select__option > div, .select__dropdown .select__options .select__option > div {
     -webkit-transition-duration: .1s;
             transition-duration: .1s;
     -webkit-transition-property: border-width, border-color, -webkit-border-radius;
@@ -3520,6 +3538,35 @@ body {
     -webkit-border-radius: 0;
             border-radius: 0;
     z-index: 2; }
+
+.select .select__input .input__input:focus + .input__border, .select .select__input .input__input.valid + .input__border {
+  border-width: 0.1875rem 0 0.1875rem 0;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  outline: none; }
+
+.select .select__input .input__icon::before, .select .select__input .input__icon::after {
+  font-size: 1rem; }
+
+.select .select__input .input__border {
+  -webkit-transition-duration: .1s;
+          transition-duration: .1s;
+  -webkit-transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, -webkit-border-radius;
+  transition-property: border-width, border-color, border-radius;
+  transition-property: border-width, border-color, border-radius, -webkit-border-radius;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  border-width: 0.0625rem 0;
+  border-style: solid;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  z-index: 2; }
 
 .select {
   background-color: #fff; }
@@ -3565,36 +3612,36 @@ body {
     .select .select__options .select__option.is-focused {
       background-color: #fff; }
 
-.select-dropdown {
+.select__dropdown {
   font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
   font-size: 1.125rem;
   letter-spacing: -0.015rem; }
-  .select-dropdown .select__placeholder {
+  .select__dropdown .select__placeholder {
     padding: 0.625rem 0.625rem 0.625rem 0.125rem; }
-    .select-dropdown .select__placeholder::before {
+    .select__dropdown .select__placeholder::before {
       right: 0.625rem; }
-    .select-dropdown .select__placeholder::after {
+    .select__dropdown .select__placeholder::after {
       right: 0.625rem; }
-  .select-dropdown .select__options .select__option {
+  .select__dropdown .select__options .select__option {
     padding: 0.9375rem 0.625rem 0.9375rem 0.125rem; }
-    .select-dropdown .select__options .select__option > div {
+    .select__dropdown .select__options .select__option > div {
       margin-left: -0.125rem; }
-  .select-dropdown .select__options {
+  .select__dropdown .select__options {
     visibility: visible; }
-    .select-dropdown .select__options .select__option {
+    .select__dropdown .select__options .select__option {
       background-color: #fff;
       color: #838383; }
-      .select-dropdown .select__options .select__option > div {
+      .select__dropdown .select__options .select__option > div {
         border-color: #838383;
         background-color: #838383;
         -webkit-box-shadow: 0 0.0625rem 1px rgba(208, 208, 208, 0.2);
                 box-shadow: 0 0.0625rem 1px rgba(208, 208, 208, 0.2); }
-      .select-dropdown .select__options .select__option:hover {
+      .select__dropdown .select__options .select__option:hover {
         color: #3fc7a6; }
-        .select-dropdown .select__options .select__option:hover > div {
+        .select__dropdown .select__options .select__option:hover > div {
           border-color: #3fc7a6;
           background-color: #3fc7a6; }
-      .select-dropdown .select__options .select__option.is-focused {
+      .select__dropdown .select__options .select__option.is-focused {
         background-color: #fff; }
 
 .text-area {
