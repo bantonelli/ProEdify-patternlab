@@ -73,6 +73,7 @@
     @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);
 }
 
+// Simple Select & Enhanced Select 
 %select__options {
     position: absolute;
     width: 100%;
@@ -95,6 +96,28 @@
     > div {
         @include pe-bottom-border($border-width: rem(2px) 0, $border-radius: 0);
     }
+}
+
+// Enhanced Select Only 
+%select__tags {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    line-height: normal;
+    white-space: normal;
+    z-index: 200;
+}
+
+%select__filter-input {
+    @include pe-font-family-forms();
+    @include pe-font-sizing-h7();
+    height: 100%;
+    padding: 0;
+    padding-left: rem(2px);
+    border: 0;
+    outline: none;
+    appearance: none;
+    background-color: transparent;
 }
 
 %select__input {
@@ -168,6 +191,10 @@
         background-color: $border-color;
         box-shadow: 0 rem(1px) 1px transparentize($box-shadow, 0.8);
     } 
+
+    .select__filter-input {
+        color: $text-color-active;
+    }
 }
 
 // Simple Select & Enhanced Select 
@@ -253,9 +280,17 @@
         }
     }
 
-    // Enhanced Select Only 
+    // Enhanced Select Only
+    .select__tags {
+        @extend %select__tags;
+    }
+
     .select__input {
         @extend %select__input;
+    }
+
+    .select__filter-input {
+        @extend %select__filter-input;
     }
 }
 
