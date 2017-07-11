@@ -3539,11 +3539,13 @@ body {
             border-radius: 0;
     z-index: 2; }
 
-.select .select__input .input__input:focus + .input__border, .select .select__input .input__input.valid + .input__border {
-  border-width: 0.1875rem 0 0.1875rem 0;
-  -webkit-border-radius: 0;
-          border-radius: 0;
-  outline: none; }
+.select .select__input .input__input {
+  padding-left: 0.125rem; }
+  .select .select__input .input__input:focus + .input__border, .select .select__input .input__input.valid + .input__border {
+    border-width: 0.1875rem 0 0.1875rem 0;
+    -webkit-border-radius: 0;
+            border-radius: 0;
+    outline: none; }
 
 .select .select__input .input__icon::before, .select .select__input .input__icon::after {
   font-size: 1rem; }

@@ -98,8 +98,9 @@
 }
 
 %select__input {
-
     .input__input {
+        padding-left: rem(2px);
+
         &:focus + .input__border, 
         // &:valid + .input__border,
         &.valid + .input__border {
