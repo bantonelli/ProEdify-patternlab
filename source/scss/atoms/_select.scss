@@ -279,4 +279,25 @@
 // MODIFIER CLASSES 
 // ==========================================================================
 // sass-lint:disable class-name-format
+.select_color-invert {    
+    @include select-color(
+        $background-color: $pe-color-transparent,
+        $placeholder-color: nth($pe-greyscale-color-list, 6),
+        $text-color-active: $pe-color-white,
+        $text-color-done: $pe-color-white,
+        $border-color: $pe-color-white, 
+        $border-color-focused: nth($pe-primary-color-list, 3),
+        $box-shadow: nth($pe-greyscale-color-list, 2)
+    );
 
+    .select__options {
+        @extend %select__options;
+        @include select-options-color(
+            $background-color: $pe-color-transparent,
+            $border-color: $pe-color-white, 
+            $border-color-hover: nth($pe-primary-color-list, 3),
+            $box-shadow: nth($pe-greyscale-color-list, 2),
+            $option-background: $pe-color-transparent
+        );
+    }
+}
