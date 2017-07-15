@@ -299,6 +299,7 @@
     @include select-padding();
     @include pe-font-family-forms();
     @include pe-font-sizing-h7();
+    z-index: 1000;
 
     .select__options {
         @extend %select__options;

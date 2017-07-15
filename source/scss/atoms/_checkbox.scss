@@ -30,6 +30,7 @@
 %checkbox__label {
     display: inline-block;
     position: relative;        
+    width: 100%;
     cursor: pointer;
     vertical-align: top;
 
@@ -87,7 +88,6 @@
 }
 
 @mixin checkbox-label-size ($size) {    
-    width: rem($size);
     height: rem($size);
     line-height: rem($size * 1);
 

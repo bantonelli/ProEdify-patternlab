@@ -2861,6 +2861,7 @@ body {
 .checkbox .checkbox__label {
   display: inline-block;
   position: relative;
+  width: 100%;
   cursor: pointer;
   vertical-align: top; }
   .checkbox .checkbox__label > span {
@@ -2934,7 +2935,6 @@ body {
   border-width: 0.375rem; }
 
 .checkbox .checkbox__label {
-  width: 2rem;
   height: 2rem;
   line-height: 2rem; }
   .checkbox .checkbox__label > span {
@@ -2958,7 +2958,6 @@ body {
   border-width: 0.3125rem; }
 
 .checkbox_size-small .checkbox__label {
-  width: 1.5rem;
   height: 1.5rem;
   line-height: 1.5rem; }
   .checkbox_size-small .checkbox__label > span {
@@ -2978,7 +2977,6 @@ body {
   border-width: 0.5rem; }
 
 .checkbox_size-large .checkbox__label {
-  width: 3rem;
   height: 3rem;
   line-height: 3rem; }
   .checkbox_size-large .checkbox__label > span {
@@ -3643,7 +3641,8 @@ body {
 .select__dropdown {
   font-family: "cabinbold", "helveticaBoldFallback", "arialBoldFallback", sans-serif;
   font-size: 1.125rem;
-  letter-spacing: -0.015rem; }
+  letter-spacing: -0.015rem;
+  z-index: 1000; }
   .select__dropdown .select__placeholder {
     padding: 0.625rem 0.625rem 0.625rem 0.125rem; }
     .select__dropdown .select__placeholder::before {
