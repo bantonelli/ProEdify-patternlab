@@ -1,7 +1,11 @@
 const textAreaTemplate = `
-<div class="text-area" :class="classes">
+<div class="text-area" :class="modifierStyles">
     <div 
-        class="text-area__input" 
+        class="text-area__input"
+        :class="{
+            'is-valid': isValid,
+            'is-invalid': isInvalid
+        }"  
         ref="input"
         contenteditable="true"
         v-bind="parentProps"
@@ -10,6 +14,8 @@ const textAreaTemplate = `
         @cut.lazy="changed"
         @keyup="changed"
         @keydown.ctrl.alt.shift="changed"
+        @focus="handleFocus"
+        @blur="handleBlur" 
         >        
     </div>
     <span class="text-area__placeholder" v-if="placeHolder">{{placeHolder}}</span>
@@ -20,19 +26,23 @@ const textAreaTemplate = `
 export default {
     template: textAreaTemplate,
     props: {
-        classes: {
-            type: Object,
-            default: function () {
-                return {
-                    "text-area_color-invert": false
-                };
-            }
-        },
         parentProps: {
             type: Object
         },
+        modifierStyles: {
+            type: Array, 
+            default: null
+        },
         styles: {
             type: Object
+        },
+        isValid: {
+            type: Boolean,
+            default: false
+        },
+        isInvalid: {
+            type: Boolean,
+            default: false
         }
     },
     data: function () {
@@ -79,6 +89,7 @@ export default {
     methods: {
         changed: function (event) {
             this.currentValue = event.target.textContent;
+            console.log(typeof this.currentValue);
             this.$emit('input', this.currentValue);    
         },
         pasted: function (e) {
@@ -95,6 +106,13 @@ export default {
             }   
             this.currentValue = target.textContent;
             this.$emit('input', this.currentValue);
+        },
+        handleFocus(event) {
+            this.$emit('focus', event);
+        },
+        handleBlur(event) {
+            // emit a normal blur event 
+            this.$emit('blur', event);
         }
     }
 };

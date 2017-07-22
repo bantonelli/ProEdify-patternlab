@@ -1,13 +1,16 @@
 const inputTemplate = `
-<div class="input" :class="classes">
+<div class="input" :class="modifierStyles">
     <input 
-        class="input__input" 
-        autocorrect="off"
-        :autocapitalize="capitalize" 
-        :type="type" 
-        :placeholder="placeholder"
-        @keyup="changed" 
-        pattern=".{2,}" required
+        class="input__input"
+        :class="{
+            'is-valid': isValid,
+            'is-invalid': isInvalid
+        }" 
+        v-bind="parentProps"
+        @keyup="changed"
+        @focus="handleFocus"
+        @blur="handleBlur"
+        ref="input"         
     >
     <div class="input__border"></div>
     <slot name="icon"></slot>
@@ -22,25 +25,33 @@ export default {
             type: String, 
             default: "Basic Text Input"
         },
-        classes: {
-            type: Object,
-            default: {
-                "input_color-invert": false
-            }
+        modifierStyles: {
+            type: Array, 
+            default: null
         },
-        type: {
-            type: String,
-            default: "text"
+        parentProps: {
+            type: Object
         },
-        capitalize: {
-            type: String,
-            default: "off"
+        isValid: {
+            type: Boolean,
+            default: false
+        },
+        isInvalid: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
         changed: function (event) {
             var value = event.target.value;
             this.$emit('input', value);    
+        },
+        handleFocus(event) {
+            this.$emit('focus', event);
+        },
+        handleBlur(event) {
+            // emit a normal blur event 
+            this.$emit('blur', event);
         }
     }
 };
