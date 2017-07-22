@@ -126,7 +126,7 @@
 
         &:focus + .input__border, 
         // &:valid + .input__border,
-        &.valid + .input__border {
+        &.is-valid + .input__border {
             border-width: rem(3px) 0 rem(3px) 0;
             border-radius: 0;
             outline: none;

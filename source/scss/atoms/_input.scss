@@ -36,7 +36,7 @@
 
     &:focus + .input__border, 
     // &:valid + .input__border,
-    &.valid + .input__border {
+    &.is-valid + .input__border {
         border-width: rem(3px) 0 rem(3px) 0;
         border-radius: rem(4px);
         outline: none;
@@ -94,13 +94,13 @@
 
         &:focus ~ .input__icon,
         // &:valid ~ .input__icon,
-        &.valid ~ .input__icon {
+        &.is-valid ~ .input__icon {
             color: $icon-color-focused;
         }
 
         &:focus + .input__border, 
         // &:valid + .input__border,
-        &.valid + .input__border {
+        &.is-valid + .input__border {
             border-color: $border-color-focused;
             background-color: $border-color-focused;
         }        

@@ -53,7 +53,8 @@
     }
 
     &:focus + .text-area__border, 
-    &:valid + .text-area__border {
+    &:valid + .text-area__border,
+    &.is-valid + .text-area__border {
         border-width: rem(3px) 0 rem(3px) 0;
         border-radius: rem(4px);
         outline: none;
@@ -103,7 +104,8 @@
         }
 
         &:focus + .text-area__border, 
-        &:valid + .text-area__border {
+        &:valid + .text-area__border,
+        &.is-valid + .text-area__border {
             border-color: $border-color-focused;
             background-color: $border-color-focused;
         }        

@@ -2739,7 +2739,7 @@ body {
   .input__input:invalid {
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .input__input:focus + .input__border, .valid.input__input + .input__border {
+  .input__input:focus + .input__border, .is-valid.input__input + .input__border {
     border-width: 0.1875rem 0 0.1875rem 0;
     -webkit-border-radius: 0.25rem;
             border-radius: 0.25rem;
@@ -2801,10 +2801,10 @@ body {
   .input .input__input:focus, .input .input__input:active {
     color: #838383; }
   .input .input__input:focus ~ .input__icon,
-  .input .input__input.valid ~ .input__icon {
+  .input .input__input.is-valid ~ .input__icon {
     color: #3fc7a6; }
   .input .input__input:focus + .input__border,
-  .input .input__input.valid + .input__border {
+  .input .input__input.is-valid + .input__border {
     border-color: #3fc7a6;
     background-color: #3fc7a6; }
 
@@ -2831,10 +2831,10 @@ body {
   .input_color-invert .input__input:focus, .input_color-invert .input__input:active {
     color: #fff; }
   .input_color-invert .input__input:focus ~ .input__icon,
-  .input_color-invert .input__input.valid ~ .input__icon {
+  .input_color-invert .input__input.is-valid ~ .input__icon {
     color: #67d2b8; }
   .input_color-invert .input__input:focus + .input__border,
-  .input_color-invert .input__input.valid + .input__border {
+  .input_color-invert .input__input.is-valid + .input__border {
     border-color: #3fc7a6;
     background-color: #3fc7a6; }
 
@@ -3561,7 +3561,7 @@ body {
           appearance: none;
   background-color: transparent; }
 
-.select .select__input .input__input:focus + .input__border, .select .select__input .input__input.valid + .input__border {
+.select .select__input .input__input:focus + .input__border, .select .select__input .input__input.is-valid + .input__border {
   border-width: 0.1875rem 0 0.1875rem 0;
   -webkit-border-radius: 0;
           border-radius: 0;
@@ -3742,7 +3742,7 @@ body {
   .text-area__input:invalid {
     -webkit-box-shadow: none;
             box-shadow: none; }
-  .text-area__input:focus + .text-area__border, .text-area__input:valid + .text-area__border {
+  .text-area__input:focus + .text-area__border, .text-area__input:valid + .text-area__border, .is-valid.text-area__input + .text-area__border {
     border-width: 0.1875rem 0 0.1875rem 0;
     -webkit-border-radius: 0.25rem;
             border-radius: 0.25rem;
@@ -3791,7 +3791,8 @@ body {
   .text-area .text-area__input:focus, .text-area .text-area__input:active {
     color: #838383; }
   .text-area .text-area__input:focus + .text-area__border,
-  .text-area .text-area__input:valid + .text-area__border {
+  .text-area .text-area__input:valid + .text-area__border,
+  .text-area .text-area__input.is-valid + .text-area__border {
     border-color: #3fc7a6;
     background-color: #3fc7a6; }
 
@@ -3810,7 +3811,8 @@ body {
   .text-area_color-invert .text-area__input:focus, .text-area_color-invert .text-area__input:active {
     color: #fff; }
   .text-area_color-invert .text-area__input:focus + .text-area__border,
-  .text-area_color-invert .text-area__input:valid + .text-area__border {
+  .text-area_color-invert .text-area__input:valid + .text-area__border,
+  .text-area_color-invert .text-area__input.is-valid + .text-area__border {
     border-color: #3fc7a6;
     background-color: #3fc7a6; }
 
