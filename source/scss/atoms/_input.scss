@@ -75,6 +75,7 @@
     $text-color-active: nth($pe-greyscale-color-list, 2),
     $text-color-done: nth($pe-greyscale-color-list, 2),
     $icon-color-focused: nth($pe-primary-color-list, 3),
+    $color-invalid: $pe-color-invalid,
     $border-color: $pe-color-grey, 
     $border-color-focused: nth($pe-primary-color-list, 3),
     $box-shadow: nth($pe-greyscale-color-list, 5)
@@ -92,10 +93,19 @@
             color: $text-color-active;
         }
 
+        &.is-invalid ~ .input__icon {
+            color: $color-invalid;
+        }
+
         &:focus ~ .input__icon,
         // &:valid ~ .input__icon,
         &.is-valid ~ .input__icon {
             color: $icon-color-focused;
+        }
+
+        &.is-invalid + .input__border {
+            border-color: $color-invalid;
+            background-color: $color-invalid;
         }
 
         &:focus + .input__border, 
@@ -149,6 +159,7 @@
         $text-color-active: $pe-color-white,
         $text-color-done: $pe-color-white,
         $icon-color-focused: nth($pe-primary-color-list, 4),
+        $color-invalid: $pe-color-invalid,
         $border-color: $pe-color-white, 
         $border-color-focused: nth($pe-primary-color-list, 3),
         $box-shadow: nth($pe-greyscale-color-list, 2)

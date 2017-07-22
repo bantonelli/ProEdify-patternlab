@@ -90,7 +90,8 @@
     $text-color-done: nth($pe-greyscale-color-list, 2),
     $border-color: $pe-color-grey, 
     $border-color-focused: nth($pe-primary-color-list, 3),
-    $box-shadow: nth($pe-greyscale-color-list, 5)
+    $box-shadow: nth($pe-greyscale-color-list, 5),
+    $color-invalid: $pe-color-invalid
 ) {
     .text-area__input {
         background-color: $pe-color-transparent;
@@ -101,6 +102,11 @@
         &:focus, 
         &:active {
             color: $text-color-active;
+        }
+
+        &.is-invalid + .text-area__border {
+            border-color: $color-invalid;
+            background-color: $color-invalid;
         }
 
         &:focus + .text-area__border, 
@@ -155,6 +161,7 @@
         $text-color-done: $pe-color-white,
         $border-color: $pe-color-white, 
         $border-color-focused: nth($pe-primary-color-list, 3),
-        $box-shadow: nth($pe-greyscale-color-list, 2)
+        $box-shadow: nth($pe-greyscale-color-list, 2),
+        $color-invalid: $pe-color-invalid
     );
 }
