@@ -9,6 +9,7 @@ requirejs.config({
         // is using jQuery 1.9.0 located at
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
-        jquery: 'jquery-3.2.1.min'
+        jquery: '../lib/jquery-3.2.1.min',
+        vue: '../lib/vue'
     }
 });

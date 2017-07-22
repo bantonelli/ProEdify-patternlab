@@ -1,0 +1,19 @@
+<div id="heyhey">
+    \{{stuff}}
+</div>
+
+<script>
+requirejs(['vue', 'jquery'], function (Vue, $) {
+    console.log('JQUERY: ', $);
+    console.log(Vue);
+    new Vue({
+        el:"#heyhey",
+        data: {
+            stuff: "BRANDON WINS"
+        }
+    });
+    // Vue.component('pe-checkbox-menu', CheckboxMenu.default);
+});
+</script>
+
+
