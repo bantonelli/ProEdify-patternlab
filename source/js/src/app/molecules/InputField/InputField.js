@@ -62,12 +62,12 @@ const inputFieldTemplate2 = `
 </div>
 `;
 
-import emitter from '../../utils/mixins/emitter';
-import calcTextareaHeight from './calcTextareaHeight';
-import merge from '../../utils/merge';
-import Input from '../Input';
-import TextArea from '../TextArea';
 import _ from 'lodash';
+import calcTextareaHeight from './calcTextareaHeight';
+import emitter from '../../utils/mixins/emitter';
+import merge from '../../utils/merge';
+import Input from '../../atoms/Input';
+import TextArea from '../../atoms/TextArea';
 
 export default {
   name: 'InputField',
