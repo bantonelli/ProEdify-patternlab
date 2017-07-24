@@ -1,6 +1,6 @@
 <form id="input">
     <pe-input
-    :classes="input.class"
+    :modifier-styles="modifierStyles"
     :placeholder="input.placeHolder"
     v-model="Value"
     >
@@ -21,6 +21,17 @@
             },
             components: {
                 'pe-input': Input.default
+            },
+            computed: {
+                modifierStyles () {
+                    var store = [];
+                    for (var prop in input.class) {
+                        if (input.class[prop] == true) {
+                            store.push(prop);
+                        }                        
+                    } 
+                    return store;
+                }
             }
         });
     });

@@ -26,6 +26,10 @@ const textAreaTemplate = `
 export default {
     template: textAreaTemplate,
     props: {
+        placeholder: {
+            type: String, 
+            default: "Basic Text Area"
+        },
         parentProps: {
             type: Object
         },
@@ -58,7 +62,7 @@ export default {
                 if (this.parentProps && this.parentProps.placeholder) {
                     return this.parentProps.placeholder;
                 } else {
-                    return "This is a text area input";    
+                    return this.placeholder;    
                 }                                
             } else {
                 return null;

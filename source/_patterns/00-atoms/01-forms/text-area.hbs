@@ -1,6 +1,6 @@
 <form id="text-area" style="height: 300px;" class="dark-background">
     <pe-text-area
-    :classes="textArea.class"
+    :modifier-styles="modifierStyles"
     v-model="Value"
     >
     </pe-text-area>
@@ -20,6 +20,17 @@
             },
             components: {
                 'pe-text-area': TextArea.default
+            },
+            computed: {
+                modifierStyles () {
+                    var store = [];
+                    for (var prop in textArea.class) {
+                        if (textArea.class[prop] == true) {
+                            store.push(prop);
+                        }
+                    }
+                    return store;
+                }
             }
         });
     });
