@@ -3,12 +3,13 @@ Basic text area input.
 JS COMPONENT PROPERTIES: N/A (Not a javascript component)
 ___
 
-* `:placeholder = {{textArea.placeHolder}}`
+* `:placeholder = {{textArea.placeHolder}}`  
   * The placeholder text for input  
 * `:classes = {{textArea.class}}`
   * An object of modifier/variation class names mapped to booleans
   * If class name is false it will not be applied and vice-versa  
 * `v-model = valueString`
+  * Required property
   * Empty String declared on the parent Vue instance   
   * Stores the value emitted from the input
 

@@ -89,61 +89,34 @@
   "radio": {
     "label": "Radio Button",
     "ID": "radio_id_1",
-    "class": {
+    "modifierClasses": {
       "radio_size-xsmall": false,
       "radio_size-small": true,
       "radio_size-large": false,
       "radio_size-xlarge": false,
       "radio_color-invert": false
-    },
-    "value": "Selected 1st Option"
+    }
   },
   "radio2": {
       "label": "Radio Button 2",
       "ID": "radio_id_2",
-      "class": {
+      "modifierClasses": {
         "radio_size-xsmall": false,
         "radio_size-small": false,
-        "radio_size-large": true,
+        "radio_size-large": false,
         "radio_size-xlarge": false,
         "radio_color-invert": false
-      },
-      "value": "Selected 2nd Option"
+      }
   },
   "checkbox": {
     "ID": "checkbox_id",
-    "label": "Checkbox",
-    "class": {
+    "label": "Checkbox Label Is Treated As It's Value",
+    "modifierClasses": {
       "checkbox_size-xsmall": false,
       "checkbox_size-small": true,
       "checkbox_size-large": false,
       "checkbox_size-xlarge": false,
       "checkbox_color-invert": false
-    },
-    "value": "checkedAnOption1"
-  },
-  "otherCheckbox": {
-    "ID": "checkbox_id_2",
-    "label": "Checkbox",
-    "class": {
-      "checkbox_size-xsmall": false,
-      "checkbox_size-small": false,
-      "checkbox_size-large": false,
-      "checkbox_size-xlarge": false,
-      "checkbox_color-invert": false
-    },
-    "value": "checkedAnOption2"
-  },
-  "thirdCheckbox": {
-    "ID": "checkbox_id_3",
-    "label": "Checkbox",
-    "class": {
-      "checkbox_size-xsmall": false,
-      "checkbox_size-small": false,
-      "checkbox_size-large": true,
-      "checkbox_size-xlarge": false,
-      "checkbox_color-invert": false
-    },
-    "value": "checkedAnOption3"
+    }    
   }
 }

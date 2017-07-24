@@ -1,42 +1,57 @@
 <div id="radio">
     <pe-radio 
-        :text='radio.label'
+        :label='radio.label'
         :id='radio.ID'
-        :classes='radio.class'
-        :formvalue='radio.value'
-        formname='radio-form'
+        :modifier-styles='modifierStyles'
         v-model="selected"
         >
     </pe-radio>
     <pe-radio 
-        :text='radio2.label'
+        :label='radio2.label'
         :id='radio2.ID'
-        :classes='radio2.class'
-        :formvalue='radio2.value'
-        formname='radio-form'
+        :modifier-styles='modifierStyles2'
         v-model="selected"
         >
     </pe-radio>
-    <!--\{{selected}}-->
+    \{{selected}}
 </div>
 
 <script>
 var radio = {{{json radio}}};
 var radio2 = {{{json radio2}}};
 
-requirejs(['vue', 'atoms/Radio'], function (Vue, Radio) {
-    console.log(Radio.default);
+requirejs(['vue', 'atoms/Radio/Radio'], function (Vue, Radio) {
     new Vue({
         el: "#radio",
         data: function () {
             return {
-                selected: [], 
+                selected: '1', 
                 radio: radio,
                 radio2: radio2
             }
         },
         components: {
             'pe-radio': Radio.default
+        }, 
+        computed: {
+            modifierStyles: function () {
+                var store = [];
+                for (var prop in radio.modifierClasses) {
+                    if (radio.modifierClasses[prop] == true) {
+                        store.push(prop);
+                    }                    
+                }
+                return store; 
+            },
+            modifierStyles2: function () {
+                var store = [];
+                for (var prop in radio2.modifierClasses) {
+                    if (radio2.modifierClasses[prop] == true) {
+                        store.push(prop);
+                    }                    
+                }
+                return store; 
+            }
         }
     });
 });

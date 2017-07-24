@@ -3,24 +3,26 @@ Basic radio button input.
 JS COMPONENT PROPERTIES:
 ___
 
-* `:text = {{radio.label}}` 
-  * Text label associated with radio button input
-* `:id = {{radio.ID}}`
-  * CSS #id for radio 
-  * Used with label to provide check functionality 
-* `:classes = {{radio.class}}`
-  * An object of modifier/variation class names mapped to booleans
-  * If class name is false it will not be applied and vice-versa
-* `:formvalue = {{radio.value}}`
-  * The value attached to the radio input 
-  * This is what will be sent with the completed form
-* `formname = "formName"`
-  * String passed to component  
-  * Sets the name="" property of the radio button 
-  * Pass this same string to other radio buttons in the form 
-* `v-model = selectedArray`
-  * Array on the parent Vue instance   
+* `v-model = radio`
+  * Required property 
+  * Can be Number or String on parent component   
   * Stores the value emitted from the input
+* `:id = {{radio.ID}}`
+  * Required property 
+  * CSS #id for radio 
+  * Used with label to provide functionality 
+* `:label = {{checkbox.label}}`
+  * Required property
+  * Sets the value & text label of the radio  
+  * If `<slot>` is used it will override this prop as the radio's text label 
+* `:modifier-styles`
+  * An array of modifier/variation classes 
+  * Class names must be strings 
+* `:disabled`
+  * Boolean to disable the checkbox
+  * Will apply .is-disabled class if true 
+* `:name`
+  * Binding to the native HTML `name` attribute
 
 ___
 BEM STRUCTURE: `radio`, `radio__input`, `radio__fill`, `radio__label`
@@ -44,7 +46,10 @@ ___
 SLOTS, VARIATIONS, MODIFIERS:
 ___
 
-Content Blocks: N/A
+Content Blocks: 
+* Default `<slot>`:
+  * Can be used to override `:label` as text label
+  * Use if you want `:label` to be used purely as a value    
 
 Size Modifiers: `radio_size-xsmall`, `radio_size-small`, `radio_size-large`, `radio_size-xlarge` 
 

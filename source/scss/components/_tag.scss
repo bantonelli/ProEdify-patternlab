@@ -1,0 +1,20 @@
+.tag {
+    @include pe-font-family-paragraph();
+    @include pe-font-sizing-meta-data();
+    display: inline-block;
+    height: 30px;
+    margin: 3px 0 6px 6px;
+    padding: 0 5px;
+    border: 1px solid rgb(131, 131, 131);
+    border-radius: 2px;
+    line-height: 30px;
+    white-space: nowrap;    
+
+    &__close {
+        margin-left: 5px;
+
+        &::before {
+            @include pe-font-sizing-sub-paragraph();
+        }
+    }
+}

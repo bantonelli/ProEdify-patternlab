@@ -1,0 +1,27 @@
+<div id="tag">
+    <pe-tag
+        closable 
+    >
+    Tag Example
+    </pe-tag>
+    <pe-tag     
+    >
+    Tag Example
+    </pe-tag>
+</div>
+
+<script>
+    requirejs(['vue', 'atoms/Tag/Tag'], function (Vue, Tag) {
+        new Vue({
+            el: "#tag",
+            data: function () {
+                return {
+
+                }
+            },
+            components: {
+                'pe-tag': Tag.default
+            }
+        }); 
+    });
+</script>

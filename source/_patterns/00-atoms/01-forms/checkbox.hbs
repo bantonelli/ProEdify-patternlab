@@ -1,51 +1,38 @@
 <form id="checkbox">
     <pe-checkbox 
-        :text='checkbox.label'
+        :label='checkbox.label'
         :id='checkbox.ID'
-        :classes='checkbox.class'
-        :formvalue='checkbox.value'
+        :modifier-styles="modifierStyles"
         v-model.lazy="checked">
     </pe-checkbox>    
-    <pe-checkbox 
-        :text='otherCheckbox.label'
-        :id='otherCheckbox.ID'
-        :classes='otherCheckbox.class'
-        :formvalue='otherCheckbox.value'
-        v-model.lazy="checked">
-    </pe-checkbox>
-    <pe-checkbox 
-        :text='thirdCheckbox.label'
-        :id='thirdCheckbox.ID'
-        :classes='thirdCheckbox.class'
-        :formvalue='thirdCheckbox.value'
-        v-model.lazy="checked">
-    </pe-checkbox>
-    <!--\{{checked}}-->
+    \{{checked}}    
 </form>
 
 <script>
 var checkbox = {{{json checkbox}}};
-var otherCheckbox = {{{json otherCheckbox}}};
-var thirdCheckbox = {{{json thirdCheckbox}}};
 
-requirejs(['vue', 'atoms/Checkbox'], function (Vue, Checkbox) {
+requirejs(['vue', 'atoms/Checkbox/Checkbox'], function (Vue, Checkbox) {
     new Vue({
         el:"#checkbox",
         data: function () {
             return {
                 checkbox: checkbox,
-                otherCheckbox: otherCheckbox,
-                thirdCheckbox: thirdCheckbox,
                 checked: []
-            }
-        },
-        watch: {
-            checked: function (newValue) {
-                this.checked = newValue;
             }
         },
         components: {
             'pe-checkbox': Checkbox.default
+        },
+        computed: {
+            modifierStyles: function () {
+                var store = [];
+                for (var prop in checkbox.modifierClasses) {
+                    if (checkbox.modifierClasses[prop] == true) {
+                        store.push(prop);
+                    }                    
+                }
+                return store; 
+            }
         }
     });
     // Vue.component('pe-checkbox-menu', CheckboxMenu.default);

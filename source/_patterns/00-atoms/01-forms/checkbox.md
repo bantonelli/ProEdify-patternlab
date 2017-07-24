@@ -3,20 +3,34 @@ Basic checkbox input.
 JS COMPONENT PROPERTIES:
 ___
 
-* `:text = {{checkbox.label}}` 
-  * Text label associated with checkbox input
+* `v-model = checked`
+  * Required property 
+  * Can be Array, Boolean, or String on parent component   
+  * Stores the values emitted from the input
+  * Use Boolean or String for single checkbox and array with checkbox group
 * `:id = {{checkbox.ID}}`
+  * Required property 
   * CSS #id for checkbox
   * Used with label to provide scheck functionality 
-* `:classes = {{checkbox.class}}`
-  * An object of modifier/variation class names mapped to booleans
-  * If class name is false it will not be applied and vice-versa
-* `:formvalue = {{checkbox.value}}`
-  * The value attached to the checkbox input 
-  * This is what will be sent with the completed form
-* `v-model = checkedArray`
-  * Array on the parent Vue instance   
-  * Stores the values emitted from the input
+* `:label = {{checkbox.label}}`
+  * Required property for checkbox-group usage   
+  * Text label & value associated with checkbox in a checkbox-group 
+  * If a label prop is passed it is treated as the value of the checkbox
+  * If `<slot>` is used instead of `:label` the checkbox value will be Boolean
+* `:true-label`
+  * Value of checkbox when it is checked
+  * Use this prop in combination with `:false-label`
+* `:false-label`
+  * Value of checkbox when it is NOT checked
+  * Use this prop in combination with `:true-label`
+* `:modifier-styles`
+  * An array of modifier/variation classes 
+  * Class names must be strings 
+* `:disabled`
+  * Boolean to disable the checkbox
+  * Will apply .is-disabled class if true 
+* `:indeterminate`, `:name`, `:checked`
+  * Bindings to their respective native HTML attributes
 
 ___
 BEM STRUCTURE: `checkbox`, `checkbox__input`, `checkbox__label`
@@ -38,7 +52,10 @@ ___
 SLOTS, VARIATIONS, MODIFIERS:
 ___
 
-Content Blocks: N/A
+Content Blocks: 
+* Default `<slot>`:
+  * Used as text label in single-checkbox scenario 
+  * Use this instead of `:label` when you want checkbox value to be Boolean instead of String.
  
 Size Modifiers: `checkbox_size-small`, `checkbox_size-large` 
 

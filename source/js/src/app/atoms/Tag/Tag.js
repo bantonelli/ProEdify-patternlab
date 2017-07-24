@@ -17,12 +17,9 @@ export default {
   template: tagTemplate,
 
   props: {
-    text: String,
     closable: Boolean,
-    type: String,
-    hit: Boolean,
     closeTransition: Boolean,
-    color: String,
+    hit: Boolean,
     modifierStyles: {
       type: Array, 
       default: null
