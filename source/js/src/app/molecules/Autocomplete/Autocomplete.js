@@ -139,7 +139,7 @@ export default {
       this.getData(value);
     },
     handleFocus() {
-      console.log("AUTOCOMPLETE: CALLED HANDLE FOCUS");
+      // console.log("AUTOCOMPLETE: CALLED HANDLE FOCUS");
       this.isFocus = true;
       if (this.triggerOnFocus) {
         this.getData(this.value);

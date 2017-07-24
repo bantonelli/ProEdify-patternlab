@@ -10,6 +10,7 @@ requirejs.config({
         // js/lib/jquery-1.9.0.js, relative to
         // the HTML page.
         jquery: '../lib/jquery-3.2.1.min',
-        vue: '../lib/vue'
+        vue: '../lib/vue',
+        lodash: '../lib/lodash'
     }
 });

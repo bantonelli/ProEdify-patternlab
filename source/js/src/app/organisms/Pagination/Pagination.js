@@ -162,7 +162,7 @@ export default {
         return (
           <div class="pagination__sizes">
             <select-component
-              placeholdertext= { this.$parent.internalPageSize }
+              placeholder= { this.$parent.internalPageSize }
               on-input={ this.handleChange }
               options={ this.pageSizes }              
             >

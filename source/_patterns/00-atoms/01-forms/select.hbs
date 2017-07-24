@@ -1,9 +1,9 @@
 <form id="select-box">
     <pe-select
         v-model="selected"
-        :placeholdertext='selectBox.placeHolder'
+        :placeholder='selectBox.placeHolder'
         :options='selectBox.options'
-        :classes='selectBox.class'
+        :modifier-styles='modifierStyles'
         >
     </pe-select>
     \{{selected}}
@@ -25,6 +25,17 @@ requirejs(['vue', 'atoms/Select'], function (Vue, Select) {
         },
         components: {
             'pe-select': Select.default
+        },
+        computed: {
+            modifierStyles: function () {
+                var store = [];
+                for (var prop in selectBox.class) {
+                    if (selectBox.class[prop] == true) {
+                        store.push(prop);
+                    }
+                }
+                return store;
+            }
         }
     });
 

@@ -1,5 +1,5 @@
 const selectTemplate = `
-<div @click="toggleSelect" class="select" :class="[isActiveClass, classes]">
+<div @click="toggleSelect" class="select" :class="classes">
     <span class="select__placeholder" :class="isChosenClass">\{{ selectedOption }}</span>
     <div class="select__border"></div>
     <ul class="select__options">
@@ -15,18 +15,41 @@ const selectTemplate = `
 //     <option value="1" v-for="option in options">\{{option}}</option>
 // </select>
 
+import _ from 'lodash';
+
 export default {
     template: selectTemplate,
-    props: ['placeholdertext', 'options', 'classes'],
+    props: {
+        placeholder: { 
+            default: "Basic Select Input"
+        },
+        options: {
+            type: Array,
+            default: [
+                'Option 1',
+                'Option 2',
+                'Option 3'
+            ]
+        },
+        modifierStyles: {
+            type: Array, 
+            default: null
+        }
+    },
     data: function () {
         return {
-            selectedOption: this.placeholdertext,
+            selectedOption: this.placeholder,
             isActiveClass: {
                 'is-active': false
             },
             isChosenClass: {
                 'is-chosen': false
             }
+        }
+    },
+    computed: {
+        classes: function () {
+            return _.concat(this.modifierStyles, this.isActiveClass);
         }
     },
     methods: {
@@ -39,7 +62,7 @@ export default {
             }
         },
         selectOption: function (event, option) {
-            if (this.selectedOption !== this.placeholdertext) {
+            if (this.selectedOption !== this.placeholder) {
                 this.isChosenClass['is-chosen'] = true;
             }
             this.selectedOption = option;

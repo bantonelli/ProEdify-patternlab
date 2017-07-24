@@ -110,7 +110,7 @@ export default {
 
   created() {
     this.$on('visible', (val, inputWidth) => {
-      console.log("AUTOCOMPLETE SUGGEST: CALLED 'visible' HANDLER, VALUE: ", val, inputWidth);        
+      // console.log("AUTOCOMPLETE SUGGEST: CALLED 'visible' HANDLER, VALUE: ", val, inputWidth);        
       this.dropdownWidth = inputWidth + 'px';
       this.showPopper = val;
     });
