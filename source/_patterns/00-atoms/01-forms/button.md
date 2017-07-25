@@ -1,6 +1,6 @@
 Basic button input.
 
-JS COMPONENT PROPERTIES: N/A (Not a javascript component)
+JS COMPONENT PROPERTIES & EVENTS: N/A (Not a javascript component)
 
 ___ 
 BEM STRUCTURE: `button`, `button__text`

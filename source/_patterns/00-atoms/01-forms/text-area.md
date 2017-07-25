@@ -1,6 +1,6 @@
 Basic text area input.
 
-JS COMPONENT PROPERTIES:
+JS COMPONENT PROPERTIES & EVENTS:
 ___
 
 * `v-model = valueString`

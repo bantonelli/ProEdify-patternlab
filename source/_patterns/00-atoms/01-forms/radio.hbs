@@ -6,28 +6,19 @@
         v-model="selected"
         >
     </pe-radio>
-    <pe-radio 
-        :label='radio2.label'
-        :id='radio2.ID'
-        :modifier-styles='modifierStyles2'
-        v-model="selected"
-        >
-    </pe-radio>
-    \{{selected}}
+    SELECTED VALUE: \{{selected}}
 </div>
 
 <script>
 var radio = {{{json radio}}};
-var radio2 = {{{json radio2}}};
 
 requirejs(['vue', 'atoms/Radio/Radio'], function (Vue, Radio) {
     new Vue({
         el: "#radio",
         data: function () {
             return {
-                selected: '1', 
-                radio: radio,
-                radio2: radio2
+                selected: null, 
+                radio: radio
             }
         },
         components: {
@@ -42,16 +33,7 @@ requirejs(['vue', 'atoms/Radio/Radio'], function (Vue, Radio) {
                     }                    
                 }
                 return store; 
-            },
-            modifierStyles2: function () {
-                var store = [];
-                for (var prop in radio2.modifierClasses) {
-                    if (radio2.modifierClasses[prop] == true) {
-                        store.push(prop);
-                    }                    
-                }
-                return store; 
-            }
+            }            
         }
     });
 });

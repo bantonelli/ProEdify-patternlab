@@ -1,0 +1,43 @@
+<!--{{> atoms-radio }}-->
+<div id="radio-group" class="dark-background">
+    <pe-radio-group v-model="selected">
+        <pe-radio v-for="radio in radios" 
+            :label="radio.label" 
+            :id="radio.ID" 
+            :modifier-styles="radio.modifierStyles"
+            :key="radio.ID"
+            style="margin: 5px 0;">
+        </pe-radio>      
+    </pe-radio-group>
+    <div style="margin-top: 20px;">
+        SELECTED VALUE: \{{selected}}
+    </div>
+</div>
+
+
+<script>
+var radios = {{{json radios}}};
+
+requirejs(
+[
+    'vue', 
+    'atoms/Radio/Radio', 
+    'molecules/RadioGroup/RadioGroup'
+],
+function (Vue, Radio, RadioGroup) {
+    new Vue({
+        el:"#radio-group",
+        data: function () {
+            return {
+                radios: radios,
+                selected: ''
+            }
+        },
+        components: {
+            'pe-radio': Radio.default,
+            'pe-radio-group': RadioGroup.default
+        }
+    });
+});
+
+</script>

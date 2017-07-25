@@ -1,6 +1,6 @@
 Basic radio button input.
 
-JS COMPONENT PROPERTIES:
+JS COMPONENT PROPERTIES & EVENTS:
 ___
 
 * `v-model = radio`

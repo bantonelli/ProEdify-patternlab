@@ -1,9 +1,43 @@
 <!--{{> atoms-checkbox }}-->
-<div id="search-form">
-
+<div id="checkbox-group" class="dark-background">
+    <pe-checkbox-group v-model="checked" :min="1" :max="2">
+        <pe-checkbox v-for="checkbox in checkboxes" 
+            :label="checkbox.label" 
+            :id="checkbox.ID" 
+            :modifier-styles="checkbox.modifierStyles"
+            :key="checkbox.ID"
+            style="margin: 5px 0;">
+        </pe-checkbox>      
+    </pe-checkbox-group>
+    <div style="margin-top: 20px;">
+        CHECKED VALUES: \{{checked}}
+    </div>
 </div>
 
 
 <script>
 var checkboxes = {{{json checkboxes}}};
+
+requirejs(
+[
+    'vue', 
+    'atoms/Checkbox/Checkbox', 
+    'molecules/CheckboxGroup/CheckboxGroup'
+],
+function (Vue, Checkbox, CheckboxGroup) {
+    new Vue({
+        el:"#checkbox-group",
+        data: function () {
+            return {
+                checkboxes: checkboxes,
+                checked: []
+            }
+        },
+        components: {
+            'pe-checkbox': Checkbox.default,
+            'pe-checkbox-group': CheckboxGroup.default
+        }
+    });
+});
+
 </script>

@@ -1,14 +1,15 @@
 Basic text hyperlink link.
 
-JS COMPONENT PROPERTIES:
+JS COMPONENT PROPERTIES & EVENTS:
 ___ 
 * `:linkurl = {{link.linkUrl}}`
-  * URL for the text link. 
+  * Required property 
+  * URL String for the text link. 
 * `:showborder = {{link.showBorder}}`
   * Boolean value to determine if link border should be rendered 
-* `:classes = {{link.class}}`
-  * An object of modifier/variation class names mapped to booleans
-  * If class name is false it will not be applied and vice-versa
+* `:modifier-styles`
+  * An array of modifier/variation classes 
+  * Class names must be strings 
 
 ___
 BEM STRUCTURE: `text-link`, `text-link__link`, `text-link__border`

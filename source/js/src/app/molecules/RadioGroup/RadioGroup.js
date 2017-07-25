@@ -17,7 +17,6 @@ export default {
 
   props: {
     value: {},
-    size: String,
     fill: String,
     textColor: String,
     disabled: Boolean

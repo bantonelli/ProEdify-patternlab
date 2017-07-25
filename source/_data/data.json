@@ -97,17 +97,6 @@
       "radio_color-invert": false
     }
   },
-  "radio2": {
-      "label": "Radio Button 2",
-      "ID": "radio_id_2",
-      "modifierClasses": {
-        "radio_size-xsmall": false,
-        "radio_size-small": false,
-        "radio_size-large": false,
-        "radio_size-xlarge": false,
-        "radio_color-invert": false
-      }
-  },
   "checkbox": {
     "ID": "checkbox_id",
     "label": "Checkbox Label Is Treated As It's Value",

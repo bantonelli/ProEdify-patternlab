@@ -11,6 +11,7 @@ requirejs.config({
         // the HTML page.
         jquery: '../lib/jquery-3.2.1.min',
         vue: '../lib/vue',
-        lodash: '../lib/lodash'
+        lodash: '../lib/lodash',
+        popper: '../lib/popper'
     }
 });

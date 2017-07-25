@@ -1,6 +1,6 @@
 Basic checkbox input.
  
-JS COMPONENT PROPERTIES:
+JS COMPONENT PROPERTIES & EVENTS:
 ___
 
 * `v-model = checked`
@@ -31,6 +31,8 @@ ___
   * Will apply .is-disabled class if true 
 * `:indeterminate`, `:name`, `:checked`
   * Bindings to their respective native HTML attributes
+* `@change`
+  * Event Fired when bound v-model changes 
 
 ___
 BEM STRUCTURE: `checkbox`, `checkbox__input`, `checkbox__label`

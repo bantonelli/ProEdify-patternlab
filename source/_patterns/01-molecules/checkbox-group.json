@@ -3,38 +3,17 @@
         {
             "ID": "first-check",
             "label": "First",
-            "class": {
-            "checkbox_size-xsmall": false,
-            "checkbox_size-small": false,
-            "checkbox_size-large": true,
-            "checkbox_size-xlarge": false,
-            "checkbox_color-invert": false
-            },
-            "value": "First Option"
+            "modifierStyles": ["checkbox_color-invert", "checkbox_size-small"]
         },
         {
             "ID": "second-check",
             "label": "Second",
-            "class": {
-            "checkbox_size-xsmall": false,
-            "checkbox_size-small": false,
-            "checkbox_size-large": true,
-            "checkbox_size-xlarge": false,
-            "checkbox_color-invert": false
-            },
-            "value": "Second Option"
+            "modifierStyles": ["checkbox_color-invert"]
         },
         {
             "ID": "third-check",
             "label": "Third",
-            "class": {
-            "checkbox_size-xsmall": false,
-            "checkbox_size-small": false,
-            "checkbox_size-large": true,
-            "checkbox_size-xlarge": false,
-            "checkbox_color-invert": false
-            },
-            "value": "Third Option"
+            "modifierStyles": ["checkbox_color-invert", "checkbox_size-large"]
         }
     ]
 }

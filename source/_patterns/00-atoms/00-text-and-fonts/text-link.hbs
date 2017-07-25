@@ -3,8 +3,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, mollitia, obcaecati! Fuga, ipsam, magnam!         
         <pe-text-link
             :linkurl="link.linkUrl"
-            :showborder="link.showBorder"
-            :classes="link.class"
+            :showborder="link.showBorder"            
             >     
         </pe-text-link>
         <span>Eius animi illum culpa itaque, ipsam, aut distinctio, adipisci dolorum enim accusantium facilis deserunt ullam beatae.
@@ -15,7 +14,7 @@
         <pe-text-link
             :linkurl="link.linkUrl"
             :showborder="link.showBorder"
-            :classes="{'text-link_bgcolor-dark': true}"
+            :modifier-styles="['text-link_bgcolor-dark']"
             >     
         </pe-text-link>
         <span style="color: white;">Eius animi illum culpa itaque, ipsam, aut distinctio, adipisci dolorum enim accusantium facilis deserunt ullam beatae.
@@ -26,7 +25,7 @@
         <pe-text-link
             :linkurl="link.linkUrl"
             :showborder="link.showBorder"
-            :classes="{'text-link_bgcolor-gray': true}"
+            :modifier-styles="['text-link_bgcolor-gray']"
             >     
         </pe-text-link>
         <span style="color: white;">Eius animi illum culpa itaque, ipsam, aut distinctio, adipisci dolorum enim accusantium facilis deserunt ullam beatae.

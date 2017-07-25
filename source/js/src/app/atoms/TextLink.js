@@ -1,5 +1,5 @@
 const textLinkTemplate = `
-<div class="text-link" :class="classes">
+<div class="text-link" :class="modifierStyles">
     <a :href="linkurl" class="text-link__link">
         <slot>Text Link</slot>
     </a>
@@ -9,7 +9,19 @@ const textLinkTemplate = `
 
 export default {
     template: textLinkTemplate,
-    props: ['linkurl', 'showborder', 'classes'],
+    props: {
+        linkurl: {
+            type: String
+        },
+        showborder: {
+            type: Boolean,
+            default: true
+        },
+        modifierStyles: {
+            type: Array,
+            default: null 
+        }
+    },
     data: function () {
         return {
             originalColor: null

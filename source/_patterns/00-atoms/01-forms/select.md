@@ -1,6 +1,6 @@
 Basic select box input.
  
-JS COMPONENT PROPERTIES:
+JS COMPONENT PROPERTIES & EVENTS:
 ___
 
 * `:placeholder = {{selectBox.placeHolder}}`

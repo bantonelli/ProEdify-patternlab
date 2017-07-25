@@ -1,0 +1,19 @@
+{
+    "radios": [
+        {
+            "ID": "first-radio",
+            "label": "First",
+            "modifierStyles": ["radio_color-invert", "radio_size-small"]
+        },
+        {
+            "ID": "second-radio",
+            "label": "Second",
+            "modifierStyles": ["radio_color-invert"]
+        },
+        {
+            "ID": "third-radio",
+            "label": "Third",
+            "modifierStyles": ["radio_color-invert", "radio_size-large"]
+        }
+    ]
+}
