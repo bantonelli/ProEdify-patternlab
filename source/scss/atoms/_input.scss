@@ -21,7 +21,7 @@
     width: 100%;
     padding: rem(10px) rem(10px);
     border: 0;
-    z-index: 1;
+    z-index: 3;
 
     &:focus, 
     &:active {
@@ -47,6 +47,7 @@
     @include pe-bottom-border() {
         bottom: rem(-2px);
     };    
+    pointer-events: none;
 }
 
 %input__icon {

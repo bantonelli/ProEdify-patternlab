@@ -1,14 +1,14 @@
+<!--{{> atoms-input }} -->
+<!--{{> molecules-input-field }} -->
 <div id="autocomplete" style="width: 80%; margin: 0 auto;">
     <pe-autocomplete
         v-model="state1"
         :fetch-suggestions="querySearch"
-        :trigger-on-focus="true"
+        :trigger-on-focus="false"
         icon="icon-magnifying-glass"
         placeholder="Please Input"
         @select="handleSelect"
     >
-        <!--<span slot="prepend">PREPEND</span>
-        <span slot="append">APPEND</span>-->
     </pe-autocomplete>  
 </div> 
 
