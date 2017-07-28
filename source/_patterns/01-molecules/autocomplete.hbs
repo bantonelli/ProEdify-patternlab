@@ -27,6 +27,7 @@ requirejs(['vue', 'molecules/Autocomplete/Autocomplete'], function (Vue, Autocom
         methods: {
             querySearch(queryString, cb) {
                 var links = this.links;
+                // Call createFilter for every link   
                 var results = queryString ? links.filter(this.createFilter(queryString)) : links;
                 // call callback function to return suggestions
                 cb(results);
@@ -50,6 +51,9 @@ requirejs(['vue', 'molecules/Autocomplete/Autocomplete'], function (Vue, Autocom
             handleSelect(item) {
                 console.log(item);
             }
+        },
+        mounted: function () {
+            this.links = this.loadAll();
         }
     });
 });

@@ -3,7 +3,7 @@ import InputField from '../InputField/InputField';
 import AutocompleteSuggestions from './AutocompleteSuggestions';
 
 let autocompleteTemplate = `
-<div class="autocomplete">
+<div class="autocomplete" :class="modifierStyles">
   <input-field
     ref="inputField"
     :value="value"
@@ -79,7 +79,11 @@ export default {
     },
     customItem: String,
     icon: String,
-    onIconClick: Function
+    onIconClick: Function,
+    modifierStyles: {
+      type: Array, 
+      default: null
+    }
   },
   data() {
     return {

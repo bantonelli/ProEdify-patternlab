@@ -13,5 +13,10 @@ requirejs.config({
         vue: '../lib/vue',
         lodash: '../lib/lodash',
         popper: '../lib/popper'
+    },
+    map: {
+        '*': {
+            'popper.js': 'popper'
+        }
     }
 });
