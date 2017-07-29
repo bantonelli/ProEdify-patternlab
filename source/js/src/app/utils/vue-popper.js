@@ -5,9 +5,7 @@ import {
 
 // const PopperJS = Vue.prototype.$isServer ? function() {} : require('./popper');
 import PopperJS from 'popper.js';
-import generatePopperOnLoad from './generatePopper';
-
-console.log(PopperJS);
+// import generatePopperOnLoad from './generatePopper';
 
 const stop = e => e.stopPropagation();
 
@@ -39,7 +37,7 @@ export default {
     transition: String,
     appendToBody: {
       type: Boolean,
-      default: true
+      default: false
     },
     popperOptions: {
       type: Object,
@@ -79,6 +77,8 @@ export default {
       if (this.$isServer) return;
 
       // set up placement of popper 
+      // currentPlacement is data attr 
+      // placement is a prop attr 
       this.currentPlacement = this.currentPlacement || this.placement;
       if (!/^(top|bottom|left|right)(-start|-end)?$/g.test(this.currentPlacement)) {
         return;
@@ -88,9 +88,11 @@ export default {
       const options = this.popperOptions;
 
       // get the popper html element 
+      // popperElm is defined on parent during mounted() hook 
       const popper = this.popperElm = this.popperElm || this.popper || this.$refs.popper;
 
       // get the ref html element 
+      // referenceElm is defined on parent during mounted() hook 
       let reference = this.referenceElm = this.referenceElm || this.reference || this.$refs.reference;
 
       if (!reference &&
@@ -101,6 +103,9 @@ export default {
 
       if (!popper || !reference) return;
       if (this.visibleArrow) this.appendArrow(popper);
+
+      // appendToBody is prop attr 
+      // it is set to true by default 
       if (this.appendToBody) document.body.appendChild(this.popperElm);
       if (this.popperJS && this.popperJS.destroy) {
         this.popperJS.destroy();
@@ -109,12 +114,12 @@ export default {
       // update placement on options object 
       options.placement = this.currentPlacement;
       options.offset = this.offset;
-      options.modifiers = { generatePopper: {
-                              onLoad: generatePopperOnLoad,
-                              order: 0,
-                              enabled: true,
-                            },
-                          };
+      // options.modifiers = { generatePopper: {
+      //                         onLoad: generatePopperOnLoad,
+      //                         order: 0,
+      //                         enabled: true,
+      //                       },
+      //                     };
       options.onCreate = _ => {
         this.$emit('created', this);
         this.resetTransformOrigin();
