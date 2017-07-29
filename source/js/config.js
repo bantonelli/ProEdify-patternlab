@@ -13,7 +13,8 @@ requirejs.config({
         vue: '../lib/vue',
         lodash: '../lib/lodash',
         popper: '../lib/popper',
-        debounce: '../lib/throttle-debounce/debounce'
+        debounce: '../lib/throttle-debounce/debounce',
+        throttle: '../lib/throttle-debounce/throttle'
     },
     map: {
         '*': {

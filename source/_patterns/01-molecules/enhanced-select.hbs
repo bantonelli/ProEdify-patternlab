@@ -1,5 +1,5 @@
 <div id="enhanced-select" style="width: 200px; margin: 0 auto;">
-    <select-component 
+    <pe-enhanced-select 
     v-model="selectValue" 
     placeholder="Select"
     multiple 
@@ -7,7 +7,7 @@
     allow-create
     :loading="loading"
     >
-    <select-option
+    <pe-select-option
         v-for="item in options"
         :key="item.value"
         :label="item.label"
@@ -15,37 +15,38 @@
         :disabled="false">
         <span style="float: left">{{ item.label }}</span>
         <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
-    </select-option>
-    </select-component>
-    <!--<select-component
+    </pe-select-option>
+    </pe-enhanced-select>
+    <!--<pe-enhanced-select
     v-model="selectValue"
     placeholder="Select Groups"
     >
-    <option-group
+    <pe-option-group
         v-for="group in groupOptions"
         :key="group.label"
         :label="group.label"
     >
-        <select-option
+        <pe-select-option
         v-for="item in group.options"
         :key="item.value"
         :label="item.label"
         :value="item.value"
         >
-        </select-option>
-    </option-group>
-    </select-component>-->
+        </pe-select-option>
+    </pe-option-group>
+    </pe-enhanced-select>-->
 
 </div>
 
 <script>
 var select = {{{json select}}};
     requirejs([
+        'throttle',
         'vue', 
         'molecules/EnhancedSelect/EnhancedSelect',
         'molecules/EnhancedSelect/Option',
         'molecules/EnhancedSelect/OptionGroup'
-    ], function (Vue, EnhancedSelect, Option, OptionGroup) {
+    ], function (throttle, Vue, EnhancedSelect, Option, OptionGroup) {
         new Vue({
             el: "#enhanced-select",
             data: function () {
@@ -58,7 +59,12 @@ var select = {{{json select}}};
                     states: select.states,
                     groupOptions: select.groupOptions
                 }
-            }
+            },
+            components: {
+                'pe-enhanced-select': EnhancedSelect.default,
+                'pe-select-option': Option.default,
+                'pe-option-group': OptionGroup.default
+            }            
         });
     });
 </script>

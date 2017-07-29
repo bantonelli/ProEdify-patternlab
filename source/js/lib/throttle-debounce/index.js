@@ -1,7 +1,9 @@
-var throttle = require('./throttle');
-var debounce = require('./debounce');
+define(['module', './throttle', './debounce'], function (module, throttle, debounce) {
+	'use strict';
 
-module.exports = {
-	throttle: throttle,
-	debounce: debounce
-};
+	module.exports = {
+		throttle: throttle,
+		debounce: debounce
+	};
+});
+//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC90aHJvdHRsZS1kZWJvdW5jZS9pbmRleC5qcyJdLCJuYW1lcyI6WyJ0aHJvdHRsZSIsImRlYm91bmNlIiwibW9kdWxlIiwiZXhwb3J0cyJdLCJtYXBwaW5ncyI6ImtCQUF1QixZLEVBQ0EsWSxxQkFEbkJBLFEsRUFDQUMsUTs7O0FBRUpDLFFBQU9DLE9BQVAsR0FBaUI7QUFDaEJILFlBQVVBLFFBRE07QUFFaEJDLFlBQVVBO0FBRk0sRUFBakIiLCJmaWxlIjoiYXBwL3Rocm90dGxlLWRlYm91bmNlL2luZGV4LmpzIiwic291cmNlc0NvbnRlbnQiOlsidmFyIHRocm90dGxlID0gcmVxdWlyZSgnLi90aHJvdHRsZScpO1xudmFyIGRlYm91bmNlID0gcmVxdWlyZSgnLi9kZWJvdW5jZScpO1xuXG5tb2R1bGUuZXhwb3J0cyA9IHtcblx0dGhyb3R0bGU6IHRocm90dGxlLFxuXHRkZWJvdW5jZTogZGVib3VuY2Vcbn07XG4iXX0=
