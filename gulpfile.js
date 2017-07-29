@@ -97,7 +97,7 @@ gulp.task('pl-copy:js', function () {
 });
 
 gulp.task('pl-copy:libjs', function () {
-  return gulp.src(resolvePath(paths().source.libjs) + '/*.js')
+  return gulp.src(resolvePath(paths().source.libjs) + '/**/*.js')
     .pipe(gulp.dest(resolvePath(paths().public.libjs)));
 });
 
