@@ -33,7 +33,7 @@ ___
   * Will apply .is-disabled class if true 
 
 ___
-BEM STRUCTURE (autocomplete): `autocomplete`
+BEM STRUCTURE (autocomplete): `autocomplete`, `autocomplete-suggestions` 
 BEM STRUCTURE (suggestions): `autocomplete-suggestions`, `&__wrapper`, `&__item`
 ___
 
@@ -44,7 +44,7 @@ ___
 * autocomplete-suggestions:
   * Container block for the suggestions portion of the component.
   * Implemented via popper.js 
-  * Separate node from the autocomplete input 
+  * Rendered inside of autocomplete but styled as separate block. 
 
 * autocomplete-suggestions__wrapper: 
   * The `<ul>` wrapper for the list of suggestions 

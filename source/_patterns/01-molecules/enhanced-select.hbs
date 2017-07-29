@@ -1,57 +1,72 @@
-<div id="enhanced-select" style="width: 200px; margin: 0 auto;">
-    <pe-enhanced-select 
-    v-model="selectValue" 
-    placeholder="Select"
-    multiple 
-    filterable
-    allow-create
-    :loading="loading"
-    >
-    <pe-select-option
-        v-for="item in options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
-        :disabled="false">
-        <span style="float: left">{{ item.label }}</span>
-        <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
-    </pe-select-option>
-    </pe-enhanced-select>
-    <!--<pe-enhanced-select
-    v-model="selectValue"
-    placeholder="Select Groups"
-    >
-    <pe-option-group
-        v-for="group in groupOptions"
-        :key="group.label"
-        :label="group.label"
-    >
-        <pe-select-option
-        v-for="item in group.options"
-        :key="item.value"
-        :label="item.label"
-        :value="item.value"
+<div id="enhanced-select">
+    <div style="display: inline-block; width: 300px; margin: 0 20px;">
+        <pe-enhanced-select v-model="selectValue" placeholder="Single select w/ clearable option" clearable>
+            <pe-select-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+                :disabled="false">                
+            </pe-select-option>
+        </pe-enhanced-select>
+    </div>
+    <div style="display: inline-block; width: 300px; margin: 0 20px;">
+        <pe-enhanced-select 
+        v-model="selectValue2" 
+        placeholder="Multiple, filterable & allow-create"
+        multiple 
+        filterable
+        allow-create
         >
+        <pe-select-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+            :disabled="false">
+            <span style="float: left">\{{ item.label }}</span>
+            <span style="float: right; color: #8492a6; font-size: 13px">\{{ item.value }}</span>
         </pe-select-option>
-    </pe-option-group>
-    </pe-enhanced-select>-->
+        </pe-enhanced-select>
+    </div>
+    <div style="display: inline-block; width: 300px; margin: 0 20px;">
+        <pe-enhanced-select
+        v-model="selectValue3"
+        placeholder="Select with Options Grouped"
+        >
+        <pe-option-group
+            v-for="group in groupOptions"
+            :key="group.label"
+            :label="group.label"
+        >
+            <pe-select-option
+            v-for="item in group.options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+            >
+            </pe-select-option>
+        </pe-option-group>
+        </pe-enhanced-select>
+    </div>
 
 </div>
 
 <script>
 var select = {{{json select}}};
     requirejs([
-        'throttle',
         'vue', 
         'molecules/EnhancedSelect/EnhancedSelect',
         'molecules/EnhancedSelect/Option',
         'molecules/EnhancedSelect/OptionGroup'
-    ], function (throttle, Vue, EnhancedSelect, Option, OptionGroup) {
+    ], function (Vue, EnhancedSelect, Option, OptionGroup) {
         new Vue({
             el: "#enhanced-select",
             data: function () {
                 return {
                     selectValue: [],
+                    selectValue2: [],
+                    selectValue3: [],
                     remoteOptions: [],
                     remoteSelectList: [],
                     loading: false,
