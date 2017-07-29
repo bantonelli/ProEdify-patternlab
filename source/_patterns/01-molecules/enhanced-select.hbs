@@ -1,0 +1,64 @@
+<div id="enhanced-select" style="width: 200px; margin: 0 auto;">
+    <select-component 
+    v-model="selectValue" 
+    placeholder="Select"
+    multiple 
+    filterable
+    allow-create
+    :loading="loading"
+    >
+    <select-option
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        :disabled="false">
+        <span style="float: left">{{ item.label }}</span>
+        <span style="float: right; color: #8492a6; font-size: 13px">{{ item.value }}</span>
+    </select-option>
+    </select-component>
+    <!--<select-component
+    v-model="selectValue"
+    placeholder="Select Groups"
+    >
+    <option-group
+        v-for="group in groupOptions"
+        :key="group.label"
+        :label="group.label"
+    >
+        <select-option
+        v-for="item in group.options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+        >
+        </select-option>
+    </option-group>
+    </select-component>-->
+
+</div>
+
+<script>
+var select = {{{json select}}};
+    requirejs([
+        'vue', 
+        'molecules/EnhancedSelect/EnhancedSelect',
+        'molecules/EnhancedSelect/Option',
+        'molecules/EnhancedSelect/OptionGroup'
+    ], function (Vue, EnhancedSelect, Option, OptionGroup) {
+        new Vue({
+            el: "#enhanced-select",
+            data: function () {
+                return {
+                    selectValue: [],
+                    remoteOptions: [],
+                    remoteSelectList: [],
+                    loading: false,
+                    options: select.options,
+                    states: select.states,
+                    groupOptions: select.groupOptions
+                }
+            }
+        });
+    });
+</script>

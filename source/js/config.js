@@ -12,11 +12,13 @@ requirejs.config({
         jquery: '../lib/jquery-3.2.1.min',
         vue: '../lib/vue',
         lodash: '../lib/lodash',
-        popper: '../lib/popper'
+        popper: '../lib/popper',
+        debounce: '../lib/throttle-debounce/debounce'
     },
     map: {
         '*': {
-            'popper.js': 'popper'
+            'popper.js': 'popper',
+            'throttle-debounce/debounce': 'debounce'
         }
     }
 });
