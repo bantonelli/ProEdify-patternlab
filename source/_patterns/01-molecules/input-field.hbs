@@ -1,25 +1,58 @@
-<form id="input-field">
-    <pe-input 
+<!--{{> atoms-input }}-->
+<!--{{> atoms-text-area }}-->
+<form id="input-field" style="width: 80%; margin: 0 auto;">
+    <pe-input-field
+        type="text"
+        placeholder="type=text w/ maxlength=10"
+        :maxlength="10"
+        v-model="Value"
+    >    
+    </pe-input-field>
+    <pe-input-field style="margin-bottom: 10px;"
+        type="textarea"
+        placeholder="type=textarea"
+        v-model="Value2"
+    >
+    </pe-input-field>     
+    <pe-input-field style="margin-bottom: 10px;"
         type="textarea"
         autosize
-        placeholder="Please input"
-        v-model="Value"
+        placeholder="type=textarea w/ autosize"
+        v-model="Value3"
     >
-    </pe-input>
+    </pe-input-field>   
+    <pe-input-field
+        type="password"
+        placeholder="type=password w/ icon & autofocus"
+        v-model="Value4"
+        icon="fa-icon-lock"
+        autofocus="true"
+    >
+    </pe-input-field>
+    <pe-input-field
+        placeholder="disabled"
+        v-model="Value5"
+        disabled
+    >
+    </pe-input-field>
 </form>
 
 <script>
     // var input = {{{json textInput}}};
-    requirejs(['vue', 'atoms/InputField/InputField'], function (Vue, Input) {
+    requirejs(['vue', 'molecules/InputField/InputField'], function (Vue, InputField) {
         new Vue({
             el: '#input-field',
             data: function () {
                 return {
-                    Value: ""
+                    Value: "", 
+                    Value2: "",
+                    Value3: "",
+                    Value4: "",
+                    Value5: ""
                 }
             },
             components: {
-                'pe-input': Input.default
+                'pe-input-field': InputField.default
             }
         });
     });

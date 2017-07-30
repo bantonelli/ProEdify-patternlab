@@ -63,7 +63,7 @@ Size Modifiers: `checkbox_size-small`, `checkbox_size-large`
 
 Color Modifiers: `checkbox_color-invert`
 
-
+Variations: `input-field--appended`, `input-field--prepended`
 
 
 

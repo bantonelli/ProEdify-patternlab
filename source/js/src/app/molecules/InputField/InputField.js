@@ -156,32 +156,32 @@ export default {
       return _.omit(this.$props, ['modifierStyles']);
     },
     isValid() {
-      if (this.$parent.validateState) {
-        // For normal inputs 
-        // form-item >> input-field
-        return this.$parent.validateState === 'success';
-      } 
-      else if (this.$parent.$parent.validateState) {
-        // For select component 
-        // form-item >> select >> input-field
-        return this.$parent.$parent.validateState === 'success';
+      if (this.$parent) {
+        if (this.$parent.validateState) {
+          // For normal inputs 
+          // form-item >> input-field
+          return this.$parent.validateState === 'success';
+        } 
+        else if (this.$parent.$parent) {
+          return this.$parent.$parent.validateState ? this.$parent.$parent.validateState === 'success' : false;                               
+        }
       } else {
         return false;
       }      
     },
     isInvalid() {
-      if (this.$parent.validateState) {
-        // For normal inputs 
-        // form-item >> input-field
-        return this.$parent.validateState === 'error';
-      } 
-      else if (this.$parent.$parent.validateState) {
-        // For select component 
-        // form-item >> select >> input-field
-        return this.$parent.$parent.validateState === 'error';
+      if (this.$parent) {
+        if (this.$parent.validateState) {
+          // For normal inputs 
+          // form-item >> input-field
+          return this.$parent.validateState === 'error';
+        } 
+        else if (this.$parent.$parent) {
+          return this.$parent.$parent.validateState ? this.$parent.$parent.validateState === 'error' : false;                               
+        }
       } else {
         return false;
-      }  
+      }   
     }
   },
 
