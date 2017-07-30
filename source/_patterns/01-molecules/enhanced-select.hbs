@@ -35,9 +35,9 @@
         placeholder="Select with Options Grouped"
         >
         <pe-option-group
-            v-for="group in groupOptions"
-            :key="group.label"
-            :label="group.label"
+        v-for="group in groupOptions"
+        :key="group.label"
+        :label="group.label"
         >
             <pe-select-option
             v-for="item in group.options"
