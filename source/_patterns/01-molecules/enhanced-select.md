@@ -72,11 +72,21 @@ ___
   * Boolean to disable the option. 
 
 ___
-BEM STRUCTURE: `select` 
-* `&__tags`, `&__tags-text` 
-* `&__filter-input` 
-* `&__input` 
-* `&__dropdown`, `&__options`, `&__option`, `&__empty`
+BEM STRUCTURE: 
+* `select` 
+  * `&__tags`, `&__tags-text` 
+  * `&__filter-input` 
+  * `&__input`
+
+Non-grouped options:
+* `&__dropdown`, `&__options` 
+  * `&__option`
+  * `&__empty`
+
+Grouped options:
+* `&__dropdown`, `&__options`, `&__group`, `&__group-title`, `&__group-options` 
+  * `&__option`
+  * `&__empty`
 ___
 
 * select:
@@ -110,6 +120,15 @@ ___
 
 * select__option: 
   * `<li>` tags inside of select__options
+
+* select__group: 
+  * `<ul>` wrapper for an OptionGroup 
+
+* select__group-title:
+  * `<li>` that provides styling for the OptionGroup's title text
+
+* select__group-options:
+  * `<ul>` that starts the OptionGroup's list of Options 
 
 * select__empty: 
   * `<p>` inside of select__dropdown
