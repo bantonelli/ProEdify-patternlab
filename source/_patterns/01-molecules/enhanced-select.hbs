@@ -50,6 +50,24 @@
         </pe-enhanced-select>
     </div>
 
+    <div style="display: inline-block; width: 300px; margin: 0 20px;">
+        <pe-enhanced-select
+            v-model="selectValue4"
+            multiple
+            filterable
+            remote
+            placeholder="Select w/ Remote Search"
+            :remote-method="remoteMethod"
+            :loading="loading">
+            <pe-select-option
+            v-for="item in remoteOptions"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+            </pe-select-option>
+        </pe-enhanced-select>
+    </div>
+
 </div>
 
 <script>
@@ -67,6 +85,7 @@ var select = {{{json select}}};
                     selectValue: [],
                     selectValue2: [],
                     selectValue3: [],
+                    selectValue4: [],
                     remoteOptions: [],
                     remoteSelectList: [],
                     loading: false,
@@ -79,6 +98,27 @@ var select = {{{json select}}};
                 'pe-enhanced-select': EnhancedSelect.default,
                 'pe-select-option': Option.default,
                 'pe-option-group': OptionGroup.default
+            },
+            mounted: function () {
+                this.remoteSelectList = this.states.map(item => {
+                    return { value: item, label: item };
+                });
+            },
+            methods: {
+                remoteMethod: function (query) {
+                    if (query !== '') {
+                        this.loading = true;
+                        setTimeout(() => {
+                            this.loading = false;
+                            this.remoteOptions = this.remoteSelectList.filter(item => {
+                            return item.label.toLowerCase()
+                                .indexOf(query.toLowerCase()) > -1;
+                            });
+                        }, 200);
+                    } else {
+                        this.remoteOptions = [];
+                    }
+                }
             }            
         });
     });
