@@ -43,7 +43,7 @@ ___
   * Event Fired when input value changes  
 * `@focus`
   * Event Fired when input is focused/clicked into  
-* `@blure`
+* `@blur`
   * Event Fired when user clicks off of input  
 * `@click`
   * Event Fired when icon inside input is clicked.  
