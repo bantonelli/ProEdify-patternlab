@@ -1,0 +1,64 @@
+{
+    "animals": [
+        {
+            "id": 1,
+            "name": "Crocodile"
+        },
+        {
+            "id": 2,
+            "name": "Bobcat"
+        },
+        {
+            "id": 3,
+            "name": "Elephant"
+        },
+        {
+            "id": 4,
+            "name": "bandicoot"
+        },
+        {
+            "id": 5,
+            "name": "barracuda"
+        },
+        {
+            "id": 6,
+            "name": "Black bear"
+        },
+        {
+            "id": 7,
+            "name": "Goat"
+        },
+        {
+            "id": 8,
+            "name": "Cockatoo"
+        },
+        {
+            "id": 9,
+            "name": "Duck"
+        },
+        {
+            "id": 10,
+            "name": "Frog"
+        },
+        {
+            "id": 11,
+            "name": "Macaw"
+        },
+        {
+            "id": 12,
+            "name": "Parrot"
+        },
+        {
+            "id": 13,
+            "name": "Ostrich"
+        },
+        {
+            "id": 14,
+            "name": "Pelican"
+        },
+        {
+            "id": 15,
+            "name": "Pigeon"
+        }
+    ]
+}

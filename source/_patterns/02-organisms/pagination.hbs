@@ -1,17 +1,17 @@
 <div id="pagination" class="block">
     <span class="demonstration">When you have few pages</span>
-    <li v-for="animal in animals">
+    <li v-for="animal in shownAnimals">
         \{{ animal.name }}
     </li>
-    <el-pagination
+    <pagination
       @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page.sync="currentPage4"
-      :page-sizes="[50, 100, 200, 300, 400]"
+      :page-sizes="[2, 4, 6, 8, 10]"
       :page-size="pageSize"
-      layout="total, sizes, prev, pager, next, jumper"
-      :total="400">
-    </el-pagination>
+      layout="->, prev, sizes, pager, jumper, next"
+      :total="animals.length">
+    </pagination>
 <!--
     <pager
         :current-page="5" 
@@ -23,95 +23,43 @@
 
 <script> 
 
-var animals = [
-  {
-    "id": 1,
-    "name": "Crocodile"
-  },
-  {
-    "id": 2,
-    "name": "Bobcat"
-  },
-  {
-    "id": 3,
-    "name": "Elephant"
-  },
-  {
-    "id": 4,
-    "name": "bandicoot"
-  },
-  {
-    "id": 5,
-    "name": "barracuda"
-  },
-  {
-    "id": 6,
-    "name": "Black bear"
-  },
-  {
-    "id": 7,
-    "name": "Goat"
-  },
-  {
-    "id": 8,
-    "name": "Cockatoo"
-  },
-  {
-    "id": 9,
-    "name": "Duck"
-  },
-  {
-    "id": 10,
-    "name": "Frog"
-  },
-  {
-    "id": 11,
-    "name": "Macaw"
-  },
-  {
-    "id": 12,
-    "name": "Parrot"
-  },
-  {
-    "id": 13,
-    "name": "Ostrich"
-  },
-  {
-    "id": 14,
-    "name": "Pelican"
-  },
-  {
-    "id": 15,
-    "name": "Pigeon"
-  }
-];
+var animals = {{{json animals}}};
 
-    requirejs(['vue', 'molecules/Pagination/Pager', 'molecules/Pagination/Pagination'], function (Vue, Pager, Pagination) {
-        new Vue({
-            el: '#pagination',
-            data: function () {
-                return {
-                    animals: animals,
-                    pageCount: 10,
-                    currentPage1: 5,
-                    currentPage2: 5,
-                    currentPage3: 5,
-                    currentPage4: 4,
-                    pageSize: 100
-                }
-            },
-            components: {
-                'el-pagination': Pagination.default,
-                'pager': Pager.default
-            },
-            methods: {
-                handleSizeChange: function (value) {
-                    this.pageSize = value;
-                },
-                handleCurrentChange: function () {
-
-                }
+requirejs([
+  'lodash',
+  'vue', 
+  'organisms/Pagination/Pager', 
+  'organisms/Pagination/Pagination'
+], function (_, Vue, Pager, Pagination) {
+    new Vue({
+        el: '#pagination',
+        data: function () {
+            return {
+                animals: animals,
+                currentPage4: 1,
+                pageSize: 4
             }
-        });
+        },
+        components: {
+            'pagination': Pagination.default,
+            'pager': Pager.default
+        },
+        computed: {
+            shownAnimals: function () {
+                var amountPerPage = this.pageSize;
+                var startIndex = amountPerPage * (this.currentPage4 - 1);
+                var endIndex = amountPerPage * this.currentPage4;
+                return _.slice(this.animals, startIndex, endIndex);
+            }
+        },
+        methods: {
+            handleSizeChange: function (value) {
+                this.pageSize = value;
+            },
+            handleCurrentChange: function () {
+
+            }
+        }
     });
+});
 </script>

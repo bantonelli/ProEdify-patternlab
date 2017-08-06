@@ -1,30 +1,50 @@
-<div id="pager">
-    <pager
-        :current-page="currentPage1" 
-        :page-count="10"
-        @change="handleCurrentChange"
-        >
-    </pager>
+<div id="input-number">
+    <h4>Input-Number with max and min</h4>
+    <input-number
+        v-model="num1"
+        @change="handleChange"
+        :min="1"
+        :max="10"
+    >
+    </input-number>
+    
+    <h4>Input-Number with custom increment/decrement step</h4>
+    <input-number
+        v-model="num2"
+        @change="handleChange"
+        :step="2"
+    >
+    </input-number>
+
+    <h4>Input-Number without controls</h4>
+    <input-number
+        v-model="num3"
+        @change="handleChange"
+        :controls="false"
+    >
+    </input-number>
 </div>
 
 <script> 
-    requirejs(['vue', 'molecules/Pagination/Pager'], function (Vue, Pager) {
+    requirejs(['vue', 'molecules/InputNumber/InputNumber'], function (Vue, InputNumber) {
         new Vue({
-            el: '#pager',
+            el: '#input-number',
             data: function () {
                 return {
-                    pageCount: 10,
-                    currentPage1: 5
+                    num1: 1,
+                    num2: 5,
+                    num3: 10               
                 }
             },
             components: {
-                'pager': Pager.default
+                'input-number': InputNumber.default
             },
             methods: {
-                handleCurrentChange: function (value) {
-                    this.currentPage1 = value;
+                handleChange: function (value) {
+                    console.log(value);
                 }   
             }
         });
     });
 </script>
+<!--{{> molecules-input-field }}-->
