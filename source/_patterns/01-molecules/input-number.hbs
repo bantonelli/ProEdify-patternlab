@@ -1,10 +1,11 @@
-<div id="input-number">
+<div id="input-number" class="dark-background">
     <h4>Input-Number with max and min</h4>
     <input-number
         v-model="num1"
         @change="handleChange"
         :min="1"
         :max="10"
+        :modifier-styles="['input_color-invert']"
     >
     </input-number>
     

@@ -1,0 +1,27 @@
+.pager {
+    display: inline-block;
+    // margin: 0 auto;
+    margin: 0;
+    padding: 0;
+    // border-bottom: solid 3px nth($pe-greyscale-color-list, 4);
+    font-size: 0;
+    list-style: none;
+    vertical-align: top;
+    user-select: none;
+}
+
+
+// MODIFIER CLASSES 
+// ==========================================================================
+// sass-lint:disable class-name-format 
+.pager_color-invert {
+    .circle-button {
+        @extend %circle-button_color-invert;
+    }
+}
+
+.pager_size-small {
+    .circle-button {
+        @extend %circle-button_size-small;
+    }
+}

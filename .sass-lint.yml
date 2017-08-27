@@ -68,7 +68,7 @@ rules:
     - allow-leading-underscore: true
       convention: hyphenatedlowercase
   placeholder-name-format: 
-    - 1
+    - 0
     - convention: hyphenatedbem
   variable-name-format: 
     - 2

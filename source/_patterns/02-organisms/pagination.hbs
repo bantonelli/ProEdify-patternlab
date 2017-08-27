@@ -1,6 +1,6 @@
-<div id="pagination" class="block">
-    <span class="demonstration">When you have few pages</span>
-    <li v-for="animal in shownAnimals">
+<div id="pagination">
+    <li v-for="animal in shownAnimals" 
+    style="list-style: none; width: 100px; height: 50px; line-height: 48px; background-color: #123456; color: white; margin: 10px 0; text-align: center;">
         \{{ animal.name }}
     </li>
     <pagination
@@ -9,16 +9,13 @@
       :current-page.sync="currentPage4"
       :page-sizes="[2, 4, 6, 8, 10]"
       :page-size="pageSize"
-      layout="->, prev, sizes, pager, jumper, next"
-      :total="animals.length">
+      layout="->, prev, next"
+      :total="animals.length"
+      >
     </pagination>
 <!--
-    <pager
-        :current-page="5" 
-        :page-count="10"
-        @change="handleCurrentChange"
-        >
-    </pager>-->
+TODO: Create modifier-styles system for pagination component. 
+-->
 </div>
 
 <script> 
