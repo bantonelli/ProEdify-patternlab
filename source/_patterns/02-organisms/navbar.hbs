@@ -10,10 +10,30 @@
       <div class="navbar__search">
         <input class="text-field" data-name="Email" id="email" maxlength="256" name="email" placeholder="Enter your email" required="required" type="text">        
       </div>
+      <a class="navbar__notifications" href="#">Notifs</a>
       <div class="navbar__menu-button">
         <div class="icon"></div>
-      </div><a class="navbar__notifications" href="#">Notifs</a>
-      <nav class="navbar__menu" role="navigation"><a class="navbar__link_username" href="#">Username</a></nav>
+      </div>
+      <nav class="navbar__menu" role="navigation">
+          
+        <!--If Authenticated-->
+            <div class="navbar__username icon-arrow-down">
+                <label class="" for="usermenu-toggle">
+                    Really Long Username
+                </label>
+                <input type="checkbox" id="usermenu-toggle"/>
+                <ul class="navbar__user-dropdown">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Log Out</a></li>
+                </ul>
+            </div>
+        <!--Else-->
+            <!--<a class="navbar__auth-link" href="#">Sign Up</a>
+            <a class="navbar__auth-link" href="#">Log In</a>-->
+        <!--End If Authenticated-->
+      </nav>
     </div>
   </div>
 
