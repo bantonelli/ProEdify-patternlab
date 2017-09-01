@@ -1,4 +1,4 @@
-  <div class="navbar">
+  <div id="navbar" class="navbar">
     <div class="navbar__container">
         <a class="navbar__brand" href="#">
             <img 
@@ -8,16 +8,25 @@
                 srcset="/images/ProEdify-Logo_FINAL-p-500.png 500w, /images/ProEdify-Logo_FINAL-p-800.png 800w, /images/ProEdify-Logo_FINAL-p-1080.png 1080w, /images/ProEdify-Logo_FINAL-p-1600.png 1600w, /images/ProEdify-Logo_FINAL.png 2470w" width="1235">
         </a>
       <div class="navbar__search">
-        <input class="text-field" data-name="Email" id="email" maxlength="256" name="email" placeholder="Enter your email" required="required" type="text">        
+        <pe-autocomplete
+            v-model="state1"
+            :fetch-suggestions="querySearch"
+            :trigger-on-focus="false"
+            :modifier-styles="['input_color-white']"
+            icon="icon-magnifying-glass"
+            placeholder="Please Input"
+            @select="handleSelect"
+        >
+        </pe-autocomplete>          
       </div>
-      <a class="navbar__notifications" href="#">Notifs</a>
+      <a class="navbar__notifications pe-icon-dropdown-arrow" href="#"><span class="pe-icon-bell"></span></a>
       <div class="navbar__menu-button">
         <div class="icon"></div>
       </div>
       <nav class="navbar__menu" role="navigation">
           
         <!--If Authenticated-->
-            <div class="navbar__username icon-arrow-down">
+            <div class="navbar__username pe-icon-dropdown-arrow">
                 <label class="" for="usermenu-toggle">
                     Really Long Username
                 </label>
@@ -57,3 +66,50 @@
             </ul>
         </div>
     </div>-->
+<script>
+requirejs(['vue', 'molecules/Autocomplete/Autocomplete'], function (Vue, Autocomplete) {
+    new Vue({
+        el: '#navbar',
+        data: function () {
+            return {
+                state1: ''
+            }
+        },
+        components: {
+            'pe-autocomplete': Autocomplete.default
+        },
+        methods: {
+            querySearch(queryString, cb) {
+                var links = this.links;
+                // Call createFilter for every link   
+                var results = queryString ? links.filter(this.createFilter(queryString)) : links;
+                // call callback function to return suggestions
+                cb(results);
+            },
+            createFilter(queryString) {
+                return (link) => {
+                    return (link.value.indexOf(queryString.toLowerCase()) === 0);
+                };
+            },
+            loadAll() {
+                return [
+                    { "value": "vue", "link": "https://github.com/vuejs/vue" },
+                    { "value": "element", "link": "https://github.com/ElemeFE/element" },
+                    { "value": "cooking", "link": "https://github.com/ElemeFE/cooking" },
+                    { "value": "mint-ui", "link": "https://github.com/ElemeFE/mint-ui" },
+                    { "value": "vuex", "link": "https://github.com/vuejs/vuex" },
+                    { "value": "vue-router", "link": "https://github.com/vuejs/vue-router" },
+                    { "value": "babel", "link": "https://github.com/babel/babel" }
+                ];
+            },
+            handleSelect(item) {
+                console.log(item);
+            }
+        },
+        mounted: function () {
+            this.links = this.loadAll();
+        }
+    });
+});
+</script>     
+<!--{{> molecules-autocomplete }}-->

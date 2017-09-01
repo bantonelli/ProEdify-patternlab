@@ -1,0 +1,27 @@
+// sass-lint:disable-all
+@font-face {
+  font-family: 'ProEdify-Icons';
+  src:
+    url('../fonts/ProEdify-Icons/ProEdify-Icons.ttf?s3rk6v') format('truetype'),
+    url('../fonts/ProEdify-Icons/ProEdify-Icons.woff?s3rk6v') format('woff'),
+    url('../fonts/ProEdify-Icons/ProEdify-Icons.svg?s3rk6v#ProEdify-Icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="pe-icon-"], [class*=" pe-icon-"] {
+  &::before {
+      /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'ProEdify-Icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
