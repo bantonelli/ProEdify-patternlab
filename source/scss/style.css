@@ -4455,11 +4455,9 @@ body {
     padding: 10px 10px; }
 
 .navbar__brand, .navbar__search, .navbar__notifications, .navbar__menu, .navbar__menu-button, .navbar__auth-link, .navbar__username {
-  display: block;
   position: relative;
   height: 60px;
   padding: 0 1em;
-  float: left;
   color: #fff;
   line-height: 60px;
   text-align: center;
@@ -4479,17 +4477,26 @@ body {
   .navbar__container {
     border-right: 1px solid #6a6a6a;
     border-left: 1px solid #d0d0d0;
-    width: 100%;
-    max-width: 940px;
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
     height: 60px;
-    margin: 0 auto;
     border-left: 0; }
+    .navbar__container:after {
+      content: " ";
+      display: block;
+      clear: both; }
     .navbar__container::after {
       clear: both; }
   .navbar__brand {
     border-right: 1px solid #d0d0d0;
     border-left: 1px solid #6a6a6a;
-    width: 35%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 33.33333%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
     border-left: 0;
     text-decoration: none; }
     .navbar__brand-image {
@@ -4499,7 +4506,12 @@ body {
   .navbar__search {
     border-right: 1px solid #d0d0d0;
     border-left: 1px solid #6a6a6a;
-    width: 35%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 41.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
     padding-top: 5px; }
     .navbar__search:hover, .navbar__search.active {
       border-right: 1px solid #8edeca;
@@ -4509,7 +4521,12 @@ body {
   .navbar__notifications {
     border-right: 1px solid #d0d0d0;
     border-left: 1px solid #6a6a6a;
-    width: 10%; }
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 8.33333%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%; }
     .navbar__notifications:hover, .navbar__notifications.active {
       border-right: 1px solid #8edeca;
       border-left: 1px solid #30a387;
@@ -4522,10 +4539,10 @@ body {
       right: 10%;
       height: 100%;
       line-height: 60px;
-      right: 15%; }
+      right: 25%; }
     .navbar__notifications span {
-      font-size: 1.95375rem;
-      letter-spacing: -0.05rem;
+      font-size: 1.5625rem;
+      letter-spacing: -0.04063rem;
       display: block;
       width: 90%;
       height: 100%;
@@ -4535,21 +4552,43 @@ body {
       cursor: pointer;
       overflow: hidden; }
   .navbar__menu {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 16.66667%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%;
+    padding: 0; }
+  .navbar__menu-button {
+    display: none; }
+  .navbar__auth-link {
     border-right: 1px solid #d0d0d0;
     border-left: 1px solid #6a6a6a;
-    width: 20%;
-    padding: 0; }
-    .navbar__menu:hover, .navbar__menu.active {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 50%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%; }
+    .navbar__auth-link:hover, .navbar__auth-link.active {
       border-right: 1px solid #8edeca;
       border-left: 1px solid #30a387;
       background-color: #3fc7a6;
       color: #fff; }
-  .navbar__menu-button {
-    display: none; }
-  .navbar__auth-link {
-    width: 50%; }
   .navbar__username {
-    width: 100%; }
+    border-right: 1px solid #d0d0d0;
+    border-left: 1px solid #6a6a6a;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    float: left;
+    padding-left: 0.83333%;
+    padding-right: 0.83333%; }
+    .navbar__username:hover, .navbar__username.active {
+      border-right: 1px solid #8edeca;
+      border-left: 1px solid #30a387;
+      background-color: #3fc7a6;
+      color: #fff; }
     .navbar__username label {
       display: block;
       width: 90%;
@@ -4566,11 +4605,10 @@ body {
       right: 10%;
       height: 100%;
       line-height: 60px; }
-    .navbar__username #usermenu-toggle {
-      display: none;
-      /* hide the checkbox */ }
-    .navbar__username #usermenu-toggle:checked + .navbar__user-dropdown {
-      display: block; }
+    .navbar__username .usermenu-toggle {
+      display: none; }
+      .navbar__username .usermenu-toggle:checked + .navbar__user-dropdown {
+        display: block; }
   .navbar__user-dropdown {
     display: none;
     position: absolute;
@@ -4586,8 +4624,12 @@ body {
     .navbar__user-dropdown li {
       border-top: 1px solid #d0d0d0;
       border-bottom: 1px solid #6a6a6a;
-      display: block;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
       width: 100%;
+      float: left;
+      padding-left: 0.83333%;
+      padding-right: 0.83333%;
       height: 60px;
       font-size: 16px;
       font-weight: 700;
@@ -4608,7 +4650,7 @@ body {
 /*
 Add transition to containers so they can push in and out.
 */
-#layout,
+#nav-wrapper,
 #menu,
 .menu-link {
   -webkit-transition: all 0.2s ease-out;
@@ -4617,16 +4659,16 @@ Add transition to containers so they can push in and out.
 /*
 This is the parent `<div>` that contains the menu and the content area.
 */
-#layout {
+#nav-wrapper {
   position: relative;
   left: 0;
   padding-left: 0; }
 
-#layout.active #menu {
+#nav-wrapper.active #menu {
   left: 150px;
   width: 150px; }
 
-#layout.active .menu-link {
+#nav-wrapper.active .menu-link {
   left: 150px; }
 
 /*
@@ -4789,7 +4831,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
   .content {
     padding-left: 2em;
     padding-right: 2em; }
-  #layout {
+  #nav-wrapper {
     padding-left: 150px;
     /* left col width "#menu" */
     left: 0; }
@@ -4799,7 +4841,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     position: fixed;
     left: 150px;
     display: none; }
-  #layout.active .menu-link {
+  #nav-wrapper.active .menu-link {
     left: 150px; } }
 
 @media (max-width: 48em) {
@@ -4809,7 +4851,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         * Tap the menu to trigger the active state.
         * Make the window large again.
     */
-  #layout.active {
+  #nav-wrapper.active {
     position: relative;
     left: 150px; } }
 
