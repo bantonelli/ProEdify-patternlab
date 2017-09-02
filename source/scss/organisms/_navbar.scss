@@ -405,6 +405,10 @@
                 width: 500px;
             }
 
+            &__notifications-list {
+                max-height: 300px;
+            }
+
             &__menu {
                 // Contains auth-links and username
                 @include span(1 of 12);
