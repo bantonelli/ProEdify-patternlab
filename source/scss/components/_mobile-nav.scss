@@ -1,32 +1,35 @@
 /*
 Add transition to containers so they can push in and out.
 */
-#nav-wrapper,
+#navigation,
 #menu,
 .menu-link {
-    -webkit-transition: all 0.2s ease-out;
-    -moz-transition: all 0.2s ease-out;
-    -ms-transition: all 0.2s ease-out;
-    -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
 }
 
 /*
 This is the parent `<div>` that contains the menu and the content area.
 */
-#nav-wrapper {
+#navigation {
     position: relative;
     left: 0;
     padding-left: 0;
-}
-    #nav-wrapper.active #menu {
+
+    &.active .mobile-menu {
         left: 150px;
         width: 150px;
     }
 
-    #nav-wrapper.active .menu-link {
-        left: 150px;
-    }
+}
+
+#navigation.active #menu {
+    left: 150px;
+    width: 150px;
+}
+
+#navigation.active .menu-link {
+    left: 150px;
+}
 /*
 The content `<div>` is where all your content goes.
 */
@@ -206,7 +209,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         padding-right: 2em;
     }
 
-    #nav-wrapper {
+    #navigation {
         padding-left: 150px; /* left col width "#menu" */
         left: 0;
     }
@@ -220,7 +223,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         display: none;
     }
 
-    #nav-wrapper.active .menu-link {
+    #navigation.active .menu-link {
         left: 150px;
     }
 }
@@ -232,7 +235,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         * Tap the menu to trigger the active state.
         * Make the window large again.
     */
-    #nav-wrapper.active {
+    #navigation.active {
         position: relative;
         left: 150px;
     }
