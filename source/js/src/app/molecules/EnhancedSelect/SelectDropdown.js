@@ -1,4 +1,5 @@
-import Popper from '../../utils/vue-popper';
+// import Popper from '../../utils/vue-popper';
+import Popper from '../../utils/vue-popper2';
 
 let selectDropdownTemplate = `
 <div
@@ -18,37 +19,21 @@ export default {
 
   mixins: [Popper],
 
-  props: {
-    placement: {
-      default: 'bottom-start'
-    },
-
-    boundariesPadding: {
-      default: 0
-    },
-
-    popperOptions: {
-      default() {
-        return {
-          forceAbsolute: true,
-          gpuAcceleration: false
-        };
-      }
-    }
-  },
-
+  // Need for new popper
   data() {
     return {
       minWidth: ''
     };
   },
 
+  // Need for new popper 
   computed: {
     popperClass() {
       return this.$parent.popperClass;
     }
   },
 
+  // Need for new popper
   watch: {
     '$parent.inputWidth'() {
       this.minWidth = this.$parent.$el.getBoundingClientRect().width + 'px';
@@ -58,13 +43,17 @@ export default {
   mounted() {
     // this.referenceElm = this.$parent.$refs.reference.$el;
     // this.$parent.popperElm = this.popperElm = this.$el;
-    console.log("Reference Element Mounted", this.$parent.$refs);
-    this.referenceElm = this.$parent.$refs.reference.$el;      
-    this.$parent.popperElm = this.popperElm = this.$el;
+    // console.log("Reference Element Mounted", this.$parent.$refs);
+    // this.referenceElm = this.$parent.$refs.reference.$el; OLD vue-popper     
+    // this.$parent.popperElm = this.popperElm = this.$el; OLD vue-popper
 
+
+    // updatePopper event comes from Enhanced Select
     this.$on('updatePopper', () => {
       if (this.$parent.visible) this.updatePopper();
     });
-    this.$on('destroyPopper', this.destroyPopper);
+
+    // destroyPopper event comes from Enhanced Select
+    this.$on('destroyPopper', this.doDestroy());
   }
 };
