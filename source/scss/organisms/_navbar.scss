@@ -1,4 +1,23 @@
+// ==========================================================================
+// NAVBAR STYLES
+// ==========================================================================
 // sass-lint:disable no-empty-rulesets
+
+// BEVM STRUCTURE: Navbar 
+// Block: navbar
+// Elements: 
+//   __container, __brand, __brand-image
+//   __search, autocomplete
+//   __notifications, __notifications-dropdown, __notifications-list
+//   __menu, __username 
+//   __user-dropdown, __user-dropdown-list 
+
+// PSEUDO CLASSES 
+// ==========================================================================
+// N/A
+
+// MIXINS
+// ==========================================================================
 @mixin nav-item {
     display: block;    
     position: relative;
@@ -199,6 +218,8 @@
     }
 }
 
+// MAIN CLASSES & RESPONSIVE STYLES 
+// ==========================================================================
 @include with-layout($susy, true) {
     // XS Screen (DONE) 
     .navbar {
