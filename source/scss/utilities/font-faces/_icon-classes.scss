@@ -5,12 +5,19 @@
   content: "\e900";
   color: #979797;
 }
-.pe-icon-dropdown-arrow:before {
+.pe-icon-close:before {
   content: "\e901";
 }
-.pe-icon-notifications:before {
+.pe-icon-dropdown-arrow:before {
   content: "\e902";
 }
+.pe-icon-hamburger:before {
+  content: "\e903";
+}
+.pe-icon-notifications:before {
+  content: "\e904";
+}
+
 
 // ICONIC ICONS 
 
@@ -21,6 +28,8 @@
         content: $icon-magnifying-glass;
     }
 }
+
+
 
 // ELEMENT ICONS 
 .icon-arrow-down:before { content: "\e600"; font-family: 'element-icons' !important;}

@@ -1,0 +1,46 @@
+<div id="mobile-nav" class="mobile-nav" :class="{'is-open': isOpen}"> <!-- #navigation >> .mobile-nav -->
+    <div class="mobile-nav__button" @click="openMenu"> <!-- .menu-link >> .mobile-nav__menu-button -->
+        <span :class="{'pe-icon-hamburger': menuIcon, 'pe-icon-close': closeIcon}"></span>
+    </div>
+    <div class="mobile-nav__sidebar" :class="{'is-open': isOpen}"><!-- .mobile-menu >> .mobile-nav__sidebar -->
+        <div class="mobile-nav__menu"><!-- .pure-menu >> .mobile-nav__menu -->
+            <a class="mobile-nav__menu-heading" href="">Really Long Username</a><!-- .pure-menu-heading >> .mobile-nav__menu-heading -->
+
+            <ul class="mobile-nav__menu-list"> <!-- .pure-menu-list >> .mobile-nav__menu-list -->
+                <li class="mobile-nav__menu-item"><a href="" class="mobile-nav__menu-link">Home</a></li><!-- .pure-menu-item >> .mobile-nav__menu-item -->
+                <li class="mobile-nav__menu-item"><a href="" class="mobile-nav__menu-link">About</a></li>
+                <li class="mobile-nav__menu-item"><a href="" class="mobile-nav__menu-link">Services</a></li>
+                <li class="mobile-nav__menu-item"><a href="" class="mobile-nav__menu-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div style="color: white; height: 100px; width: 100%; background-color: #123456;">
+    Stuff on Page
+</div>
+
+<script>
+requirejs(['vue', 'molecules/Autocomplete/Autocomplete'], function (Vue, Autocomplete) {
+    new Vue({
+        el: "#mobile-nav",
+        data: function () {
+            return {
+                isOpen: false,
+                menuIcon: true,
+                closeIcon: false
+            }
+        },
+        methods: {
+            openMenu: function () {
+                this.closeIcon = !this.closeIcon;
+                this.menuIcon = !this.menuIcon;
+                this.isOpen = !this.isOpen;
+            }
+        }
+
+
+    });
+});
+</script>     
+<!--{{> molecules-autocomplete }}-->
