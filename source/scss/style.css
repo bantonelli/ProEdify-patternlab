@@ -4986,7 +4986,7 @@ body {
     -webkit-transition-timing-function: ease-in-out;
             transition-timing-function: ease-in-out;
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     height: 60px;
@@ -5005,7 +5005,7 @@ body {
       background-color: transparent;
       line-height: 60px;
       text-align: center; }
-  .mobile-nav__sidebar {
+  .mobile-nav__bar {
     -webkit-transition-duration: .1s;
             transition-duration: .1s;
     -webkit-transition-property: all;
@@ -5062,12 +5062,13 @@ body {
       .mobile-nav__menu-item .is-selected {
         background: #1f8dd6; }
   .mobile-nav.is-open {
-    position: relative; }
+    position: relative;
+    right: 150px; }
     .mobile-nav.is-open .mobile-nav__button {
       -webkit-transform: translateX(-150px);
           -ms-transform: translateX(-150px);
               transform: translateX(-150px); }
-    .mobile-nav.is-open .mobile-nav__sidebar {
+    .mobile-nav.is-open .mobile-nav__bar {
       width: 150px;
       -webkit-transform: translateX(0);
           -ms-transform: translateX(0);
