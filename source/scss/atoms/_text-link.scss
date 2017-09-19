@@ -60,7 +60,7 @@
 %text-link__border {
     &::before, 
     &::after {
-        @include pe-bottom-border();
+        @include pe-input-border();
         @include pe-transition(0.175s, width, border-color, background-color, opacity);
         left: 50%;
         width: 0;

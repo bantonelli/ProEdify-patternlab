@@ -70,7 +70,7 @@
 }
 
 %select__border {
-    @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);
+    @include pe-input-border($border-width: rem(1px) 0, $border-radius: 0);
 }
 
 // Simple Select & Enhanced Select 
@@ -94,7 +94,7 @@
     overflow: hidden;
 
     > div {
-        @include pe-bottom-border($border-width: rem(2px) 0, $border-radius: 0);
+        @include pe-input-border($border-width: rem(2px) 0, $border-radius: 0);
     }
 }
 
@@ -141,7 +141,7 @@
     }
 
     .input__border {
-        @include pe-bottom-border($border-width: rem(1px) 0, $border-radius: 0);
+        @include pe-input-border($border-width: rem(1px) 0, $border-radius: 0);
     }
 }
 

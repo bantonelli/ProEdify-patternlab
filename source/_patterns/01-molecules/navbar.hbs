@@ -22,35 +22,35 @@
         </pe-autocomplete>          
     </div>    
     <!--If Authenticated-->
-        <div class="navbar__notifications pe-icon-notifications">
-            <label class="" for="notifications-toggle"></label>
-            <input type="checkbox" class="notifications-toggle" id="notifications-toggle"/>
-            <div class="navbar__notifications-dropdown">
-                <a href="#">Notifications</a>
-                <ul class="navbar__notifications-list">                    
-                    <li><a href="#">Notif</a></li>
-                    <li><a href="#">Notif</a></li>
-                    <li><a href="#">Notif</a></li>
-                    <li><a href="#">Notif</a></li>
-                    <li><a href="#">Notif</a></li>
-                    <li><a href="#">Notif</a></li>                                  
+        <div class="dropdown--navbar navbar__notifications pe-icon-notifications">
+            <label class="dropdown__label" for="notifications"></label>
+            <input type="checkbox" class="dropdown__toggle" id="notifications"/>
+            <div class="dropdown__menu">
+                <a href="#" class="dropdown__menu-header">Notifications</a>
+                <ul class="dropdown__menu-list">                    
+                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
+                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
+                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
+                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
+                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
+                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>                                  
                 </ul>
-                <a href="#">See All</a>
+                <a href="#" class="dropdown__menu-footer">See All</a>
             </div>            
         </div>
         <nav class="navbar__menu" role="navigation">
-            <div class="navbar__username pe-icon-dropdown-arrow">
-                <label class="" for="usermenu-toggle">
+            <div class="dropdown--navbar  navbar__username pe-icon-dropdown-arrow">
+                <label class="dropdown__label" for="usermenu-toggle">
                     Really Long Username
                 </label>
-                <input type="checkbox" class="usermenu-toggle" id="usermenu-toggle"/>
-                <div class="navbar__user-dropdown">
-                    <a href="#">Home</a>
-                    <ul class="navbar__user-dropdown-list">
-                        <li><a href="#">Settings</a></li>
-                        <li><a href="#">Profile</a></li>                    
+                <input type="checkbox" class="dropdown__toggle usermenu-toggle" id="usermenu-toggle"/>
+                <div class="dropdown__menu navbar__user-dropdown">
+                    <a href="#" class="dropdown__menu-header">Home</a>
+                    <ul class="dropdown__menu-list navbar__user-dropdown-list">
+                        <li class="dropdown__menu-item"><a href="#">Settings</a></li>
+                        <li class="dropdown__menu-item"><a href="#">Profile</a></li>                    
                     </ul>
-                    <a href="#">Log Out</a>
+                    <a href="#" class="dropdown__menu-footer">Log Out</a>
                 </div>                
             </div>
         </nav>

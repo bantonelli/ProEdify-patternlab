@@ -46,7 +46,7 @@
 }
 
 %input__border {
-    @include pe-bottom-border() {
+    @include pe-input-border() {
         bottom: rem(-2px);
     };    
     pointer-events: none;

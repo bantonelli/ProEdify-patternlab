@@ -1,0 +1,23 @@
+@mixin left-and-right-border (
+    $color-right: #d0d0d0,
+    $color-left: #6a6a6a
+) {
+    border-right: 1px solid $color-right;
+    border-left: 1px solid $color-left;
+}
+
+@mixin opposite-left-and-right-border (
+    $color-right: #6a6a6a,
+    $color-left: #d0d0d0
+) {
+    border-right: 1px solid $color-right;
+    border-left: 1px solid $color-left;
+}
+
+@mixin top-and-bottom-border (
+    $color-top: #d0d0d0,
+    $color-bottom: #6a6a6a
+) {
+    border-top: 1px solid $color-top;
+    border-bottom: 1px solid $color-bottom;
+}

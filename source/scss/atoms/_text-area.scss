@@ -62,7 +62,7 @@
 }
 
 %text-area__border {
-    @include pe-bottom-border() {
+    @include pe-input-border() {
         bottom: rem(-10px);
     };
     transform: translateY(-50%);
