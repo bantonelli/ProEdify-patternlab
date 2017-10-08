@@ -98,7 +98,7 @@
             }
 
             &-item {
-                @include dropdown-item-hover-style();
+                @include navbar-dropdown-item-hover();
                 @include span(12 of 12);
                 height: 60px;                                
 

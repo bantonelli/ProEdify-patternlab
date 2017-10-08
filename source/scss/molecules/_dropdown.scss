@@ -13,8 +13,13 @@
 
 // PSEUDO CLASSES 
 // ==========================================================================
-%dropdown__before-icon {
-    @include pe-font-sizing-h3();    
+%dropdown {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+%dropdown__before-icon {    
     display: block;    
     width: 100%;                
     height: 100%;
@@ -42,39 +47,49 @@
     } 
 }
 
+%dropdown__menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    box-shadow: 0 1px 3px 0 transparentize($pe-color-black, 0.8);  
+}
+
+%dropdown__menu-list {
+    height: auto;
+    overflow-y: auto;
+}
+
+%dropdown__menu-item {
+    > a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 0 span(1);
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+    } 
+}
+
+%dropdown__menu-header,
+%dropdown__menu-footer {
+    display: block;
+    position: relative;
+    text-align: center;        
+    text-decoration: none;        
+    z-index: 2;
+}
+
+
 // MIXINS
 // ==========================================================================
-@mixin dropdown-item-hover-style (
-    $border-color-top: nth($pe-greyscale-color-list, 4),
-    $border-color-top-hover: nth($pe-primary-color-list, 4),
-    $border-color-bottom: nth($pe-greyscale-color-list, 2),
-    $border-color-bottom-hover: nth($pe-primary-color-list, 2),
-    $background-color: nth($pe-greyscale-color-list, 3),
-    $background-color-hover: nth($pe-primary-color-list, 3),
-    $text-color: $pe-color-white
-) {    
-    @include top-and-bottom-border(
-        $color-top: $border-color-top,
-        $color-bottom: $border-color-bottom
-    );
 
-    background-color: $background-color;
-    color: $text-color;
-
-    &:hover, 
-    &.active {
-        @include top-and-bottom-border(
-            $color-top: $border-color-top-hover,
-            $color-bottom: $border-color-bottom-hover
-        );        
-        background-color: $background-color-hover;
-        color: $text-color;
-    }
-}
 
 // MAIN CLASS 
 // ==========================================================================
 .dropdown {
+    @extend %dropdown;
+
     &::before {            
         @extend %dropdown__before-icon;
     }
@@ -88,91 +103,54 @@
     }
 
     &__menu {        
-        display: none;
-        position: absolute;                 
-        top: 70px;
-        border-width: 0 0 2px 0;
-        border-style: solid;
-        border-radius: 6px;
-        border-color: nth($pe-accent-color-list, 2);
-        background: nth($pe-accent-color-list, 2);        
-        box-shadow: 0 1px 3px 0 transparentize($pe-color-black, 0.8);
+        @extend %dropdown__menu;
 
         &-list {
-            height: auto;
-            max-height: 200px;            
-            background-color: nth($pe-greyscale-color-list, 3);
-            overflow-y: auto;
+            @extend %dropdown__menu-list;
         }    
 
         &-item {
-            @include dropdown-item-hover-style();
-            @include span(12 of 12);
-            height: 60px;                                
-
-            &:nth-child(1) {
-                border-top: 0;
-            }
-
-            > a {
-                display: inline-block;
-                width: 100%;
-                height: 100%;
-                padding: 0 span(1);
-                color: $pe-color-white;           
-                line-height: 60px;
-                text-align: left;
-                text-decoration: none;
-                cursor: pointer;
-            }          
+            @extend %dropdown__menu-item;
+            height: 60px;                                         
         } 
 
         &-header {
-            @include dropdown-item-hover-style(
-                $border-color-top: $pe-color-transparent,
-                $border-color-top-hover: $pe-color-transparent,
-                $border-color-bottom: nth($pe-greyscale-color-list, 1),
-                $border-color-bottom-hover: nth($pe-greyscale-color-list, 1),
-                $background-color: nth($pe-greyscale-color-list, 4),
-                $background-color-hover: nth($pe-greyscale-color-list, 4),
-                $text-color: $pe-color-white
-            );
-            @include pe-font-sizing-h7();
-            position: relative;
-            height: 40px;
-            border-top: 0;        
-            border-radius: 6px 6px 0 0;
-            line-height: 40px;
-            text-decoration: none;
-            box-shadow: 0 1px 2px -1px transparentize(nth($pe-greyscale-color-list, 1), 0.5);
-            z-index: 2;
-
-            &:hover {
-                border-top: 0;
-            }              
+            @extend %dropdown__menu-header;              
         }
 
         &-footer {
-            @include dropdown-item-hover-style(
-                $border-color-top: nth($pe-accent-color-list, 6),
-                $border-color-top-hover: nth($pe-accent-color-list, 6),
-                $border-color-bottom: nth($pe-accent-color-list, 3),
-                $border-color-bottom-hover: nth($pe-accent-color-list, 3),
-                $background-color: nth($pe-accent-color-list, 4),
-                $background-color-hover: nth($pe-accent-color-list, 4),
-                $text-color: $pe-color-white
-            );
-            @include pe-font-sizing-h6();                        
-            border-bottom: 0;
-            border-radius: 0 0 6px 6px;        
-            text-decoration: none;    
+            @extend %dropdown__menu-footer;    
         }
+    }
+}
 
-        &-header,
-        &-footer {
-            display: block;
-            text-align: center;
-        }
+// VARIATION MIXINS
+// ==========================================================================
+@mixin navbar-dropdown-item-hover (
+    $border-color-top: nth($pe-greyscale-color-list, 4),
+    $border-color-top-hover: nth($pe-primary-color-list, 4),
+    $border-color-bottom: nth($pe-greyscale-color-list, 2),
+    $border-color-bottom-hover: nth($pe-primary-color-list, 2),
+    $background-color: nth($pe-greyscale-color-list, 3),
+    $background-color-hover: nth($pe-primary-color-list, 3),
+    $text-color: $pe-color-white
+) {    
+    @include pe-top-and-bottom-border(
+        $color-top: $border-color-top,
+        $color-bottom: $border-color-bottom
+    ); 
+
+    background-color: $background-color;
+    color: $text-color;
+
+    &:hover, 
+    &.active {
+        @include pe-top-and-bottom-border(
+            $color-top: $border-color-top-hover,
+            $color-bottom: $border-color-bottom-hover
+        );        
+        background-color: $background-color-hover;
+        color: $text-color;
     }
 }
 
@@ -194,52 +172,40 @@
         @extend %dropdown__toggle;
     }
 
-    %dropdown__menu {
-
-    }
-
-    .dropdown__menu {        
-        display: none;
-        position: absolute;                 
-        top: 70px;
+    .dropdown__menu {
+        @extend %dropdown__menu;                       
         border-width: 0 0 2px 0;
         border-style: solid;
         border-radius: 6px;
         border-color: nth($pe-accent-color-list, 2);
         background: nth($pe-accent-color-list, 2);        
-        box-shadow: 0 1px 3px 0 transparentize($pe-color-black, 0.8);
+        
 
         &-list {
-            height: auto;
+            @extend %dropdown__menu-list;
             max-height: 200px;            
             background-color: nth($pe-greyscale-color-list, 3);
-            overflow-y: auto;
         }    
 
         &-item {
-            @include dropdown-item-hover-style();
+            @extend %dropdown__menu-item;
+            @include navbar-dropdown-item-hover();
             @include span(12 of 12);
             height: 60px;                                
 
             &:nth-child(1) {
-                border-top: 0;
+                // border-top: 0;
             }
 
             > a {
-                display: inline-block;
-                width: 100%;
-                height: 100%;
-                padding: 0 span(1);
                 color: $pe-color-white;           
                 line-height: 60px;
-                text-align: left;
-                text-decoration: none;
-                cursor: pointer;
             }          
         } 
 
         &-header {
-            @include dropdown-item-hover-style(
+            @extend %dropdown__menu-header;
+            @include navbar-dropdown-item-hover(
                 $border-color-top: $pe-color-transparent,
                 $border-color-top-hover: $pe-color-transparent,
                 $border-color-bottom: nth($pe-greyscale-color-list, 1),
@@ -249,14 +215,11 @@
                 $text-color: $pe-color-white
             );
             @include pe-font-sizing-h7();
-            position: relative;
             height: 40px;
             border-top: 0;        
             border-radius: 6px 6px 0 0;
             line-height: 40px;
-            text-decoration: none;
             box-shadow: 0 1px 2px -1px transparentize(nth($pe-greyscale-color-list, 1), 0.5);
-            z-index: 2;
 
             &:hover {
                 border-top: 0;
@@ -264,7 +227,8 @@
         }
 
         &-footer {
-            @include dropdown-item-hover-style(
+            @extend %dropdown__menu-footer;
+            @include navbar-dropdown-item-hover(
                 $border-color-top: nth($pe-accent-color-list, 6),
                 $border-color-top-hover: nth($pe-accent-color-list, 6),
                 $border-color-bottom: nth($pe-accent-color-list, 3),
@@ -277,12 +241,6 @@
             border-bottom: 0;
             border-radius: 0 0 6px 6px;        
             text-decoration: none;    
-        }
-
-        &-header,
-        &-footer {
-            display: block;
-            text-align: center;
         }
     }
 }
