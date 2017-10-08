@@ -36,22 +36,15 @@
     text-overflow: ellipsis;
     white-space: nowrap;    
     cursor: pointer;
-    overflow: hidden;    
-}
-
-%dropdown__toggle {
-    display: none;
-
-    &:checked + .dropdown__menu {
-        display: block;
-    } 
+    overflow: hidden;
+    z-index: 1;    
 }
 
 %dropdown__menu {
-    display: none;
     position: absolute;
     width: 100%;
     box-shadow: 0 1px 3px 0 transparentize($pe-color-black, 0.8);  
+    z-index: 2;
 }
 
 %dropdown__menu-list {
@@ -96,10 +89,6 @@
 
     &__label {
         @extend %dropdown__label;
-    }
-
-    &__toggle {
-        @extend %dropdown__toggle;
     }
 
     &__menu {        
@@ -158,6 +147,8 @@
 // VARIATION CLASSES 
 // ==========================================================================
 .dropdown--navbar {
+    @extend %dropdown;
+
     &::before {
         @extend %dropdown__before-icon;            
         @include pe-font-sizing-h3();
@@ -166,10 +157,6 @@
 
     .dropdown__label {
         @extend %dropdown__label;
-    }
-
-    .dropdown__toggle {
-        @extend %dropdown__toggle;
     }
 
     .dropdown__menu {
