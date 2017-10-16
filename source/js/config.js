@@ -14,7 +14,8 @@ requirejs.config({
         lodash: '../lib/lodash',
         popper: '../lib/popper',
         debounce: '../lib/throttle-debounce/debounce',
-        throttle: '../lib/throttle-debounce/throttle'
+        throttle: '../lib/throttle-debounce/throttle',
+        moment: '../lib/moment'
     },
     map: {
         '*': {

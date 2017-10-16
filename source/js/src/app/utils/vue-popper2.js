@@ -44,6 +44,10 @@ export default {
             type: Boolean,
             default: true
         },
+        arrowClass: {
+            type: String,
+            default: 'popper__arrow'
+        },
         transition: {
             type: String,
             default: ''
@@ -89,8 +93,16 @@ export default {
     mounted() {
         //this.referenceElm = this.reference || this.$slots.reference[0].elm;
         //this.popper = this.$slots.default[0].elm;
-        this.referenceElm = this.$parent.$refs.reference.$el;
+        if (typeof this.$parent.$refs.reference.$el !== 'undefined') {
+            this.referenceElm = this.$parent.$refs.reference.$el;    
+        } else if (typeof this.$parent.$refs.reference !== 'undefined') {
+            this.referenceElm = this.$parent.$refs.reference;                
+        } else {
+            this.referenceElm = this.reference;
+        }
+
         this.popper = this.$el;
+
         switch (this.trigger) {
             case 'click':
                 on(this.referenceElm, 'click', this.doToggle);
@@ -168,7 +180,7 @@ export default {
             this.appended = true;
             const arrow = document.createElement('div');
             arrow.setAttribute('x-arrow', '');
-            arrow.className = 'popper__arrow';
+            arrow.className = this.arrowClass;
             element.appendChild(arrow);
         },
         updatePopper() {

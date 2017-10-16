@@ -1,68 +1,9 @@
-<div id="navbar" class="navbar">
-    <div class="navbar__container">
-        <a class="navbar__brand" href="#">
-            <img 
-                class="navbar__brand-image" 
-                sizes="(max-width: 479px) 30vw, 100px" 
-                src="/images/ProEdify-Logo_FINAL_WHITE.png" 
-                srcset="/images/ProEdify-Logo_FINAL_WHITE.png 500w, /images/ProEdify-Logo_FINAL_WHITE.png 800w, /images/ProEdify-Logo_FINAL_WHITE.png 1080w, /images/ProEdify-Logo_FINAL_WHITE.png 1600w, /images/ProEdify-Logo_FINAL_WHITE.png 2000w, /images/ProEdify-Logo_FINAL_WHITE.png 2438w" 
-                width="1219"
-            >
-        </a>
-    <div class="navbar__search">
-        <pe-autocomplete
-            v-model="state1"
-            :fetch-suggestions="querySearch"
-            :trigger-on-focus="false"
-            :modifier-styles="['input_color-white']"
-            icon="icon-magnifying-glass"
-            placeholder="Please Input"
-            @select="handleSelect"
-        >
-        </pe-autocomplete>          
-    </div>    
-    <!--If Authenticated-->
-        <div class="dropdown--navbar navbar__notifications pe-icon-notifications">
-            <label class="dropdown__label" for="notifications"></label>
-            <input type="checkbox" class="dropdown__toggle" id="notifications"/>
-            <div class="dropdown__menu">
-                <a href="#" class="dropdown__menu-header">Notifications</a>
-                <ul class="dropdown__menu-list">                    
-                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
-                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
-                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
-                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
-                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>
-                    <li class="dropdown__menu-item"><a href="#">Notif</a></li>                                  
-                </ul>
-                <a href="#" class="dropdown__menu-footer">See All</a>
-            </div>            
-        </div>
-        <nav class="navbar__menu" role="navigation">
-            <div class="dropdown--navbar navbar__username pe-icon-dropdown-arrow">
-                <label class="dropdown__label" for="usermenu-toggle">
-                    Really Long Username
-                </label>
-                <input type="checkbox" class="dropdown__toggle" id="usermenu-toggle"/>
-                <div class="dropdown__menu">
-                    <a href="#" class="dropdown__menu-header">Home</a>
-                    <ul class="dropdown__menu-list">
-                        <li class="dropdown__menu-item"><a href="#">Settings</a></li>
-                        <li class="dropdown__menu-item"><a href="#">Profile</a></li>                    
-                    </ul>
-                    <a href="#" class="dropdown__menu-footer">Log Out</a>
-                </div>                
-            </div>
-        </nav>
-    <!--Else-->
-        <!--<a class="navbar__auth-link" href="#">Sign Up</a>
-        <a class="navbar__auth-link" href="#">Log In</a>-->
-    <!--End If Authenticated-->
-    </div>
+<div id="navbar">
+    <pe-navbar></pe-navbar>
 </div>
 
 <script>
-requirejs(['vue', 'molecules/Autocomplete/Autocomplete'], function (Vue, Autocomplete) {
+requirejs(['vue', 'molecules/Navbar/Navbar'], function (Vue, Navbar) {
     new Vue({
         el: '#navbar',
         data: function () {
@@ -71,38 +12,7 @@ requirejs(['vue', 'molecules/Autocomplete/Autocomplete'], function (Vue, Autocom
             }
         },
         components: {
-            'pe-autocomplete': Autocomplete.default
-        },
-        methods: {
-            querySearch(queryString, cb) {
-                var links = this.links;
-                // Call createFilter for every link   
-                var results = queryString ? links.filter(this.createFilter(queryString)) : links;
-                // call callback function to return suggestions
-                cb(results);
-            },
-            createFilter(queryString) {
-                return (link) => {
-                    return (link.value.indexOf(queryString.toLowerCase()) === 0);
-                };
-            },
-            loadAll() {
-                return [
-                    { "value": "vue", "link": "https://github.com/vuejs/vue" },
-                    { "value": "element", "link": "https://github.com/ElemeFE/element" },
-                    { "value": "cooking", "link": "https://github.com/ElemeFE/cooking" },
-                    { "value": "mint-ui", "link": "https://github.com/ElemeFE/mint-ui" },
-                    { "value": "vuex", "link": "https://github.com/vuejs/vuex" },
-                    { "value": "vue-router", "link": "https://github.com/vuejs/vue-router" },
-                    { "value": "babel", "link": "https://github.com/babel/babel" }
-                ];
-            },
-            handleSelect(item) {
-                console.log(item);
-            }
-        },
-        mounted: function () {
-            this.links = this.loadAll();
+            'pe-navbar': Navbar.default
         }
     });
 });
