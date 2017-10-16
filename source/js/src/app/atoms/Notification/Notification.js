@@ -53,16 +53,9 @@ export default {
                     date: new Date(2017, 9, 15, 6, 10),
                     message: "This is the main message of the notification",
                     avatar: "http://placeimg.com/100/100/people",
-                    thumbnail: "http://placeimg.com/640/360/tech",                                 
-                    categories: ["Announcement", "Course", "Product"],
+                    thumbnail: "http://placeimg.com/640/360/tech",                                                     
                     category: "Announcement"                
                 }
-            }
-        },
-        iconClasses: {
-            type: Array,
-            default: function () {
-                return ["pe-icon-bell", "pe-icon-close", "pe-icon-dropdown-arrow"];
             }
         }
     },
