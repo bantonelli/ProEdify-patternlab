@@ -1,0 +1,55 @@
+.notification {
+    display: inline-block;
+    padding: 5px;
+    width: 100%;
+    background-color: transparent;        
+
+    &__info {
+        float: left;
+        margin-left: 10px;
+        min-width: 50%;
+        max-width: 60%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; 
+    }
+
+    &__avatar {
+        float: left;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }   
+
+    &__category {
+
+    }
+
+    &__title {
+        text-transform: capitalize; 
+    }
+
+    &__message {
+
+    }
+
+    &__date {
+
+    }
+
+    &__thumbnail {
+        float: right;
+        height: 50px;
+    }
+
+    &__icon {
+        float: right;
+        height: 50px;
+        width: 50px;
+        padding: 5px;
+
+        &:before {
+            font-size: 40px;            
+        }
+    }
+}
