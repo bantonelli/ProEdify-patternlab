@@ -8,8 +8,8 @@ let navbarTemplate = `
             <img 
                 class="navbar__brand-image" 
                 sizes="(max-width: 479px) 30vw, 100px" 
-                src="../../../../static/images/ProEdify-Logo_FINAL_WHITE.png" 
-                srcset="../../../../static/images/ProEdify-Logo_FINAL_WHITE.png 500w, ../../..images/ProEdify-Logo_FINAL_WHITE.png 800w, ../../../../static/images/ProEdify-Logo_FINAL_WHITE.png 1080w, ../../../assets/images/ProEdify-Logo_FINAL_WHITE.png 1600w, ../../../assets/images/ProEdify-Logo_FINAL_WHITE.png 2000w, ../../../../static/images/ProEdify-Logo_FINAL_WHITE.png 2438w" 
+                src="../../../images/ProEdify-Logo_FINAL_WHITE.png" 
+                srcset="../../../images/ProEdify-Logo_FINAL_WHITE.png 500w, ../../../images/ProEdify-Logo_FINAL_WHITE.png 800w, ../../../images/ProEdify-Logo_FINAL_WHITE.png 1080w, ../../../images/ProEdify-Logo_FINAL_WHITE.png 1600w, ../../../images/ProEdify-Logo_FINAL_WHITE.png 2000w, ../../../images/ProEdify-Logo_FINAL_WHITE.png 2438w" 
                 width="1219"
             >
         </a>
