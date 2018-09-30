@@ -2,7 +2,7 @@
     "checkboxes": [
         {
             "ID": "first-check",
-            "label": "First",
+            "label": "OHHHHH",
             "modifierStyles": ["checkbox_color-invert", "checkbox_size-small"]
         },
         {

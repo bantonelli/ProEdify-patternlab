@@ -266,6 +266,7 @@
 // Color Modifiers 
 .checkbox_color-invert {
     @include checkbox-color(
+        /*$text: nth($pe-greyscale-color-list, 6),*/
         $text: nth($pe-greyscale-color-list, 6),
         $text-hovered: $pe-color-white,
         $text-checked: nth($pe-greyscale-color-list, 6),

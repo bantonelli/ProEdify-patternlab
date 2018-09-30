@@ -14,7 +14,14 @@
       >
     </pagination>
 <!--
-TODO: Create modifier-styles system for pagination component. 
+TODO: Create modifier-styles system for pagination component.
+prev: <prev></prev>,
+      jumper: <jumper></jumper>,
+      pager: <pager modifier-styles={["pager_size-small"]} currentPage={ this.internalCurrentPage } pageCount={ this.internalPageCount } on-change={ this.handleCurrentChange }></pager>,
+      next: <next></next>,
+      sizes: <sizes pageSizes={ this.pageSizes }></sizes>,
+      slot: <my-slot></my-slot>,
+      total: <total></total> 
 -->
 </div>
 
@@ -34,7 +41,7 @@ requirejs([
             return {
                 animals: animals,
                 currentPage4: 1,
-                pageSize: 4
+                pageSize: 2
             }
         },
         components: {
