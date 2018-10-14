@@ -9,7 +9,7 @@ let notificationsDropdownTemplate = `
   :variation-class="'dropdown--navbar'"
   :show-header="true"
   :show-footer="true"
-  :popper-options="{placement: 'bottom'}"
+  :popper-options="{placement: 'auto'}"
 > 
     <template slot="header">
         <a href="#">Notifications</a>

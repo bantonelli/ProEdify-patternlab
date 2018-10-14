@@ -1,0 +1,9 @@
+FIND
+../../../../static/
+
+REPLACE
+../../../
+
+
+SHOULD BE 
+../../../images/ProEdify-Logo_FINAL_WHITE.png

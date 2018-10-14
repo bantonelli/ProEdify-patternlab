@@ -4829,84 +4829,86 @@ body {
       padding-right: 0.83333%; } }
 
 @media (min-width: 992px) {
-  .navbar__container {
-    max-width: 1140px;
-    margin-left: auto;
-    margin-right: auto;
-    border-right: 1px solid #6a6a6a;
-    border-left: 1px solid #d0d0d0;
-    border-left: 0; }
-    .navbar__container:after {
-      content: " ";
+  .navbar {
+    visibility: visible; }
+    .navbar__container {
+      max-width: 1140px;
+      margin-left: auto;
+      margin-right: auto;
+      border-right: 1px solid #6a6a6a;
+      border-left: 1px solid #d0d0d0;
+      border-left: 0; }
+      .navbar__container:after {
+        content: " ";
+        display: block;
+        clear: both; }
+      .navbar__container::after {
+        clear: both; }
+    .navbar__brand {
+      border-left: 0; }
+    .navbar__search {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 41.66667%;
+      float: left;
+      padding-left: 0.83333%;
+      padding-right: 0.83333%; }
+    .navbar__menu {
       display: block;
-      clear: both; }
-    .navbar__container::after {
-      clear: both; }
-  .navbar__brand {
-    border-left: 0; }
-  .navbar__search {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 41.66667%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%; }
-  .navbar__menu {
-    display: block;
-    position: relative;
-    height: 60px;
-    padding: 0 1em;
-    color: #fff;
-    line-height: 60px;
-    text-align: center;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 16.66667%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%;
-    padding: 0; }
-  .navbar__auth-link {
-    display: block;
-    position: relative;
-    height: 60px;
-    padding: 0 1em;
-    color: #fff;
-    line-height: 60px;
-    text-align: center;
-    text-decoration: none;
-    text-overflow: ellipsis;
-    border-right: 1px solid #d0d0d0;
-    border-left: 1px solid #6a6a6a;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 50%;
-    float: left;
-    padding-left: 0.83333%;
-    padding-right: 0.83333%; }
-    .navbar__auth-link:hover, .navbar__auth-link.active {
-      border-right: 1px solid #8edeca;
-      border-left: 1px solid #30a387;
-      background-color: #3fc7a6;
-      color: #fff; }
-  .navbar__username.dropdown--navbar::before {
-    display: block;
-    position: absolute;
-    right: 8.33333%;
-    width: 8.33333%;
-    font-size: 0.75rem; }
-  .navbar__username.dropdown--navbar .dropdown__label {
-    display: block;
-    left: 8.33333%;
-    width: 75%; }
-  .navbar__username.dropdown--navbar .dropdown__menu {
-    display: block;
-    top: 70px;
-    left: -50%;
-    width: 150%;
-    z-index: 2000; } }
+      position: relative;
+      height: 60px;
+      padding: 0 1em;
+      color: #fff;
+      line-height: 60px;
+      text-align: center;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 16.66667%;
+      float: left;
+      padding-left: 0.83333%;
+      padding-right: 0.83333%;
+      padding: 0; }
+    .navbar__auth-link {
+      display: block;
+      position: relative;
+      height: 60px;
+      padding: 0 1em;
+      color: #fff;
+      line-height: 60px;
+      text-align: center;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      border-right: 1px solid #d0d0d0;
+      border-left: 1px solid #6a6a6a;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 50%;
+      float: left;
+      padding-left: 0.83333%;
+      padding-right: 0.83333%; }
+      .navbar__auth-link:hover, .navbar__auth-link.active {
+        border-right: 1px solid #8edeca;
+        border-left: 1px solid #30a387;
+        background-color: #3fc7a6;
+        color: #fff; }
+    .navbar__username.dropdown--navbar::before {
+      display: block;
+      position: absolute;
+      right: 8.33333%;
+      width: 8.33333%;
+      font-size: 0.75rem; }
+    .navbar__username.dropdown--navbar .dropdown__label {
+      display: block;
+      left: 8.33333%;
+      width: 75%; }
+    .navbar__username.dropdown--navbar .dropdown__menu {
+      display: block;
+      top: 70px;
+      left: -50%;
+      width: 150%;
+      z-index: 2000; } }
 
 @media (min-width: 1200px) {
   .navbar__container {
@@ -5058,7 +5060,7 @@ body {
 
 @media (min-width: 992px) {
   .mobile-nav {
-    display: none; } }
+    visibility: hidden; } }
 
 .pager {
   display: inline-block;

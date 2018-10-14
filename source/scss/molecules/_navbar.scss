@@ -231,8 +231,9 @@
 
     // Large Screen (Most Desktop styles here)
     @include breakpoint(map-get($pe-grid-breakpoints, lg)) {
-        .navbar {      
-            
+        .navbar {
+            visibility: visible;
+
             &__container {                
                 @include container(map_get($pe-container-max-widths, xl));
                 @include pe-opposite-left-and-right-border();

@@ -162,7 +162,7 @@
     // Large Screen (Most Desktop styles here - 992px )
     @include breakpoint(map-get($pe-grid-breakpoints, lg)) {
         .mobile-nav {
-            display: none;
+            visibility: hidden;
 
             &__button {
 
