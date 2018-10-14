@@ -110,19 +110,22 @@
         &__notifications {
             &.dropdown--navbar {
                 @include span(3 of 12);            
+                @include pe-font-sizing-h3();
+                height: 60px;
+                line-height: 60px;
 
-                &::before {
-                    @include pe-font-sizing-h3();
-                    height: 60px;
-                    line-height: 60px;
-                }
+                &::before {}
 
                 .dropdown__menu {
                     top: 70px;                
                     right: -(span(12));            
                     width: auto;
                     min-width: 230px;
-                    z-index: 1500; 
+                    z-index: 1500;
+
+                    &-item {
+                        @include pe-font-sizing-paragraph();
+                    }
                 } 
             }
         }

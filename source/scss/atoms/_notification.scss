@@ -1,23 +1,23 @@
 .notification {
     display: inline-block;
-    padding: 5px;
     width: 100%;
+    padding: 5px;
     background-color: transparent;        
 
     &__info {
-        float: left;
-        margin-left: 10px;
         min-width: 50%;
         max-width: 60%;
-        overflow: hidden;
-        white-space: nowrap;
+        margin-left: 10px;
+        float: left;
         text-overflow: ellipsis; 
+        white-space: nowrap;
+        overflow: hidden;
     }
 
     &__avatar {
-        float: left;
-        height: 50px;
         width: 50px;
+        height: 50px;
+        float: left;
         border-radius: 50%;
     }   
 
@@ -38,17 +38,17 @@
     }
 
     &__thumbnail {
-        float: right;
         height: 50px;
+        float: right;
     }
 
     &__icon {
-        float: right;
-        height: 50px;
-        width: 50px;
+        width: 40px;
+        height: 40px;
         padding: 5px;
+        float: right;
 
-        &:before {
+        &::before {
             font-size: 40px;            
         }
     }
