@@ -57,10 +57,12 @@
     // XS Screen (DONE) 
     .navbar {
         @include pe-font-family-forms();
+        position: fixed;
+        top: 0;
         width: 100%;
         height: 60px;
         background-color: nth($pe-greyscale-color-list, 3);
-        box-shadow: 0 1px 3px 0px rgba(0,0,0,.2);        
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.2);        
 
         &__container {
             @include container(map_get($pe-container-max-widths, lg));

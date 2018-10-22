@@ -28,8 +28,11 @@
         @include pe-transition(all);
         @include pe-font-family-forms();        
         display: block;
-        position: relative;
+        position: fixed;
+        top: 0;
         right: 0;
+        width: 100%;
+        // position: relative;
         padding-left: 0; 
 
         &__button {
@@ -77,7 +80,7 @@
         }
 
         &__menu {
-            border: none;
+            border: 0;
             background: transparent;
 
             &-heading {
@@ -117,7 +120,7 @@
         }
 
         &.is-open {
-            position: relative;
+            position: fixed;
             right: 150px;
 
             .mobile-nav__button {
