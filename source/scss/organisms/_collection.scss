@@ -1,0 +1,82 @@
+// ==========================================================================
+// MOBILE-NAV STYLES
+// ==========================================================================
+// sass-lint:disable no-empty-rulesets
+
+// PSEUDO CLASSES 
+// ==========================================================================
+%collection {
+    display: block;
+    width: 100%;
+    height: 100%;
+    // padding: 0 span(1);           
+    text-align: center;
+    text-decoration: none;
+}
+
+// MIXINS
+// ==========================================================================
+
+// MAIN CLASSES & RESPONSIVE STYLES 
+// ==========================================================================
+@include with-layout($susy, true) {
+    // XS Screen (DONE) - Base styles  
+    .collection {
+        @extend %collection;
+
+        &__item {
+            @include span(12);
+            
+            margin: 20px 0;
+
+            .video, 
+            .video__image, 
+            .video__iframe,
+            img {
+                position: relative;
+                width: 100%;
+            }
+
+            .video__iframe {
+                padding-top: 56.25%;
+                overflow: hidden;                
+            }
+
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+            }
+        }
+    }
+
+    // Medium Screen (DONE)
+    @include breakpoint(map-get($pe-grid-breakpoints, md)) {
+        .collection {
+            &__item {
+                @include span(6);
+            }
+        }
+    }
+
+    // Large Screen (Most Desktop styles here - 992px )
+    @include breakpoint(map-get($pe-grid-breakpoints, lg)) {
+        .collection {
+            &__item {
+                @include span(4);
+            }
+        }
+    }
+
+    // X-Large Screen 
+    @include breakpoint(map-get($pe-grid-breakpoints, xl)) {
+        .collection {
+            &__item {
+                @include span(3);
+            }
+        }
+    }
+}
