@@ -138,6 +138,13 @@
             @include span(3 of 12);
             // width: 20%;
             padding: 0;
+
+            &-auth {
+                display: none;
+                width: 25%;
+                padding: 0;
+                float: left;
+            }
         }
 
         &__auth-link {
@@ -222,6 +229,9 @@
                 // Contains auth-links and username
                 @include span(1 of 12);
                 padding: 0;
+
+                &-auth {
+                }
             }
 
             &__auth-link {  
@@ -273,6 +283,10 @@
                 @include span(2 of 12);
                 // width: 20%;
                 padding: 0;
+
+                &-auth {
+                    display: block;
+                }
             }
 
             &__auth-link {

@@ -4726,6 +4726,11 @@ body {
     padding-left: 0.83333%;
     padding-right: 0.83333%;
     padding: 0; }
+    .navbar__menu-auth {
+      display: none;
+      width: 25%;
+      padding: 0;
+      float: left; }
   .navbar__auth-link {
     display: block;
     position: relative;
@@ -4874,6 +4879,8 @@ body {
       padding-left: 0.83333%;
       padding-right: 0.83333%;
       padding: 0; }
+      .navbar__menu-auth {
+        display: block; }
     .navbar__auth-link {
       display: block;
       position: relative;
